@@ -66,3 +66,4 @@ Experiência construindo aplicações web completas com foco em código limpo, b
 - 🔒 Cybersecurity Essentials — Cisco, 2023
 - 🐍 Programação com Python — Santander, 2024
 - 📈 Power BI — Fundação Bradesco, 2024
+.
