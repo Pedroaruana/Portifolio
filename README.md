@@ -70,17 +70,6 @@ Experiência construindo aplicações web completas com foco em código limpo, b
 
 ---
 
-## 🤝 Como contribuir
-
-Achou algum bug ou quer sugerir uma melhoria? Fique à vontade!
-
-1. Faça um fork do repositório
-2. Crie uma branch com sua alteração: `git checkout -b minha-alteracao`
-3. Faça o commit: `git commit -m "descrição da mudança"`
-4. Abra um Pull Request descrevendo o que foi feito
-
----
-
 ## 📄 Licença
 
 Este projeto está sob a licença [MIT](LICENSE).
