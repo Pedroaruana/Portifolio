@@ -314,6 +314,7 @@
           <span class="cert-issuer">Google</span>
           <span class="cert-period">2026</span>
           <div class="cert-tags"><span>Google Analytics</span><span>Google Ads</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-google-analytics.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -322,6 +323,7 @@
           <span class="cert-issuer">Amazon Web Services</span>
           <span class="cert-period">2026</span>
           <div class="cert-tags"><span>AWS</span><span>Cloud Computing</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-aws.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -330,6 +332,7 @@
           <span class="cert-issuer">Cisco Networking Academy</span>
           <span class="cert-period">2023</span>
           <div class="cert-tags"><span>Cibersegurança</span><span>Proteção de Dados</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-cisco.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -338,6 +341,7 @@
           <span class="cert-issuer">SoulCode Academy</span>
           <span class="cert-period">2024</span>
           <div class="cert-tags"><span>Pensamento Computacional</span><span>Algoritmos</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-logica.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -346,6 +350,7 @@
           <span class="cert-issuer">Santander Open Academy</span>
           <span class="cert-period">2024</span>
           <div class="cert-tags"><span>Python</span><span>Resolução de Problemas</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-python.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -354,6 +359,7 @@
           <span class="cert-issuer">Fundação Bradesco</span>
           <span class="cert-period">2024</span>
           <div class="cert-tags"><span>POO</span><span>Estruturas de Dados</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-poo.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -362,6 +368,7 @@
           <span class="cert-issuer">Fundação Bradesco</span>
           <span class="cert-period">2024</span>
           <div class="cert-tags"><span>Modelagem de Dados</span><span>SQL</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-modelagem.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -370,6 +377,7 @@
           <span class="cert-issuer">Santander Open Academy</span>
           <span class="cert-period">2024</span>
           <div class="cert-tags"><span>Ciência de Dados</span><span>Análise de Dados</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-ciencia-dados.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card extra">
@@ -378,6 +386,7 @@
           <span class="cert-issuer">Fundação Bradesco</span>
           <span class="cert-period">2024</span>
           <div class="cert-tags"><span>Hardware</span><span>Software</span><span>Fundamentos de T.I</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-fundamentos-ti.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card extra">
@@ -386,6 +395,7 @@
           <span class="cert-issuer">Fundação Bradesco</span>
           <span class="cert-period">2024</span>
           <div class="cert-tags"><span>Ciclo de Vida de Software</span><span>Engenharia de Software</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-projetos-ti.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card extra">
@@ -394,6 +404,7 @@
           <span class="cert-issuer">Fundação Bradesco</span>
           <span class="cert-period">2024</span>
           <div class="cert-tags"><span>Power BI</span><span>Business Intelligence</span><span>Análise de Dados</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-powerbi.png')">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card extra">
@@ -402,6 +413,7 @@
           <span class="cert-issuer">Microsoft &amp; LinkedIn Learning</span>
           <span class="cert-period">2026</span>
           <div class="cert-tags"><span>IA Generativa</span><span>Inteligência Artificial</span><span>Ética na Computação</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-ia-generativa.png')">Ver certificado ↗</button>
         </div>
 
       </div>
@@ -586,6 +598,15 @@
       <p>Feito com dedicação por <span class="accent">Pedro</span> &mdash; 2024</p>
     </div>
   </footer>
+
+  <!-- Modal certificado -->
+  <div class="cert-modal" id="certModal">
+    <div class="cert-modal-overlay" onclick="closeCert()"></div>
+    <div class="cert-modal-box">
+      <button class="cert-modal-close" onclick="closeCert()">✕</button>
+      <img class="cert-modal-img" id="certModalImg" src="" alt="Certificado">
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -93,8 +93,9 @@
   window.addEventListener('resize', resize);
 
   function draw() {
-    ctx.fillStyle = 'rgba(13,13,15,0.05)';
+    ctx.fillStyle = 'rgba(13,13,15,0.04)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.shadowBlur = 0;
     ctx.fillStyle = '#00ff41';
     ctx.font = fontSize + 'px Fira Code, monospace';
     drops.forEach((y, i) => {
@@ -263,6 +264,22 @@ if (hourglass) {
     hourglass.textContent = frames[i];
   }, 700);
 }
+
+// Cert modal
+function openCert(src) {
+  document.getElementById('certModalImg').src = src;
+  document.getElementById('certModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCert() {
+  document.getElementById('certModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCert();
+});
 
 // Certs toggle
 const certsToggle = document.getElementById('certsToggle');
