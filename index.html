@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedro | Desenvolvedor Fullstack</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">pedro<span class="accent">.</span>dev</a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#certificados">Certificados</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="nav-mobile" id="navMobile">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#certificados">Certificados</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <canvas id="matrixCanvas"></canvas>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot-online"></span>
+        Disponível para projetos
+      </div>
+      <h1 class="hero-title">
+        Olá, eu sou o<br />
+        <span class="hero-name">Pedro Aruanã</span>
+      </h1>
+      <p class="hero-subtitle">
+        Desenvolvedor <span class="typed-text" id="typedText"></span>
+      </p>
+      <div class="hero-terminal">
+        <div class="ht-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="ht-title">terminal</span>
+        </div>
+        <div class="ht-body" id="htBody"></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+        <a href="#contato" class="btn btn-ghost">Falar comigo</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="section-label">/ sobre mim</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Quem sou eu?</h2>
+          <p>
+            Olá! Me chamo <strong>Pedro</strong>, tenho <strong>22 anos</strong> e sou desenvolvedor fullstack.
+            Gosto de transformar ideias em produtos reais — do layout ao banco de dados.
+            Tenho experiência construindo aplicações web completas com foco em código limpo,
+            boa experiência de usuário e soluções que realmente funcionam.
+          </p>
+          <p>
+            Tenho experiência com React, Angular, Node.js e Python no backend,
+            além de soluções cloud com Supabase, Vercel, Render e Railway.
+            Gosto de código limpo, boas práticas e de entregar projetos que
+            impressionam.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num">5</span>
+              <span class="stat-label">Projetos no ar</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">11</span>
+              <span class="stat-label">Certificados</span>
+            </div>
+<div class="stat">
+              <span class="stat-num">1+</span>
+              <span class="stat-label">Ano de exp.</span>
+            </div>
+          </div>
+
+          <div class="about-journey">
+            <div class="journey-item">
+              <span class="journey-year">2023</span>
+              <span class="journey-dot"></span>
+              <span class="journey-desc">Primeiro código</span>
+            </div>
+            <div class="journey-line"></div>
+            <div class="journey-item">
+              <span class="journey-year">2024</span>
+              <span class="journey-dot"></span>
+              <span class="journey-desc">Primeiro emprego</span>
+            </div>
+            <div class="journey-line"></div>
+            <div class="journey-item">
+              <span class="journey-year">2025</span>
+              <span class="journey-dot active"></span>
+              <span class="journey-desc">Portfólio no ar</span>
+            </div>
+            <div class="journey-line"></div>
+            <div class="journey-item">
+              <span class="journey-year">Previsão 2026</span>
+              <span class="journey-dot future"></span>
+              <span class="journey-desc"><span class="hourglass">⏳</span> Formado</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-inner">
+            <div class="photo-card">
+              <div class="photo-frame">
+                <img src="fotos.jpg" alt="Pedro Aruanã" class="photo-img" />
+                <div class="photo-glow"></div>
+              </div>
+              <div class="photo-info">
+                <h3 class="photo-name">Pedro Aruanã</h3>
+                <span class="photo-role">Fullstack Developer</span>
+                <div class="photo-location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  Salvador, BA — Brasil
+                </div>
+                <div class="photo-status"><span class="dot-online"></span> Disponível para projetos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-label">/ habilidades</div>
+      <h2 class="section-title center">Stack Tecnológico</h2>
+      <p class="section-desc center">Tecnologias que uso no dia a dia para construir produtos completos.</p>
+
+      <div class="skills-categories">
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag featured">React</span>
+            <span class="skill-tag featured">Angular</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Backend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag featured">Node.js</span>
+            <span class="skill-tag featured">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag featured">Spring Boot</span>
+            <span class="skill-tag">REST API</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Banco de Dados</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag featured">Supabase</span>
+            <span class="skill-tag">Neon</span>
+            <span class="skill-tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Deploy & Cloud</h3>
+          <div class="skill-tags">
+            <span class="skill-tag featured">Vercel</span>
+            <span class="skill-tag">Render</span>
+            <span class="skill-tag">Railway</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Ferramentas & DevOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag featured">Expo</span>
+            <span class="skill-tag featured">LangChain</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section class="section" id="experiencia">
+    <div class="container">
+      <div class="section-label">/ experiência</div>
+      <h2 class="section-title">Experiência Profissional</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Aprendiz — Marketing &amp; Suporte de T.I</h3>
+                <span class="timeline-company">Lubritec</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-period">Jul 2024 – Mai 2025</span>
+                <span class="timeline-location">Salvador, BA · Presencial</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Suporte técnico a usuários internos — atendimento remoto via <strong>AnyDesk</strong> e resolução de chamados de hardware e software</li>
+              <li>Gestão de CRM com <strong>SAP</strong>, <strong>Salescloud</strong> e <strong>Salesforce</strong> — registro e acompanhamento de atendimentos</li>
+              <li>Substituição temporária de analista de B.I por 45 dias — elaboração de <strong>relatórios e planilhas gerenciais</strong> no Excel</li>
+              <li>Formatação, manutenção e reinstalação de sistemas em computadores; configuração de celulares e iPads corporativos</li>
+              <li>Apoio em infraestrutura de T.I — organização, inventário e suporte a equipamentos da empresa</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>AnyDesk</span><span>SAP</span><span>Salesforce</span><span>Suporte T.I</span><span>Excel / B.I</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO -->
+  <section class="section section-alt" id="formacao">
+    <div class="container">
+      <div class="section-label">/ formação</div>
+      <h2 class="section-title">Formação Acadêmica</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="timeline-dot edu"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+                <span class="timeline-company edu">Estácio de Sá</span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-period">Ago 2024 – Dez 2026</span>
+                <span class="timeline-location">Em andamento</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Formação com foco em <strong>desenvolvimento de software</strong>, lógica de programação e engenharia de sistemas</li>
+              <li>Disciplinas de <strong>banco de dados</strong>, modelagem de dados e estruturação de sistemas</li>
+              <li>Desenvolvimento e aplicação prática de conhecimentos em <strong>desenvolvimento web</strong> e programação orientada a objetos</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>ADS</span><span>Desenvolvimento de Software</span><span>Banco de Dados</span><span>Engenharia de Sistemas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICADOS -->
+  <section class="section section-alt" id="certificados">
+    <div class="container">
+      <div class="section-label">/ certificados</div>
+      <h2 class="section-title center">Cursos & Certificações</h2>
+      <p class="section-desc center">Certificações emitidas por instituições reconhecidas.</p>
+
+      <div class="certs-grid">
+
+        <div class="cert-card">
+          <div class="cert-icon">🎯</div>
+          <h3 class="cert-title">Google Analytics Certification</h3>
+          <span class="cert-issuer">Google</span>
+          <span class="cert-period">2026</span>
+          <div class="cert-tags"><span>Google Analytics</span><span>Google Ads</span></div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">☁️</div>
+          <h3 class="cert-title">AWS Certified Cloud Practitioner</h3>
+          <span class="cert-issuer">Amazon Web Services</span>
+          <span class="cert-period">2026</span>
+          <div class="cert-tags"><span>AWS</span><span>Cloud Computing</span></div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🔒</div>
+          <h3 class="cert-title">Cybersecurity Essentials</h3>
+          <span class="cert-issuer">Cisco Networking Academy</span>
+          <span class="cert-period">2023</span>
+          <div class="cert-tags"><span>Cibersegurança</span><span>Proteção de Dados</span></div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">💻</div>
+          <h3 class="cert-title">Lógica de Programação (Teoria e Prática)</h3>
+          <span class="cert-issuer">SoulCode Academy</span>
+          <span class="cert-period">2024</span>
+          <div class="cert-tags"><span>Pensamento Computacional</span><span>Algoritmos</span></div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🏦</div>
+          <h3 class="cert-title">Programação com Python</h3>
+          <span class="cert-issuer">Santander Open Academy</span>
+          <span class="cert-period">2024</span>
+          <div class="cert-tags"><span>Python</span><span>Resolução de Problemas</span></div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🏛️</div>
+          <h3 class="cert-title">Programação Orientada a Objetos (POO)</h3>
+          <span class="cert-issuer">Fundação Bradesco</span>
+          <span class="cert-period">2024</span>
+          <div class="cert-tags"><span>POO</span><span>Estruturas de Dados</span></div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🗄️</div>
+          <h3 class="cert-title">Modelagem de Dados</h3>
+          <span class="cert-issuer">Fundação Bradesco</span>
+          <span class="cert-period">2024</span>
+          <div class="cert-tags"><span>Modelagem de Dados</span><span>SQL</span></div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">📊</div>
+          <h3 class="cert-title">Ciência de Dados</h3>
+          <span class="cert-issuer">Santander Open Academy</span>
+          <span class="cert-period">2024</span>
+          <div class="cert-tags"><span>Ciência de Dados</span><span>Análise de Dados</span></div>
+        </div>
+
+        <div class="cert-card extra">
+          <div class="cert-icon">🖥️</div>
+          <h3 class="cert-title">Fundamentos de TI: Hardware e Software</h3>
+          <span class="cert-issuer">Fundação Bradesco</span>
+          <span class="cert-period">2024</span>
+          <div class="cert-tags"><span>Hardware</span><span>Software</span><span>Fundamentos de T.I</span></div>
+        </div>
+
+        <div class="cert-card extra">
+          <div class="cert-icon">🏗️</div>
+          <h3 class="cert-title">Projetos de Sistemas de T.I</h3>
+          <span class="cert-issuer">Fundação Bradesco</span>
+          <span class="cert-period">2024</span>
+          <div class="cert-tags"><span>Ciclo de Vida de Software</span><span>Engenharia de Software</span></div>
+        </div>
+
+        <div class="cert-card extra">
+          <div class="cert-icon">📈</div>
+          <h3 class="cert-title">Power BI – Introdução à Análise de Dados</h3>
+          <span class="cert-issuer">Fundação Bradesco</span>
+          <span class="cert-period">2024</span>
+          <div class="cert-tags"><span>Power BI</span><span>Business Intelligence</span><span>Análise de Dados</span></div>
+        </div>
+
+        <div class="cert-card extra">
+          <div class="cert-icon">🤖</div>
+          <h3 class="cert-title">Fundamentos para uma Carreira em IA Generativa</h3>
+          <span class="cert-issuer">Microsoft &amp; LinkedIn Learning</span>
+          <span class="cert-period">2026</span>
+          <div class="cert-tags"><span>IA Generativa</span><span>Inteligência Artificial</span><span>Ética na Computação</span></div>
+        </div>
+
+      </div>
+
+      <div class="certs-toggle">
+        <button class="btn-ver-mais" id="certsToggle">
+          Ver mais <span class="toggle-arrow">↓</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="section" id="projetos">
+    <div class="container">
+      <div class="section-label">/ projetos</div>
+      <h2 class="section-title center">O que eu construí</h2>
+      <p class="section-desc center">Alguns dos projetos que desenvolvei. Clique para ver mais.</p>
+
+      <div class="projects-grid">
+
+        <!-- SVG helpers reutilizados via JS abaixo -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">🎫</div>
+            <div class="project-links">
+              <a href="https://github.com/Pedroaruana/HelpDeskEA" target="_blank" rel="noopener" class="project-link" title="Ver código">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://pedroaruana.github.io/HelpDeskEA/dashboard" target="_blank" rel="noopener" class="project-link demo-link" title="Ver demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">HelpDesk EA</h3>
+          <p class="project-desc">Sistema de Help Desk para suporte de T.I com abertura e acompanhamento de chamados, dashboard com métricas e filtros em tempo real. Pipeline CI/CD automatizado.</p>
+          <div class="project-stack">
+            <span>Angular 17</span>
+            <span>TypeScript</span>
+            <span>Angular Material</span>
+            <span>CI/CD</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">☢️</div>
+            <div class="project-links">
+              <a href="https://github.com/Pedroaruana/nukemap-app" target="_blank" rel="noopener" class="project-link" title="Ver código">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://nukemap-app.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link" title="Ver demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">NukeMap App</h3>
+          <p class="project-desc">Simulador realista de impacto nuclear com fórmulas físicas reais (Glasstone-Dolan). 17 armas históricas em 3D, 57 cidades, fallout radioativo e áudio imersivo.</p>
+          <div class="project-stack">
+            <span>React Native</span>
+            <span>Expo</span>
+            <span>TypeScript</span>
+            <span>Vercel</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">🤖</div>
+            <div class="project-links">
+              <a href="https://github.com/Pedroaruana/hiremind-ai" target="_blank" rel="noopener" class="project-link" title="Ver código">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://hiremind-ai-fawn.vercel.app" target="_blank" rel="noopener" class="project-link demo-link" title="Ver demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">HireMind AI</h3>
+          <p class="project-desc">Sistema full-stack de análise de currículos com IA que processa CVs, extrai habilidades automaticamente e classifica candidatos por nível (Júnior, Pleno, Sênior) e função.</p>
+          <div class="project-stack">
+            <span>JavaScript</span>
+            <span>IA</span>
+            <span>Full Stack</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">🐊</div>
+            <div class="project-links">
+              <a href="https://github.com/Pedroaruana/CrocodiloBurguer" target="_blank" rel="noopener" class="project-link" title="Ver código">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://crocodilo-burguer.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link" title="Ver demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Crocodilo Burguer</h3>
+          <p class="project-desc">App web de pedidos de hambúrguer mobile-first com carrinho persistente, fluxo de checkout completo e pagamentos via PIX. Experiência real de delivery no navegador.</p>
+          <div class="project-stack">
+            <span>React</span>
+            <span>Vite</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">🎮</div>
+            <div class="project-links">
+              <a href="https://github.com/Pedroaruana/gamehub" target="_blank" rel="noopener" class="project-link" title="Ver código">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://gamehub-omega-blond.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link" title="Ver demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">GameHub</h3>
+          <p class="project-desc">Ecommerce full-stack de jogos digitais inspirado na Steam e Nuuvem. Autenticação, carrinho, favoritos, checkout completo e catálogo de games.</p>
+          <div class="project-stack">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Supabase</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section section-alt" id="contato">
+    <div class="container">
+      <div class="section-label">/ contato</div>
+      <h2 class="section-title center">Vamos conversar?</h2>
+      <p class="section-desc center">Aberto a oportunidades, freelas e colaborações. Me chama!</p>
+
+      <div class="contact-grid">
+        <a href="mailto:aruanapedro@gmail.com" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">aruanapedro@gmail.com</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://github.com/Pedroaruana" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">github.com/Pedroaruana</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/pedro-aruan%C3%A3/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">linkedin.com/in/pedro-aruanã</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>Feito com dedicação por <span class="accent">Pedro</span> &mdash; 2024</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
