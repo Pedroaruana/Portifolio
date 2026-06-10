@@ -53,7 +53,7 @@ Experiência construindo aplicações web completas com foco em código limpo, b
 |---|---|---|
 | [🎫 HelpDesk EA](https://pedroaruana.github.io/HelpDeskEA/dashboard) | Sistema de Help Desk com dashboard e CI/CD | Angular, TypeScript |
 | [☢️ NukeMap App](https://nukemap-app.vercel.app/) | Simulador de impacto nuclear com física real | React Native, Expo |
-| [🤖 HireMind AI](https://hiremind-ai-fawn.vercel.app) | Análise de currículos com IA | JavaScript, IA |
+| [🤖 HireMind AI](https://hiremind-ai-fawn.vercel.app) | Análise de currículos com machine learning | JavaScript |
 | [🐊 Crocodilo Burguer](https://crocodilo-burguer.vercel.app/) | App de delivery com checkout e PIX | React, Vite |
 | [🎮 GameHub](https://gamehub-omega-blond.vercel.app/) | Ecommerce de jogos inspirado na Steam | Python, FastAPI, Supabase |
 
@@ -66,4 +66,21 @@ Experiência construindo aplicações web completas com foco em código limpo, b
 - 🔒 Cybersecurity Essentials — Cisco, 2023
 - 🐍 Programação com Python — Santander, 2024
 - 📈 Power BI — Fundação Bradesco, 2024
-.
+- 🤖 Fundamentos para uma Carreira em IA Generativa — Microsoft & LinkedIn, 2026
+
+---
+
+## 🤝 Como contribuir
+
+Achou algum bug ou quer sugerir uma melhoria? Fique à vontade!
+
+1. Faça um fork do repositório
+2. Crie uma branch com sua alteração: `git checkout -b minha-alteracao`
+3. Faça o commit: `git commit -m "descrição da mudança"`
+4. Abra um Pull Request descrevendo o que foi feito
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença [MIT](LICENSE).
