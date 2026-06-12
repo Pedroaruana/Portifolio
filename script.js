@@ -109,10 +109,12 @@
   setInterval(draw, 45);
 })();
 
-// Nav scroll effect
+// Nav scroll effect + back to top
 const nav = document.getElementById('nav');
+const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
+  backToTop.classList.toggle('visible', window.scrollY > 400);
 });
 
 // Mobile menu
@@ -141,7 +143,7 @@ document.addEventListener('click', (e) => {
 });
 
 // Typed text
-const words = ['Fullstack', 'Frontend', 'Backend', 'React Dev', 'Node Dev'];
+const words = ['Frontend', 'React Dev', 'Angular Dev', 'UI Developer', 'JavaScript Dev'];
 let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;
@@ -199,7 +201,7 @@ reveals.forEach(el => {
 
   const sequence = [
     { type: 'cmd', text: 'whoami' },
-    { type: 'out', html: '<span class="hl">Pedro Aruana</span> — Fullstack Developer' },
+    { type: 'out', html: '<span class="hl">Pedro Aruana</span> — Frontend Developer' },
     { type: 'cmd', text: 'cat skills.txt' },
     { type: 'out', html: 'React · Angular · Node.js · Python · Spring Boot' },
     { type: 'cmd', text: 'git log --oneline' },
