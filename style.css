@@ -1425,6 +1425,17 @@ a { color: inherit; text-decoration: none; }
   border-radius: 6px;
 }
 
+.cert-icon--wide {
+  width: 120px;
+  height: auto;
+}
+
+.cert-icon--wide img {
+  width: 120px;
+  height: auto;
+  border-radius: 4px;
+}
+
 .cert-title {
   font-size: 0.95rem;
   font-weight: 700;
