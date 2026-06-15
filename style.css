@@ -1315,16 +1315,19 @@ a { color: inherit; text-decoration: none; }
 
 .proj-modal-gallery {
   width: 100%;
-  aspect-ratio: 16/9;
+  max-height: 480px;
   overflow: hidden;
   border-radius: var(--radius) var(--radius) 0 0;
   background: #0a0a0b;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 .proj-modal-gallery img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
   display: block;
 }
 
