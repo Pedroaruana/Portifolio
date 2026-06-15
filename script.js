@@ -267,6 +267,70 @@ if (hourglass) {
   }, 700);
 }
 
+// Project modal
+const projectData = {
+  helpdesk: {
+    title: 'HelpDesk EA',
+    img: 'screenshots/helpdesk.png',
+    desc: 'Nasceu de uma frustração real: sistemas de suporte lentos e cheios de coisa inútil. Construí do zero com Angular + Node.js, autenticação JWT, dashboard com métricas em tempo real e deploy automático via GitHub Actions.',
+    stack: ['Angular 17', 'TypeScript', 'Node.js', 'PostgreSQL', 'Angular Material', 'CI/CD'],
+    github: 'https://github.com/Pedroaruana/HelpDeskEA',
+    demo: 'https://pedroaruana.github.io/HelpDeskEA/dashboard'
+  },
+  nukemap: {
+    title: 'NukeMap App',
+    img: 'screenshots/nukemap.png',
+    desc: 'Simulador de impacto nuclear com física real — escolhe a arma, o alvo e o tipo de detonação. Calcula mortes, fallout e raios de destruição com as fórmulas de Glasstone-Dolan. Roda no celular e no navegador.',
+    stack: ['React Native', 'Expo', 'TypeScript', 'Vercel'],
+    github: 'https://github.com/Pedroaruana/nukemap-app',
+    demo: 'https://nukemap-app.vercel.app/'
+  },
+  hiremind: {
+    title: 'HireMind AI',
+    img: 'screenshots/hiremind.png',
+    desc: 'Sobe um currículo em PDF e em segundos recebe um score de 0 a 100, as habilidades extraídas automaticamente e dicas de melhoria. Backend em FastAPI com autenticação JWT e banco PostgreSQL real.',
+    stack: ['Python', 'FastAPI', 'React', 'Vite', 'PostgreSQL'],
+    github: 'https://github.com/Pedroaruana/hiremind-ai',
+    demo: 'https://hiremind-ai-fawn.vercel.app'
+  },
+  crocodilo: {
+    title: 'Crocodilo Burguer',
+    img: 'screenshots/crocodilo.png',
+    desc: 'Cardápio digital mobile-first com carrinho, checkout completo, PIX com QR Code, validação de cartão pelo algoritmo de Luhn e acompanhamento de pedido em tempo real. Supabase para autenticação e banco.',
+    stack: ['React', 'Vite', 'Supabase', 'JavaScript'],
+    github: 'https://github.com/Pedroaruana/CrocodiloBurguer',
+    demo: 'https://crocodilo-burguer.vercel.app/'
+  },
+  gamehub: {
+    title: 'GameHub',
+    img: 'screenshots/gamehub.png',
+    desc: 'Plataforma de jogos digitais inspirada na Steam. Login com animação 3D em Three.js, catálogo com busca, carrinho, favoritos e checkout com múltiplas formas de pagamento. Deploy em 3 serviços diferentes.',
+    stack: ['Python', 'FastAPI', 'Supabase', 'Three.js', 'JavaScript'],
+    github: 'https://github.com/Pedroaruana/gamehub',
+    demo: 'https://gamehub-omega-blond.vercel.app/'
+  }
+};
+
+function openProject(id) {
+  const p = projectData[id];
+  if (!p) return;
+  document.getElementById('projModalImg').src = p.img;
+  document.getElementById('projModalImg').alt = p.title;
+  document.getElementById('projModalTitle').textContent = p.title;
+  document.getElementById('projModalDesc').textContent = p.desc;
+  document.getElementById('projModalStack').innerHTML = p.stack.map(t => `<span>${t}</span>`).join('');
+  document.getElementById('projBtnGithub').href = p.github;
+  document.getElementById('projBtnDemo').href = p.demo;
+  document.getElementById('projectModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('projectModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 // Cert modal
 function openCert(src) {
   document.getElementById('certModalImg').src = src;
@@ -280,7 +344,11 @@ function closeCert() {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeCert();
+  if (e.key === 'Escape') {
+    closeCert();
+    document.getElementById('projectModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 });
 
 // Certs toggle
