@@ -272,7 +272,7 @@ const projectData = {
   helpdesk: {
     title: 'HelpDesk EA',
     img: 'screenshots/helpdesk.png',
-    desc: 'Nasceu de uma frustração real: sistemas de suporte lentos e cheios de coisa inútil. Construí do zero com Angular + Node.js, autenticação JWT, dashboard com métricas em tempo real e deploy automático via GitHub Actions.',
+    desc: 'Trabalhei em suporte de T.I e sempre reclamei dos sistemas que usávamos: lentos e cheios de coisa que ninguém usa. Construí o meu do zero — Angular no frontend, API própria em Node.js com banco PostgreSQL real, autenticação JWT e CI/CD automático via GitHub Actions. Também foi minha entrada no Angular e no desenvolvimento de APIs de verdade.',
     stack: ['Angular 17', 'TypeScript', 'Node.js', 'PostgreSQL', 'Angular Material', 'CI/CD'],
     github: 'https://github.com/Pedroaruana/HelpDeskEA',
     demo: 'https://pedroaruana.github.io/HelpDeskEA/dashboard'
@@ -280,7 +280,7 @@ const projectData = {
   nukemap: {
     title: 'NukeMap App',
     img: 'screenshots/nukemap.png',
-    desc: 'Simulador de impacto nuclear com física real — escolhe a arma, o alvo e o tipo de detonação. Calcula mortes, fallout e raios de destruição com as fórmulas de Glasstone-Dolan. Roda no celular e no navegador.',
+    desc: 'Meu primeiro projeto sério em React Native. A ideia veio do NUKEMAP — quis recriar do zero pra entender mapa, geolocalização e animações em mobile. O maior desafio foi fazer o mesmo código rodar no celular e no browser: criei dois componentes de mapa separados (NukeMap.tsx e NukeMap.web.tsx) que o Expo resolve por plataforma automaticamente. Os raios de destruição usam a fórmula real de Glasstone-Dolan.',
     stack: ['React Native', 'Expo', 'TypeScript', 'Vercel'],
     github: 'https://github.com/Pedroaruana/nukemap-app',
     demo: 'https://nukemap-app.vercel.app/'
@@ -288,7 +288,7 @@ const projectData = {
   hiremind: {
     title: 'HireMind AI',
     img: 'screenshots/hiremind.png',
-    desc: 'Sobe um currículo em PDF e em segundos recebe um score de 0 a 100, as habilidades extraídas automaticamente e dicas de melhoria. Backend em FastAPI com autenticação JWT e banco PostgreSQL real.',
+    desc: 'Comecei querendo entender como integrar IA com uma aplicação real. Você sobe um currículo em PDF, o sistema extrai as habilidades, classifica o nível (Júnior/Pleno/Sênior) e devolve um score de 0 a 100 com dicas personalizadas. O maior desafio foi o fluxo de autenticação — no início o usuário tinha que registrar a conta direto no Swagger da API. Refiz tudo do zero no frontend e entendi na prática como JWT funciona.',
     stack: ['Python', 'FastAPI', 'React', 'Vite', 'PostgreSQL'],
     github: 'https://github.com/Pedroaruana/hiremind-ai',
     demo: 'https://hiremind-ai-fawn.vercel.app'
@@ -296,7 +296,7 @@ const projectData = {
   crocodilo: {
     title: 'Crocodilo Burguer',
     img: 'screenshots/crocodilo.png',
-    desc: 'Cardápio digital mobile-first com carrinho, checkout completo, PIX com QR Code, validação de cartão pelo algoritmo de Luhn e acompanhamento de pedido em tempo real. Supabase para autenticação e banco.',
+    desc: 'Quis simular a experiência real de um app de delivery — carrinho com useReducer, checkout com PIX (QR Code + countdown), validação de cartão pelo algoritmo de Luhn real (o mesmo que os bancos usam) e acompanhamento de pedido com status em tempo real. Autenticação e pedidos persistidos no Supabase. Um dos projetos mais completos que fiz sozinho.',
     stack: ['React', 'Vite', 'Supabase', 'JavaScript'],
     github: 'https://github.com/Pedroaruana/CrocodiloBurguer',
     demo: 'https://crocodilo-burguer.vercel.app/'
@@ -304,7 +304,7 @@ const projectData = {
   gamehub: {
     title: 'GameHub',
     img: 'screenshots/gamehub.png',
-    desc: 'Plataforma de jogos digitais inspirada na Steam. Login com animação 3D em Three.js, catálogo com busca, carrinho, favoritos e checkout com múltiplas formas de pagamento. Deploy em 3 serviços diferentes.',
+    desc: 'Quis entender como funciona uma loja digital de verdade por dentro — autenticação, carrinho, checkout, banco de dados, tudo junto. Fiz o frontend em HTML, CSS e JS puro, sem framework, pra realmente entender o DOM. Three.js na tela de login foi meu primeiro contato com 3D no browser. Backend em FastAPI com Supabase e Row Level Security em todas as tabelas.',
     stack: ['Python', 'FastAPI', 'Supabase', 'Three.js', 'JavaScript'],
     github: 'https://github.com/Pedroaruana/gamehub',
     demo: 'https://gamehub-omega-blond.vercel.app/'
