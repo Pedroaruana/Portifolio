@@ -1213,17 +1213,19 @@ a { color: inherit; text-decoration: none; }
 }
 
 .project-link {
-  width: 34px; height: 34px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
+  padding: 5px 12px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
   transition: all var(--transition);
 }
 
-.project-link svg { width: 16px; height: 16px; }
+.project-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
 .project-link:hover {
   border-color: var(--accent);
