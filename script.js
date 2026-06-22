@@ -308,6 +308,14 @@ const projectData = {
     stack: ['Python', 'FastAPI', 'Supabase', 'Three.js', 'JavaScript'],
     github: 'https://github.com/Pedroaruana/gamehub',
     demo: 'https://gamehub-omega-blond.vercel.app/'
+  },
+  botgram: {
+    title: 'BotGram',
+    img: 'screenshots/botgram.png',
+    desc: 'Surgiu de uma observação simples: muita gente vende pelo Telegram mas não sabe criar um bot. O usuário escolhe um template, preenche as informações do negócio e vê em tempo real como o bot vai responder — tem um preview estilo Telegram na lateral. No final, baixa um bot.js pronto pra rodar. Usei Angular 21 com signals: todos os campos são signal() e o preview e o código gerado são computed() que derivam automaticamente.',
+    stack: ['Angular 21', 'TypeScript', 'Tailwind CSS v4', 'Signals', 'Node.js', 'Vercel'],
+    github: 'https://github.com/Pedroaruana/BotGram',
+    demo: 'https://botgram-henna.vercel.app/'
   }
 };
 
