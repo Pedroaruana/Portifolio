@@ -313,9 +313,25 @@ const projectData = {
     title: 'BotGram',
     img: 'screenshots/botgram.png',
     desc: 'Surgiu de uma observação simples: muita gente vende pelo Telegram mas não sabe criar um bot. O usuário escolhe um template, preenche as informações do negócio e vê em tempo real como o bot vai responder — tem um preview estilo Telegram na lateral. No final, baixa um bot.js pronto pra rodar. Usei Angular 21 com signals: todos os campos são signal() e o preview e o código gerado são computed() que derivam automaticamente.',
-    stack: ['Angular 21', 'TypeScript', 'Tailwind CSS v4', 'Signals', 'Node.js', 'Vercel'],
+    stack: ['Angular 21', 'TypeScript', 'Tailwind CSS v4', 'Signals', 'Fastify', 'Vercel'],
     github: 'https://github.com/Pedroaruana/BotGram',
     demo: 'https://botgram-henna.vercel.app/'
+  },
+  corregedoria: {
+    title: 'Corregedoria PMBA',
+    img: 'screenshots/corregedoria.png',
+    desc: 'Sistema fullstack que simula a plataforma interna da Corregedoria da PM da Bahia pra gerenciar Autos de Resistência — do registro da ocorrência até a assinatura digital do termo e geração do PDF pra arquivamento. Tem wizard de registro em 4 etapas com patentes e BPMs reais da PMBA, dashboard com gráficos (Recharts), e simulações de ferramentas forenses reais: PATHFINDER com mapa geoespacial (Leaflet) e Mindspace com grafo de vínculos. Backend Express com Prisma e PostgreSQL na Neon, autenticação JWT e testes automatizados com Vitest e Playwright.',
+    stack: ['React 19', 'TypeScript', 'Node.js', 'Express', 'Prisma', 'PostgreSQL', 'JWT'],
+    github: 'https://github.com/Pedroaruana/Corregedoria-PMBA',
+    demo: 'https://corregedoria-pmba.vercel.app'
+  },
+  cicada: {
+    title: 'Cicada 3301',
+    img: 'screenshots/cicada.png',
+    desc: 'Sempre fui fascinado pelo enigma Cicada 3301 de 2012. Criei minha própria versão: um puzzle web de 5 fases, cada uma exigindo uma técnica diferente pra achar o link da próxima — de criptografia a análise de imagem. A parte mais difícil foi a esteganografia LSB, implementada do zero com Pillow, escondendo dados nos bits menos significativos de cada pixel sem alterar a imagem visivelmente. No final, o jogador recebe um certificado personalizado em PDF. 24 testes automatizados com pytest e CI/CD via GitHub Actions.',
+    stack: ['Python', 'Flask', 'Pillow', 'Docker', 'pytest', 'CI/CD'],
+    github: 'https://github.com/Pedroaruana/Cicada-3301',
+    demo: 'https://pedroaruana.pythonanywhere.com/'
   }
 };
 
@@ -372,6 +388,22 @@ certsToggle.addEventListener('click', () => {
     ? 'Ver menos <span class="toggle-arrow">↓</span>'
     : 'Ver mais <span class="toggle-arrow">↓</span>';
 });
+
+// Projects toggle
+const projectsToggle = document.getElementById('projectsToggle');
+const extraProjects = document.querySelectorAll('.project-card.extra');
+let projectsOpen = false;
+
+if (projectsToggle) {
+  projectsToggle.addEventListener('click', () => {
+    projectsOpen = !projectsOpen;
+    extraProjects.forEach(card => card.classList.toggle('visible', projectsOpen));
+    projectsToggle.classList.toggle('open', projectsOpen);
+    projectsToggle.innerHTML = projectsOpen
+      ? 'Ver menos <span class="toggle-arrow">↓</span>'
+      : 'Ver mais <span class="toggle-arrow">↓</span>';
+  });
+}
 
 // Smooth active nav link highlight
 const sections = document.querySelectorAll('section[id]');
