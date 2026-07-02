@@ -194,68 +194,6 @@ reveals.forEach(el => {
   observer.observe(el);
 });
 
-// Hero terminal animation
-(function () {
-  const body = document.getElementById('htBody');
-  if (!body) return;
-
-  const sequence = [
-    { type: 'cmd', text: 'whoami' },
-    { type: 'out', html: '<span class="hl">Pedro Aruana</span> — Frontend Developer' },
-    { type: 'cmd', text: 'cat skills.txt' },
-    { type: 'out', html: 'React · Angular · Node.js · Python · Spring Boot' },
-    { type: 'cmd', text: 'git log --oneline' },
-    { type: 'out', html: '<span class="ok">✓</span> HelpDeskEA · NukeMap · HireMind AI · GameHub' },
-    { type: 'cmd', text: 'echo $STATUS' },
-    { type: 'out', html: '<span class="ok">●</span> Disponível para projetos' },
-  ];
-
-  let si = 0, ci = 0;
-  let cursor = document.createElement('span');
-  cursor.className = 'ht-cursor';
-
-  function nextStep() {
-    if (si >= sequence.length) {
-      body.appendChild(cursor);
-      return;
-    }
-    const step = sequence[si];
-    if (step.type === 'cmd') {
-      const line = document.createElement('div');
-      line.className = 'ht-line';
-      const prompt = document.createElement('span');
-      prompt.className = 'ht-prompt';
-      prompt.textContent = '$';
-      const cmd = document.createElement('span');
-      cmd.className = 'ht-cmd';
-      line.append(prompt, cmd, cursor);
-      body.appendChild(line);
-      const chars = step.text.split('');
-      ci = 0;
-      function typeChar() {
-        if (ci < chars.length) {
-          cmd.textContent += chars[ci++];
-          setTimeout(typeChar, 55);
-        } else {
-          si++;
-          setTimeout(nextStep, 300);
-        }
-      }
-      typeChar();
-    } else {
-      cursor.remove();
-      const out = document.createElement('div');
-      out.className = 'ht-out';
-      out.innerHTML = step.html;
-      body.appendChild(out);
-      si++;
-      setTimeout(nextStep, 200);
-    }
-  }
-
-  setTimeout(nextStep, 600);
-})();
-
 // Hourglass animation
 const hourglass = document.querySelector('.hourglass');
 if (hourglass) {
@@ -266,6 +204,142 @@ if (hourglass) {
     hourglass.textContent = frames[i];
   }, 700);
 }
+
+// Code tabs
+(function () {
+  const list = document.getElementById('codeTabList');
+  if (!list) return;
+  const filenameEl = document.getElementById('codeTabFilename');
+  const contentEl = document.getElementById('codeTabContent');
+  const metaEl = document.getElementById('codeTabMeta');
+
+  const k = 'tok-kw', s = 'tok-str', t = 'tok-type', c = 'tok-com', f = 'tok-fn';
+
+  const tabs = {
+    react: {
+      filename: 'CartContext.tsx',
+      meta: 'Context API · useReducer · TypeScript',
+      code:
+`<span class="${k}">import</span> { createContext, useReducer } <span class="${k}">from</span> <span class="${s}">'react'</span>;
+
+<span class="${k}">type</span> <span class="${t}">Action</span> = { type: <span class="${s}">'ADD_ITEM'</span>; payload: Item };
+
+<span class="${k}">function</span> <span class="${f}">cartReducer</span>(state: <span class="${t}">Cart</span>, action: <span class="${t}">Action</span>) {
+  <span class="${k}">switch</span> (action.type) {
+    <span class="${k}">case</span> <span class="${s}">'ADD_ITEM'</span>:
+      <span class="${k}">return</span> { ...state, items: [...state.items, action.payload] };
+    <span class="${k}">default</span>:
+      <span class="${k}">return</span> state;
+  }
+}
+
+<span class="${k}">export function</span> <span class="${f}">CartProvider</span>({ children }) {
+  <span class="${k}">const</span> [cart, dispatch] = <span class="${f}">useReducer</span>(cartReducer, initialCart);
+  <span class="${k}">return</span> &lt;CartContext.Provider value={{ cart, dispatch }}&gt;{children}&lt;/CartContext.Provider&gt;;
+}`
+    },
+    angular: {
+      filename: 'wizard.component.ts',
+      meta: 'Signals · Standalone · Angular 21',
+      code:
+`<span class="${k}">import</span> { Component, signal, computed } <span class="${k}">from</span> <span class="${s}">'@angular/core'</span>;
+
+<span class="tok-dec">@Component</span>({ selector: <span class="${s}">'app-wizard'</span>, standalone: <span class="tok-num">true</span> })
+<span class="${k}">export class</span> <span class="${t}">WizardComponent</span> {
+  botName = <span class="${f}">signal</span>(<span class="${s}">''</span>);
+  template = <span class="${f}">signal</span>&lt;<span class="${t}">Template</span> | null&gt;(null);
+
+  preview = <span class="${f}">computed</span>(() =&gt;
+    <span class="${f}">generatePreview</span>(<span class="${k}">this</span>.botName(), <span class="${k}">this</span>.template())
+  );
+
+  <span class="${f}">generateCode</span>() {
+    <span class="${k}">return</span> <span class="${f}">buildBotFile</span>(<span class="${k}">this</span>.botName(), <span class="${k}">this</span>.template());
+  }
+}`
+    },
+    node: {
+      filename: 'auth.middleware.ts',
+      meta: 'Express · JWT · Middleware',
+      code:
+`<span class="${k}">import</span> jwt <span class="${k}">from</span> <span class="${s}">'jsonwebtoken'</span>;
+<span class="${k}">import</span> { Request, Response, NextFunction } <span class="${k}">from</span> <span class="${s}">'express'</span>;
+
+<span class="${k}">export function</span> <span class="${f}">authGuard</span>(req: <span class="${t}">Request</span>, res: <span class="${t}">Response</span>, next: <span class="${t}">NextFunction</span>) {
+  <span class="${k}">const</span> token = req.headers.authorization?.split(<span class="${s}">' '</span>)[<span class="tok-num">1</span>];
+  <span class="${k}">if</span> (!token) <span class="${k}">return</span> res.status(<span class="tok-num">401</span>).json({ error: <span class="${s}">'No token'</span> });
+
+  <span class="${k}">try</span> {
+    req.user = jwt.<span class="${f}">verify</span>(token, process.env.JWT_SECRET!);
+    <span class="${f}">next</span>();
+  } <span class="${k}">catch</span> {
+    res.status(<span class="tok-num">401</span>).json({ error: <span class="${s}">'Invalid token'</span> });
+  }
+}`
+    },
+    python: {
+      filename: 'main.py',
+      meta: 'FastAPI · Pydantic · Uvicorn',
+      code:
+`<span class="${k}">from</span> fastapi <span class="${k}">import</span> FastAPI, UploadFile
+<span class="${k}">from</span> app.services <span class="${k}">import</span> parse_resume, score_resume
+
+app = <span class="${f}">FastAPI</span>()
+
+<span class="tok-dec">@app.post</span>(<span class="${s}">"/analyze"</span>)
+<span class="${k}">async def</span> <span class="${f}">analyze</span>(file: <span class="${t}">UploadFile</span>):
+    text = <span class="${k}">await</span> <span class="${f}">parse_resume</span>(file)
+    skills = <span class="${f}">extract_skills</span>(text)
+    score = <span class="${f}">score_resume</span>(skills)
+    <span class="${k}">return</span> {<span class="${s}">"score"</span>: score, <span class="${s}">"skills"</span>: skills}`
+    },
+    sql: {
+      filename: 'query.sql',
+      meta: 'PostgreSQL · Joins · Neon',
+      code:
+`<span class="${k}">SELECT</span> p.protocolo, p.status, <span class="${f}">COUNT</span>(pol.id) <span class="${k}">AS</span> policiais
+<span class="${k}">FROM</span> ocorrencias p
+<span class="${k}">LEFT JOIN</span> policiais pol <span class="${k}">ON</span> pol.ocorrencia_id = p.id
+<span class="${k}">WHERE</span> p.status != <span class="${s}">'Concluida'</span>
+<span class="${k}">GROUP BY</span> p.protocolo, p.status
+<span class="${k}">ORDER BY</span> p.data_fato <span class="${k}">DESC</span>
+<span class="${k}">LIMIT</span> <span class="tok-num">20</span>;`
+    },
+    docker: {
+      filename: 'Dockerfile',
+      meta: 'Multi-stage · Alpine · CI/CD',
+      code:
+`<span class="${k}">FROM</span> node:20-alpine
+
+<span class="${k}">WORKDIR</span> /app
+<span class="${k}">COPY</span> package*.json ./
+<span class="${k}">RUN</span> npm ci --production
+
+<span class="${k}">COPY</span> . .
+<span class="${k}">EXPOSE</span> <span class="tok-num">3000</span>
+
+<span class="${k}">CMD</span> [<span class="${s}">"node"</span>, <span class="${s}">"dist/server.js"</span>]`
+    }
+  };
+
+  function renderTab(id) {
+    const tab = tabs[id];
+    if (!tab) return;
+    filenameEl.textContent = tab.filename;
+    contentEl.innerHTML = tab.code;
+    metaEl.textContent = tab.meta;
+  }
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.code-tab');
+    if (!btn) return;
+    list.querySelectorAll('.code-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderTab(btn.dataset.tab);
+  });
+
+  renderTab('react');
+})();
 
 // Project modal
 const projectData = {

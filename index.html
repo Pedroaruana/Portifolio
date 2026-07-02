@@ -59,15 +59,25 @@
       <p class="hero-subtitle">
         Desenvolvedor <span class="typed-text" id="typedText"></span>
       </p>
-      <div class="hero-terminal">
-        <div class="ht-header">
+      <div class="code-tabs">
+        <div class="code-tabs-bar">
           <span class="dot red"></span>
           <span class="dot yellow"></span>
           <span class="dot green"></span>
-          <span class="ht-title">terminal</span>
+          <div class="code-tab-list" id="codeTabList">
+            <button class="code-tab active" data-tab="react">React</button>
+            <button class="code-tab" data-tab="angular">Angular</button>
+            <button class="code-tab" data-tab="node">Node</button>
+            <button class="code-tab" data-tab="python">Python</button>
+            <button class="code-tab" data-tab="sql">SQL</button>
+            <button class="code-tab" data-tab="docker">Docker</button>
+          </div>
         </div>
-        <div class="ht-body" id="htBody"></div>
+        <div class="code-tabs-filename" id="codeTabFilename">CartContext.tsx</div>
+        <pre class="code-tab-body"><code id="codeTabContent"></code></pre>
+        <div class="code-tabs-meta" id="codeTabMeta">Context API · useReducer · TypeScript</div>
       </div>
+
       <div class="hero-cta">
         <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
         <a href="#contato" class="btn btn-ghost">Falar comigo</a>

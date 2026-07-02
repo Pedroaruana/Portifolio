@@ -751,6 +751,93 @@ a { color: inherit; text-decoration: none; }
   animation: blink 0.8s step-end infinite;
 }
 
+/* ===== CODE TABS ===== */
+.code-tabs {
+  background: rgba(18, 18, 22, 0.85);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  text-align: left;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.code-tabs-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.code-tabs-bar::-webkit-scrollbar { display: none; }
+
+.code-tab-list {
+  display: flex;
+  gap: 4px;
+  margin-left: 10px;
+}
+
+.code-tab {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition);
+}
+
+.code-tab:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+
+.code-tab.active {
+  color: var(--accent);
+  background: rgba(124, 106, 255, 0.12);
+}
+
+.code-tabs-filename {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding: 10px 20px 0;
+}
+
+.code-tab-body {
+  padding: 10px 20px 18px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.76rem;
+  line-height: 1.75;
+  overflow-x: auto;
+  min-height: 220px;
+}
+
+.code-tab-body code { color: var(--text); white-space: pre; }
+
+.tok-kw { color: #ff7ab8; }
+.tok-str { color: #a3e675; }
+.tok-type { color: #5ec8f8; }
+.tok-fn { color: #ffca6a; }
+.tok-dec { color: #ffca6a; }
+.tok-num { color: #d19cff; }
+.tok-com { color: var(--text-muted); font-style: italic; }
+
+.code-tabs-meta {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
 /* ===== SCROLL INDICATOR ===== */
 .hero-scroll {
   position: absolute;
