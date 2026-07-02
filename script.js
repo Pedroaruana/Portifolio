@@ -217,25 +217,23 @@ if (hourglass) {
 
   const tabs = {
     react: {
-      filename: 'CartContext.tsx',
-      meta: 'Context API · useReducer · TypeScript',
+      filename: 'useDebounce.ts',
+      meta: 'Custom Hooks · useEffect · TypeScript',
       code:
-`<span class="${k}">import</span> { createContext, useReducer } <span class="${k}">from</span> <span class="${s}">'react'</span>;
+`<span class="${k}">import</span> { useState, useEffect } <span class="${k}">from</span> <span class="${s}">'react'</span>;
 
-<span class="${k}">type</span> <span class="${t}">Action</span> = { type: <span class="${s}">'ADD_ITEM'</span>; payload: Item };
+<span class="${k}">export function</span> <span class="${f}">useDebounce</span>(value: <span class="${t}">string</span>, delay = <span class="tok-num">300</span>) {
+  <span class="${k}">const</span> [debounced, setDebounced] = <span class="${f}">useState</span>(value);
 
-<span class="${k}">function</span> <span class="${f}">cartReducer</span>(state: <span class="${t}">Cart</span>, action: <span class="${t}">Action</span>) {
-  <span class="${k}">switch</span> (action.type) {
-    <span class="${k}">case</span> <span class="${s}">'ADD_ITEM'</span>:
-      <span class="${k}">return</span> { ...state, items: [...state.items, action.payload] };
-    <span class="${k}">default</span>:
-      <span class="${k}">return</span> state;
-  }
-}
+  <span class="${f}">useEffect</span>(() =&gt; {
+    <span class="${k}">const</span> timer = <span class="${f}">setTimeout</span>(() =&gt; {
+      <span class="${f}">setDebounced</span>(value);
+    }, delay);
 
-<span class="${k}">export function</span> <span class="${f}">CartProvider</span>({ children }) {
-  <span class="${k}">const</span> [cart, dispatch] = <span class="${f}">useReducer</span>(cartReducer, initialCart);
-  <span class="${k}">return</span> &lt;CartContext.Provider value={{ cart, dispatch }}&gt;{children}&lt;/CartContext.Provider&gt;;
+    <span class="${k}">return</span> () =&gt; <span class="${f}">clearTimeout</span>(timer);
+  }, [value, delay]);
+
+  <span class="${k}">return</span> debounced;
 }`
     },
     angular: {
