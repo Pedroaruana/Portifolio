@@ -320,12 +320,33 @@ app = <span class="${f}">FastAPI</span>()
     }
   };
 
+  let typingToken = 0;
+
   function renderTab(id) {
     const tab = tabs[id];
     if (!tab) return;
     filenameEl.textContent = tab.filename;
-    contentEl.innerHTML = tab.code;
     metaEl.textContent = tab.meta;
+
+    const temp = document.createElement('div');
+    temp.innerHTML = tab.code;
+    const plainText = temp.textContent;
+
+    const myToken = ++typingToken;
+    contentEl.textContent = '';
+    let i = 0;
+
+    function typeChunk() {
+      if (myToken !== typingToken) return;
+      if (i < plainText.length) {
+        i = Math.min(i + 3, plainText.length);
+        contentEl.textContent = plainText.slice(0, i);
+        setTimeout(typeChunk, 6);
+      } else {
+        contentEl.innerHTML = tab.code;
+      }
+    }
+    typeChunk();
   }
 
   list.addEventListener('click', (e) => {
