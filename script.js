@@ -425,6 +425,14 @@ const projectData = {
     stack: ['Python', 'Flask', 'Pillow', 'Docker', 'pytest', 'CI/CD'],
     github: 'https://github.com/Pedroaruana/Cicada-3301',
     demo: 'https://pedroaruana.pythonanywhere.com/'
+  },
+  wasteland: {
+    title: 'Wasteland Garden',
+    img: 'screenshots/wasteland-garden.png',
+    desc: 'Cansei dos gerenciadores de tarefa convencionais — Trello, Todoist, Notion funcionam, mas nenhum dá vontade de abrir. Criei um gerenciador gamificado ambientado em 2056: cada tarefa é uma semente que passa por 5 estágios ao longo de 7 dias, regada a cada 12h, e ao ser colhida gera oxigênio. Tem modo visitante via localStorage (sem precisar criar conta), autenticação JWT e aproveitei pra aprender testes automatizados a sério: Vitest, Testing Library e Playwright end-to-end.',
+    stack: ['React 18', 'TypeScript', 'Fastify', 'PostgreSQL', 'Prisma', 'Zustand'],
+    github: 'https://github.com/Pedroaruana/PipeStonks',
+    demo: 'https://pipe-stonks-frontend.vercel.app/'
   }
 };
 
