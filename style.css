@@ -2179,6 +2179,15 @@ a { color: inherit; text-decoration: none; }
   padding: 3px 10px;
 }
 
+.timeline-reference {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--accent-2);
+}
+
 @media (max-width: 600px) {
   .timeline-header { flex-direction: column; }
   .timeline-meta { align-items: flex-start; }
