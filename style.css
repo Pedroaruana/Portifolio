@@ -1160,25 +1160,25 @@ a { color: inherit; text-decoration: none; }
 /* ===== SKILLS CATEGORIES (BIG) ===== */
 .skills-categories--big {
   grid-template-columns: repeat(4, 1fr);
+  align-items: start;
 }
 
 @media (max-width: 1024px) {
   .skills-categories--big { grid-template-columns: repeat(2, 1fr); }
-  .skill-category--big { min-height: 0; }
 }
 
 .skill-category--big {
   padding: 24px;
-  min-height: 460px;
 }
 
 .skill-category--big .skill-tags {
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .skill-category--big .skill-tag {
-  font-size: 0.78rem;
-  padding: 5px 12px 5px 8px;
+  white-space: nowrap;
 }
 
 .skill-cat-icon {
