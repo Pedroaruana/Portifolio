@@ -410,13 +410,13 @@ const projectData = {
     github: 'https://github.com/Pedroaruana/BotGram',
     demo: 'https://botgram-henna.vercel.app/'
   },
-  corregedoria: {
-    title: 'Corregedoria PMBA',
-    img: 'screenshots/corregedoria.png',
-    desc: 'Sistema fullstack que simula a plataforma interna da Corregedoria da PM da Bahia pra gerenciar Autos de Resistência — do registro da ocorrência até a assinatura digital do termo e geração do PDF pra arquivamento. Tem wizard de registro em 4 etapas com patentes e BPMs reais da PMBA, dashboard com gráficos (Recharts), e simulações de ferramentas forenses reais: PATHFINDER com mapa geoespacial (Leaflet) e Mindspace com grafo de vínculos. Backend Express com Prisma e PostgreSQL na Neon, autenticação JWT e testes automatizados com Vitest e Playwright.',
-    stack: ['React 19', 'TypeScript', 'Node.js', 'Express', 'Prisma', 'PostgreSQL', 'JWT'],
-    github: 'https://github.com/Pedroaruana/Corregedoria-PMBA',
-    demo: 'https://corregedoria-pmba.vercel.app'
+  cpumaster: {
+    title: 'CPU Master',
+    img: 'screenshots/cpu-master.png',
+    desc: 'Sempre gostei de montar PC e quis juntar isso com programação num projeto de verdade. Aproveitei também pra aprender React Three Fiber do zero e treinar animação controlada por scroll usando só CSS puro, sem lib de animação. A montagem 3D no scroll não usa three.js nem nada pra essa parte — só perspective, preserve-3d, rotateX/rotateY, acertando a ordem das camadas pra uma peça não atravessar a outra. O motor de compatibilidade avisa gargalo de CPU x GPU, dá margem de segurança na fonte e barra radiador grande demais pro gabinete.',
+    stack: ['Next.js', 'React', 'TypeScript', 'Three.js', 'Tailwind CSS'],
+    github: 'https://github.com/Pedroaruana/CPU-MASTER',
+    demo: 'https://cpu-master-steel.vercel.app/'
   },
   cicada: {
     title: 'Cicada 3301',
