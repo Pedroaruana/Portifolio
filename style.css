@@ -1386,12 +1386,9 @@ a { color: inherit; text-decoration: none; }
 
 .project-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  gap: 12px;
 }
-
-.project-links { flex-shrink: 0; }
 
 .project-links {
   display: flex;
@@ -1420,15 +1417,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .project-title {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: -0.4px;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-  flex: 1;
+  letter-spacing: -0.3px;
 }
 
 .project-desc {
