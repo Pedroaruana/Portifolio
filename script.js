@@ -370,13 +370,13 @@ const projectData = {
     github: 'https://github.com/Pedroaruana/HelpDeskEA',
     demo: 'https://pedroaruana.github.io/HelpDeskEA/dashboard'
   },
-  nukemap: {
-    title: 'NukeMap App',
-    img: 'screenshots/nukemap.png',
-    desc: 'Meu primeiro projeto sério em React Native. A ideia veio do NUKEMAP — quis recriar do zero pra entender mapa, geolocalização e animações em mobile. O maior desafio foi fazer o mesmo código rodar no celular e no browser: criei dois componentes de mapa separados (NukeMap.tsx e NukeMap.web.tsx) que o Expo resolve por plataforma automaticamente. Os raios de destruição usam a fórmula real de Glasstone-Dolan.',
-    stack: ['React Native', 'Expo', 'TypeScript', 'Vercel'],
-    github: 'https://github.com/Pedroaruana/nukemap-app',
-    demo: 'https://nukemap-app.vercel.app/'
+  scannerbuild: {
+    title: 'ScannerBuild',
+    img: 'screenshots/scannerbuild.png',
+    desc: 'Sempre gostei da ideia de ver um lugar real virar um modelo 3D. Aqui você clica num prédio no mapa, o backend busca o contorno real dele no OpenStreetMap (via Overpass API), estima altura, andares e entradas, e o resultado vira um modelo 3D navegável, exportável em .glb, .png, .pdf ou .json. A parte que mais gostei de resolver foi deixar o app resiliente de verdade contra a instabilidade do Overpass: cache, timeout curto, retry em paralelo com espelho alternativo e rate-limit por IP.',
+    stack: ['Next.js', 'React', 'TypeScript', 'Three.js', 'Leaflet', 'Zod'],
+    github: 'https://github.com/Pedroaruana/Scanner-Build',
+    demo: 'https://scanner-build.vercel.app/'
   },
   hiremind: {
     title: 'HireMind AI',
@@ -386,13 +386,13 @@ const projectData = {
     github: 'https://github.com/Pedroaruana/hiremind-ai',
     demo: 'https://hiremind-ai-fawn.vercel.app'
   },
-  crocodilo: {
-    title: 'Crocodilo Burguer',
-    img: 'screenshots/crocodilo.png',
-    desc: 'Quis simular a experiência real de um app de delivery — carrinho com useReducer, checkout com PIX (QR Code + countdown), validação de cartão pelo algoritmo de Luhn real (o mesmo que os bancos usam) e acompanhamento de pedido com status em tempo real. Autenticação e pedidos persistidos no Supabase. Um dos projetos mais completos que fiz sozinho.',
-    stack: ['React', 'Vite', 'Supabase', 'JavaScript'],
-    github: 'https://github.com/Pedroaruana/CrocodiloBurguer',
-    demo: 'https://crocodilo-burguer.vercel.app/'
+  createlanguage: {
+    title: 'Create Your Language',
+    img: 'screenshots/create-your-language.png',
+    desc: 'O plano era gerar só um markdown explicando como a linguagem inventada funcionaria. No meio do caminho achei bobo: a pessoa baixa, lê, e não roda nada. Mudei pra gerar um interpretador de verdade — a pessoa responde um wizard de 7 etapas (paradigma, tipagem, sintaxe, palavras-chave) e baixa um .zip com lexer, parser e interpretador reais, roda com node cli.js run. O parser tinha que aceitar 3 jeitos diferentes de fechar bloco dependendo do que a pessoa escolhe no wizard — testei gerando o zip de cada combinação e rodando de verdade pra conferir o output.',
+    stack: ['Next.js', 'React', 'TypeScript', 'Vitest', 'Docker'],
+    github: 'https://github.com/Pedroaruana/Create-Your-Language-',
+    demo: 'https://create-your-language.vercel.app/'
   },
   gamehub: {
     title: 'GameHub',
