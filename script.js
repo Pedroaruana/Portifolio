@@ -165,8 +165,8 @@ function applyLanguage(lang) {
     }
   });
 
-  document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
-    btn.textContent = lang === 'en' ? 'PT' : 'EN';
+  document.querySelectorAll('#langToggleText, #langToggleTextMobile').forEach(span => {
+    span.textContent = lang === 'en' ? 'PT' : 'EN';
   });
 
   localStorage.setItem('lang', lang);

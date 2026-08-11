@@ -107,21 +107,24 @@ a { color: inherit; text-decoration: none; }
 .nav-links a:hover::after { width: 100%; }
 
 .lang-toggle-btn {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(124, 106, 255, 0.08);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.5px;
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: 100px;
   cursor: pointer;
   transition: all var(--transition);
 }
 
 .lang-toggle-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  background: var(--accent);
+  color: #fff;
 }
 
 .nav-mobile .lang-toggle-btn {
