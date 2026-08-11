@@ -197,134 +197,321 @@
 
   <!-- SKILLS -->
   <section class="section section-alt" id="skills">
-    <div class="container">
-      <div class="skills-header-grid">
-        <div class="skills-header-text">
-          <div class="section-label" data-i18n="skills.label">/ habilidades</div>
-          <h2 class="section-title" data-i18n="skills.title">Stack completo: interface, dados e IA em produção.</h2>
-          <p class="section-desc" data-i18n="skills.desc">Da interface ao banco de dados, do backend ao deploy — cada camada testada, versionada e em produção, não só no papel. CI/CD automatizado, testes com Vitest e Playwright, e IA aplicada em produção real, não só em teoria.</p>
+    <div class="dev-story" id="devStory">
+      <div class="ds-gridbg"></div>
+      <div class="ds-glow"></div>
+
+      <div class="ds-inner">
+
+        <aside class="ds-steps" id="dsSteps">
+          <ol class="ds-list" id="dsList">
+            <li data-step="0">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">01 · Abrir notebook</span>
+                <span class="ds-desc">Ambiente montado, repositório iniciado e primeira branch criada.</span>
+                <span class="ds-tags"><b>Git</b><b>VS Code</b></span>
+              </div>
+            </li>
+            <li data-step="1">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">02 · Tela acende</span>
+                <span class="ds-desc">Servidor de desenvolvimento no ar com hot reload.</span>
+                <span class="ds-tags"><b>Vite</b><b>Node.js</b></span>
+              </div>
+            </li>
+            <li data-step="2">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">03 · Frontend</span>
+                <span class="ds-desc">Componentes, rotas e layout responsivo da loja.</span>
+                <span class="ds-tags"><b>React</b><b>Next.js</b><b>TypeScript</b><b>Tailwind</b></span>
+              </div>
+            </li>
+            <li data-step="3">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">04 · Backend</span>
+                <span class="ds-desc">API REST com autenticação e regras de negócio.</span>
+                <span class="ds-tags"><b>Node.js</b><b>Fastify</b><b>JWT</b></span>
+              </div>
+            </li>
+            <li data-step="4">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">05 · Banco de dados</span>
+                <span class="ds-desc">Modelagem, migrations e queries otimizadas.</span>
+                <span class="ds-tags"><b>PostgreSQL</b><b>Prisma</b><b>Neon</b></span>
+              </div>
+            </li>
+            <li data-step="5">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">06 · Testes automatizados</span>
+                <span class="ds-desc">Unitários e end-to-end rodando a cada commit.</span>
+                <span class="ds-tags"><b>Vitest</b><b>Playwright</b></span>
+              </div>
+            </li>
+            <li data-step="6">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">07 · Docker</span>
+                <span class="ds-desc">Mesmo ambiente em qualquer máquina, sem surpresa.</span>
+                <span class="ds-tags"><b>Docker</b><b>Compose</b></span>
+              </div>
+            </li>
+            <li data-step="7">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">08 · CI/CD</span>
+                <span class="ds-desc">Build, teste e publicação sem nenhum passo manual.</span>
+                <span class="ds-tags"><b>GitHub Actions</b></span>
+              </div>
+            </li>
+            <li data-step="8">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">09 · Automação</span>
+                <span class="ds-desc">Fluxos de pedido e notificação rodando sozinhos.</span>
+                <span class="ds-tags"><b>n8n</b><b>Webhooks</b></span>
+              </div>
+            </li>
+            <li data-step="9">
+              <i class="ds-bullet"></i>
+              <div class="ds-txt">
+                <span class="ds-title">10 · Deploy</span>
+                <span class="ds-desc">Loja no ar, versionada e monitorada em produção.</span>
+                <span class="ds-tags"><b>Vercel</b><b>Docker</b></span>
+              </div>
+            </li>
+          </ol>
+
+          <div class="ds-final" id="dsFinal">
+            <ul class="ds-check">
+              <li>Interface montada</li>
+              <li>API conectada</li>
+              <li>Banco de dados ativo</li>
+              <li>Testes passando</li>
+              <li>Container publicado</li>
+              <li>Pipeline verde</li>
+              <li>Automação ativa</li>
+              <li>Loja no ar</li>
+            </ul>
+            <span class="ds-ready"><i class="ds-ready-dot"></i>Loja pronta</span>
+          </div>
+        </aside>
+
+        <div class="ds-stage">
+          <div class="ds-devices">
+
+            <div class="macbook" id="macbook">
+              <div class="mb-lid" id="mbLid">
+                <div class="mb-cover">
+                  <span class="mb-apple">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.53c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.87-.76-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.2 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.14.83-1.22 1.18-2.41 1.2-2.47-.03-.01-2.29-.88-2.31-3.49zM14.9 5.9c.6-.74 1.01-1.76.9-2.78-.87.04-1.93.58-2.56 1.31-.56.65-1.06 1.7-.93 2.7.97.08 1.97-.49 2.59-1.23z"/></svg>
+                  </span>
+                  <span class="mb-cover-sheen"></span>
+                </div>
+                <div class="mb-panel">
+                  <div class="mb-bezel">
+                    <div class="mb-notch"><span class="mb-cam"></span></div>
+                    <div class="mb-display">
+                      <div class="mb-boot" id="mbBoot"></div>
+                      <div class="store" id="store">
+
+                        <header class="st-top" data-el="1">
+                          <span class="st-logo">NEXUS<b>.play</b></span>
+                          <nav class="st-nav"><span>Novidades</span><span>Ação</span><span>RPG</span><span>Indie</span><span>Ofertas</span></nav>
+                          <div class="st-icons">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <span class="st-cart">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                              <b class="st-cart-n">3</b>
+                            </span>
+                          </div>
+                        </header>
+
+                        <div class="st-hero" data-el="2">
+                          <div class="st-hero-art"></div>
+                          <div class="st-hero-copy">
+                            <span class="st-kicker">LANÇAMENTO 2026</span>
+                            <h4>Sua próxima obsessão<br>te espera.</h4>
+                            <span class="st-btn">Comprar agora</span>
+                          </div>
+                        </div>
+
+                        <div class="st-cats" data-el="3">
+                          <span class="on">Ação</span><span>RPG</span><span>Indie</span><span>Terror</span><span>Corrida</span><span>Outlet</span>
+                        </div>
+
+                        <div class="st-grid" data-el="4">
+                          <article class="st-card">
+                            <div class="st-art st-art-1">
+                              <span class="st-badge st-badge-new">Novo</span>
+                              <span class="st-heart">♡</span>
+                              <span class="st-art-name">VOIDFALL</span>
+                            </div>
+                            <span class="st-name">Nova Voidfall</span>
+                            <span class="st-stars">★★★★★ <i>4.9</i></span>
+                            <span class="st-price">R$ 89,90</span>
+                          </article>
+                          <article class="st-card">
+                            <div class="st-art st-art-2">
+                              <span class="st-badge st-badge-off">-20%</span>
+                              <span class="st-heart">♡</span>
+                              <span class="st-art-name">CINDER</span>
+                            </div>
+                            <span class="st-name">Cinder Path</span>
+                            <span class="st-stars">★★★★★ <i>4.8</i></span>
+                            <span class="st-price"><s>R$ 74,90</s> R$ 59,90</span>
+                          </article>
+                          <article class="st-card">
+                            <div class="st-art st-art-3">
+                              <span class="st-badge st-badge-top">Top</span>
+                              <span class="st-heart">♡</span>
+                              <span class="st-art-name">RUSTBOUND</span>
+                            </div>
+                            <span class="st-name">Rustbound</span>
+                            <span class="st-stars">★★★★★ <i>4.9</i></span>
+                            <span class="st-price">R$ 129,90</span>
+                          </article>
+                          <article class="st-card">
+                            <div class="st-art st-art-4">
+                              <span class="st-badge st-badge-pre">Premium</span>
+                              <span class="st-heart">♡</span>
+                              <span class="st-art-name">AETHER</span>
+                            </div>
+                            <span class="st-name">Aether Line</span>
+                            <span class="st-stars">★★★★★ <i>5.0</i></span>
+                            <span class="st-price">R$ 199,90</span>
+                          </article>
+                        </div>
+
+                        <div class="st-trust" data-el="5">
+                          <span>Ativação imediata</span>
+                          <span>Até 12x sem juros</span>
+                          <span>Reembolso em 14 dias</span>
+                        </div>
+                      </div>
+
+                      <div class="ov ov-api" id="ovApi">
+                        <div class="ov-head"><i class="ov-dot"></i>API · Fastify</div>
+                        <div class="ov-line"><b class="ok">200</b> GET <span>/api/games</span> <i>42ms</i></div>
+                        <div class="ov-line"><b class="ok">201</b> POST <span>/api/cart</span> <i>28ms</i></div>
+                        <div class="ov-line"><b class="ok">200</b> GET <span>/api/library</span> <i>35ms</i></div>
+                        <div class="ov-line"><b class="ok">200</b> POST <span>/api/checkout</span> <i>61ms</i></div>
+                      </div>
+
+                      <div class="ov ov-db" id="ovDb">
+                        <div class="ov-head"><i class="ov-dot blue"></i>PostgreSQL · Prisma</div>
+                        <div class="ov-row"><span>games</span><b>1.204</b></div>
+                        <div class="ov-row"><span>users</span><b>8.930</b></div>
+                        <div class="ov-row"><span>orders</span><b>3.412</b></div>
+                        <div class="ov-row"><span>reviews</span><b>12.878</b></div>
+                      </div>
+
+                      <div class="ov ov-test" id="ovTest">
+                        <div class="ov-head"><i class="ov-dot"></i>Vitest + Playwright</div>
+                        <div class="ov-line"><b class="ok">✓</b> cart.spec.ts</div>
+                        <div class="ov-line"><b class="ok">✓</b> checkout.spec.ts</div>
+                        <div class="ov-line"><b class="ok">✓</b> auth.e2e.ts</div>
+                        <div class="ov-bar"><i></i></div>
+                        <div class="ov-total">32 / 32 passando</div>
+                      </div>
+
+                      <div class="ov ov-docker" id="ovDocker">
+                        <div class="ov-head"><i class="ov-dot blue"></i>Docker Compose</div>
+                        <div class="ov-line"><b class="ok">↑</b> web <span>nexus-web:1.4</span></div>
+                        <div class="ov-line"><b class="ok">↑</b> api <span>nexus-api:1.4</span></div>
+                        <div class="ov-line"><b class="ok">↑</b> db <span>postgres:16</span></div>
+                        <div class="ov-line dim">3 containers healthy</div>
+                      </div>
+
+                      <div class="ov ov-ci" id="ovCi">
+                        <div class="ov-head"><i class="ov-dot amber"></i>GitHub Actions</div>
+                        <div class="ov-pipe">
+                          <span class="pp">Install</span>
+                          <span class="pp">Lint</span>
+                          <span class="pp">Test</span>
+                          <span class="pp">Build</span>
+                          <span class="pp">Deploy</span>
+                        </div>
+                        <div class="ov-line dim">workflow concluído em 1m 42s</div>
+                      </div>
+
+                      <div class="ov ov-n8n" id="ovN8n">
+                        <div class="ov-head"><i class="ov-dot amber"></i>n8n · Automação</div>
+                        <div class="ov-flow">
+                          <span class="nd">Pedido</span>
+                          <i class="ar"></i>
+                          <span class="nd">Pagamento</span>
+                          <i class="ar"></i>
+                          <span class="nd">E-mail</span>
+                        </div>
+                        <div class="ov-line dim">184 execuções hoje · 0 falhas</div>
+                      </div>
+
+                      <div class="ov ov-live" id="ovLive">
+                        <i class="ds-ready-dot"></i> nexus.play — no ar
+                      </div>
+                    </div>
+                    <div class="mb-glare"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-body">
+                <div class="mb-hinge"></div>
+                <div class="mb-deck">
+                  <div class="mb-speaker left"></div>
+                  <div class="mb-keys"></div>
+                  <div class="mb-speaker right"></div>
+                  <div class="mb-pad"></div>
+                </div>
+                <div class="mb-lip"></div>
+              </div>
+              <div class="mb-shadow"></div>
+            </div>
+
+            <div class="iphone" id="iphone">
+              <div class="ip-body">
+                <div class="ip-notch"></div>
+                <div class="ip-screen">
+                  <div class="ipst-top"><span>NEXUS<b>.play</b></span><i class="ipst-cart">3</i></div>
+                  <div class="ipst-hero"><span>LANÇAMENTO</span><h5>Sua próxima<br>obsessão.</h5></div>
+                  <div class="ipst-cats"><span class="on">Ação</span><span>RPG</span><span>Indie</span></div>
+                  <div class="ipst-grid">
+                    <div class="ipst-card"><div class="st-art st-art-1"><span class="st-badge st-badge-new">Novo</span></div><span class="ipst-name">Nova Voidfall</span><span class="ipst-price">R$ 89,90</span></div>
+                    <div class="ipst-card"><div class="st-art st-art-2"><span class="st-badge st-badge-off">-20%</span></div><span class="ipst-name">Cinder Path</span><span class="ipst-price">R$ 59,90</span></div>
+                  </div>
+                  <div class="ipst-checkout" id="ipCheckout">
+                    <div class="ipst-co-row"><span>Subtotal</span><b>R$ 149,80</b></div>
+                    <div class="ipst-co-row"><span>Cupom</span><b class="green">-R$ 15,00</b></div>
+                    <span class="ipst-co-btn">Pagar com Pix</span>
+                  </div>
+                </div>
+                <div class="ip-bar"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="ds-hint" id="dsHint">
+            <span>ROLE PARA DESCOBRIR</span>
+            <i class="ds-hint-line"></i>
+          </div>
         </div>
 
-        <div class="skills-highlights">
-          <div class="skills-highlight-card">
-            <div class="skill-cat-icon skill-cat-icon--purple">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <h4 data-i18n="skills.hl1-title">Sistema completo</h4>
-            <p data-i18n="skills.hl1-desc">Cada projeto sai da minha mão com front, back, banco de dados e deploy prontos.</p>
-          </div>
-          <div class="skills-highlight-card">
-            <div class="skill-cat-icon skill-cat-icon--teal">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v5.5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 8.5V3"/><path d="M6.5 14h11"/></svg>
-            </div>
-            <h4 data-i18n="skills.hl2-title">Testes automatizados</h4>
-            <p data-i18n="skills.hl2-desc">Vitest, Jest e Playwright rodando a cada commit, não só quando lembro.</p>
-            <div class="skills-highlight-logos">
-              <span class="skill-tag"><img src="https://cdn.simpleicons.org/vitest/6E9F18" alt="">Vitest</span>
-              <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" alt="">Jest</span>
-              <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg" alt="" style="background:#fff;border-radius:50%;padding:1px">Playwright</span>
-            </div>
-          </div>
-          <div class="skills-highlight-card">
-            <div class="skill-cat-icon skill-cat-icon--blue">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-            </div>
-            <h4 data-i18n="skills.hl3-title">Deploy sem fricção</h4>
-            <p data-i18n="skills.hl3-desc">CI/CD e Docker levam o código do commit ao ar sem passo manual.</p>
-            <div class="skills-highlight-logos">
-              <span class="skill-tag"><img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="">CI/CD</span>
-              <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="">Docker</span>
-            </div>
-          </div>
-          <div class="skills-highlight-card">
-            <div class="skill-cat-icon skill-cat-icon--amber">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
-            </div>
-            <h4 data-i18n="skills.hl4-title">IA aplicada</h4>
-            <p data-i18n="skills.hl4-desc">Já usei Claude e RAG pra resolver problema real, não só testar em chat.</p>
-            <div class="skills-highlight-logos">
-              <span class="skill-tag"><img src="https://cdn.simpleicons.org/claude/D97757" alt="">Claude</span>
-              <span class="skill-tag">RAG</span>
-              <span class="skill-tag"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="">n8n</span>
-            </div>
-          </div>
+        <div class="ds-info" id="dsInfo">
+          <span class="ds-eyebrow">CONSTRUINDO AGORA</span>
+          <h3 class="ds-scene" id="dsScene">Abrir notebook</h3>
+          <span class="ds-counter" id="dsCounter">CENA 01 / 10</span>
         </div>
+
       </div>
-
-      <div class="skills-categories skills-categories--big">
-
-        <div class="skill-category skill-category--big">
-          <div class="skill-cat-icon skill-cat-icon--purple">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
-          </div>
-          <h3 class="skill-cat-title">Frontend</h3>
-          <p class="skill-cat-desc" data-i18n="skills.cat1-desc">Interfaces com React e Angular, performance e experiência do usuário em primeiro lugar.</p>
-          <div class="skill-tags">
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="">React</span>
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="">Angular</span>
-            <span class="skill-tag" style="padding-right: 12px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="" style="background:#fff;border-radius:50%;padding:1px">Next.js</span>
-            <span class="skill-tag" style="padding-left: 7px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="">JavaScript</span>
-            <span class="skill-tag" style="padding-right: 10px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="">TypeScript</span>
-            <span class="skill-tag" style="padding-left: 6px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="">HTML5</span>
-            <span class="skill-tag" style="padding-right: 9px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="">CSS3</span>
-            <span class="skill-tag" style="padding-left: 4px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="">Tailwind CSS</span>
-          </div>
-        </div>
-
-        <div class="skill-category skill-category--big">
-          <div class="skill-cat-icon skill-cat-icon--teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="0.8" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="0.8" fill="currentColor" stroke="none"/></svg>
-          </div>
-          <h3 class="skill-cat-title">Backend</h3>
-          <p class="skill-cat-desc" data-i18n="skills.cat2-desc">APIs REST em Node.js e Python, autenticação e integração com serviços externos.</p>
-          <div class="skill-tags">
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="">Node.js</span>
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="">Python</span>
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="">Spring Boot</span>
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="" style="background:#fff;border-radius:50%;padding:1px">Flask</span>
-            <span class="skill-tag"><img src="https://cdn.simpleicons.org/fastify/ffffff" alt="">Fastify</span>
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg" alt="" style="background:#fff;border-radius:50%;padding:1px">Prisma</span>
-            <span class="skill-tag">REST API</span>
-          </div>
-        </div>
-
-        <div class="skill-category skill-category--big">
-          <div class="skill-cat-icon skill-cat-icon--blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
-          </div>
-          <h3 class="skill-cat-title" data-i18n="skills.cat3-title">Banco de Dados</h3>
-          <p class="skill-cat-desc" data-i18n="skills.cat3-desc">Modelagem relacional e não relacional, do protótipo rápido à produção.</p>
-          <div class="skill-tags">
-            <span class="skill-tag" style="padding-right: 7px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="">MySQL</span>
-            <span class="skill-tag" style="padding-left: 3px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="">PostgreSQL</span>
-            <span class="skill-tag"><img src="https://cdn.simpleicons.org/supabase/3FCF8E" alt="">Supabase</span>
-            <span class="skill-tag"><img src="https://cdn.simpleicons.org/neon/00E599" alt="">Neon</span>
-            <span class="skill-tag" style="padding-right: 9px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="">MongoDB</span>
-            <span class="skill-tag" style="padding-left: 5px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="">Firebase</span>
-          </div>
-        </div>
-
-        <div class="skill-category skill-category--big">
-          <div class="skill-cat-icon skill-cat-icon--amber">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <h3 class="skill-cat-title" data-i18n="skills.cat4-title">Ferramentas e Deploy</h3>
-          <p class="skill-cat-desc" data-i18n="skills.cat4-desc">Deploy automatizado, testes, metodologia ágil e IA aplicada em produção.</p>
-          <div class="skill-tags">
-            <span class="skill-tag"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="">Vercel</span>
-            <span class="skill-tag"><img src="https://cdn.simpleicons.org/render/46E3B7" alt="">Render</span>
-            <span class="skill-tag"><img src="https://cdn.simpleicons.org/railway/ffffff" alt="">Railway</span>
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="">Git</span>
-            <span class="skill-tag"><img src="https://cdn.simpleicons.org/scrumalliance/2F8FCE" alt="">Scrum</span>
-            <span class="skill-tag">Kanban</span>
-            <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/expo/expo-original.svg" alt="" style="background:#fff;border-radius:50%;padding:1px">Expo</span>
-            <span class="skill-tag"><img src="https://www.google.com/s2/favicons?domain=powerbi.microsoft.com&sz=64" alt="">Power BI</span>
-            <span class="skill-tag skill-tag--solo"><img src="https://cdn.simpleicons.org/langchain/ffffff" alt="">LangChain</span>
-          </div>
-        </div>
-
-      </div>
-
     </div>
   </section>
 

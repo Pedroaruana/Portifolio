@@ -388,6 +388,134 @@ if (hourglass) {
   }, 700);
 }
 
+// Dev story — MacBook 3D build on scroll
+(function () {
+  const wrap = document.getElementById('devStory');
+  if (!wrap) return;
+
+  const lid = document.getElementById('mbLid');
+  const devices = document.querySelector('.ds-devices');
+  const steps = Array.from(document.querySelectorAll('#dsList li'));
+  const sceneEl = document.getElementById('dsScene');
+  const counterEl = document.getElementById('dsCounter');
+  const finalBlock = document.getElementById('dsFinal');
+  const phone = document.getElementById('iphone');
+  const ipCheckout = document.getElementById('ipCheckout');
+  const storeParts = Array.from(document.querySelectorAll('.store [data-el]'));
+  const pipes = Array.from(document.querySelectorAll('.pp'));
+
+  const panels = {
+    api: document.getElementById('ovApi'),
+    db: document.getElementById('ovDb'),
+    test: document.getElementById('ovTest'),
+    docker: document.getElementById('ovDocker'),
+    ci: document.getElementById('ovCi'),
+    n8n: document.getElementById('ovN8n'),
+    live: document.getElementById('ovLive')
+  };
+
+  // scene 0 is the closed / floating intro; steps below start at scene 1
+  const scenes = [
+    { name: 'Abrir notebook', panel: null },
+    { name: 'Tela acende', panel: null },
+    { name: 'Frontend', panel: null },
+    { name: 'Backend', panel: 'api' },
+    { name: 'Banco de dados', panel: 'db' },
+    { name: 'Testes automatizados', panel: 'test' },
+    { name: 'Docker', panel: 'docker' },
+    { name: 'CI/CD', panel: 'ci' },
+    { name: 'Automação', panel: 'n8n' },
+    { name: 'Deploy', panel: 'live' }
+  ];
+
+  const LID_CLOSED = -90;
+  const LID_OPEN = -8;
+  const INTRO_HOLD = 0.10;   // portion of scroll spent on the floating closed laptop
+  const OPEN_SPAN = 0.11;    // portion of scroll spent opening the lid
+  const INTRO_LIFT = 21;     // vh the closed rig is raised so it is not stuck at the bottom
+  const total = scenes.length;
+
+  let last = -2;
+  let ticking = false;
+
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const easeInOut = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+  function render() {
+    const rect = wrap.getBoundingClientRect();
+    const scrollable = wrap.offsetHeight - window.innerHeight;
+    const p = clamp(scrollable > 0 ? -rect.top / scrollable : 0, 0, 1);
+
+    // lid angle
+    const openT = clamp((p - INTRO_HOLD) / OPEN_SPAN, 0, 1);
+    const e = easeInOut(openT);
+    lid.style.transform = `rotateX(${LID_CLOSED + (LID_OPEN - LID_CLOSED) * e}deg)`;
+
+    // closed laptop sits low in its own box, so lift the whole rig while it is shut
+    const rest = 1 - e;
+    devices.style.transform = `translateY(${(-INTRO_LIFT * rest).toFixed(2)}vh) scale(${(1 + 0.05 * rest).toFixed(3)})`;
+
+    const intro = p < INTRO_HOLD;
+
+    // scene index over the remaining scroll
+    const after = clamp((p - INTRO_HOLD) / (1 - INTRO_HOLD), 0, 1);
+    const scene = intro ? -1 : Math.min(total - 1, Math.floor(after * total));
+
+    if (scene === last) return;
+    last = scene;
+
+    wrap.dataset.intro = intro ? '1' : '0';
+    wrap.dataset.lit = scene >= 1 ? '1' : '0';
+
+    if (intro) {
+      steps.forEach(li => li.classList.remove('active', 'done'));
+      storeParts.forEach(el => el.classList.remove('in'));
+      Object.values(panels).forEach(el => el.classList.remove('in'));
+      phone.classList.remove('show');
+      ipCheckout.classList.remove('show');
+      finalBlock.classList.remove('show');
+      return;
+    }
+
+    sceneEl.textContent = scenes[scene].name;
+    counterEl.textContent = `CENA ${String(scene + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+
+    steps.forEach((li, i) => {
+      li.classList.toggle('active', i === scene);
+      li.classList.toggle('done', i < scene);
+    });
+
+    // the store paints itself in during "tela acende" + "frontend"
+    storeParts.forEach((el, i) => {
+      el.classList.toggle('in', scene >= 2 || (scene === 1 && i === 0));
+    });
+
+    // one panel per scene keeps the screen readable
+    const active = scenes[scene].panel;
+    Object.entries(panels).forEach(([key, el]) => el.classList.toggle('in', key === active));
+
+    pipes.forEach((pp, i) => {
+      pp.classList.remove('done', 'run');
+      if (scene === 7) pp.classList.add(i < 4 ? 'done' : 'run');
+      else if (scene > 7) pp.classList.add('done');
+    });
+
+    phone.classList.toggle('show', scene >= 2);
+    ipCheckout.classList.toggle('show', scene >= 8);
+    finalBlock.classList.toggle('show', scene === total - 1);
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { render(); ticking = false; });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  render();
+})();
+
 // Code tabs
 (function () {
   const list = document.getElementById('codeTabList');
