@@ -388,6 +388,56 @@ if (hourglass) {
   }, 700);
 }
 
+// Dev story (scroll-driven laptop build)
+(function () {
+  const wrap = document.getElementById('devStory');
+  if (!wrap) return;
+  const lid = document.getElementById('laptopLid');
+  const list = document.querySelectorAll('#devStoryList li');
+  const counter = document.getElementById('devStoryCounter');
+  const gsBase = document.getElementById('gsBase');
+  const gsBackend = document.getElementById('gsBackend');
+  const gsDb = document.getElementById('gsDb');
+  const gsTests = document.getElementById('gsTests');
+  const gsCicd = document.getElementById('gsCicd');
+  const gsDeploy = document.getElementById('gsDeploy');
+  const pipeSteps = document.querySelectorAll('.gs-pipe-step');
+  const totalScenes = 7;
+
+  function update() {
+    const rect = wrap.getBoundingClientRect();
+    const scrollable = wrap.offsetHeight - window.innerHeight;
+    let progress = scrollable > 0 ? -rect.top / scrollable : 0;
+    progress = Math.max(0, Math.min(1, progress));
+    const sceneFloat = progress * (totalScenes - 1);
+    const sceneIndex = Math.min(totalScenes - 1, Math.floor(sceneFloat));
+
+    wrap.dataset.scene = sceneIndex;
+
+    const openProgress = Math.min(1, sceneFloat);
+    lid.style.transform = `rotateX(${-94 + openProgress * 86}deg)`;
+
+    list.forEach(li => li.classList.toggle('active', parseInt(li.dataset.step, 10) === sceneIndex));
+    counter.textContent = `CENA ${String(sceneIndex + 1).padStart(2, '0')} / 0${totalScenes}`;
+
+    gsBase.classList.toggle('visible', sceneIndex >= 1);
+    gsBackend.classList.toggle('visible', sceneIndex >= 2 && sceneIndex < 6);
+    gsDb.classList.toggle('visible', sceneIndex >= 3 && sceneIndex < 6);
+    gsTests.classList.toggle('visible', sceneIndex >= 4 && sceneIndex < 6);
+    gsCicd.classList.toggle('visible', sceneIndex >= 5 && sceneIndex < 6);
+    gsDeploy.classList.toggle('visible', sceneIndex >= 6);
+
+    pipeSteps.forEach((step, i) => {
+      step.classList.remove('done', 'active');
+      if (sceneIndex >= 5) step.classList.add(i < 3 ? 'done' : 'active');
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 // Code tabs
 (function () {
   const list = document.getElementById('codeTabList');
