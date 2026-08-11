@@ -1241,6 +1241,14 @@ a { color: inherit; text-decoration: none; }
   gap: clamp(14px, 2.6vw, 44px);
 }
 
+.ds-label {
+  position: absolute;
+  top: 104px;
+  left: clamp(18px, 3.4vw, 60px);
+  z-index: 5;
+  margin: 0;
+}
+
 /* ---------- intro state ---------- */
 .ds-steps,
 .ds-info {
