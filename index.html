@@ -16,28 +16,30 @@
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">pedro<span class="accent">.</span>dev</a>
       <ul class="nav-links">
-        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#sobre" data-i18n="nav.sobre">Sobre</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#experiencia">Experiência</a></li>
-        <li><a href="#formacao">Formação</a></li>
-        <li><a href="#certificados">Certificados</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#idiomas">Idiomas</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li><a href="#experiencia" data-i18n="nav.experiencia">Experiência</a></li>
+        <li><a href="#formacao" data-i18n="nav.formacao">Formação</a></li>
+        <li><a href="#certificados" data-i18n="nav.certificados">Certificados</a></li>
+        <li><a href="#projetos" data-i18n="nav.projetos">Projetos</a></li>
+        <li><a href="#idiomas" data-i18n="nav.idiomas">Idiomas</a></li>
+        <li><a href="#contato" data-i18n="nav.contato">Contato</a></li>
+        <li><button class="lang-toggle-btn" id="langToggle" aria-label="Switch language">EN</button></li>
       </ul>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <ul class="nav-mobile" id="navMobile">
-      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#sobre" data-i18n="nav.sobre">Sobre</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#experiencia">Experiência</a></li>
-      <li><a href="#formacao">Formação</a></li>
-      <li><a href="#certificados">Certificados</a></li>
-      <li><a href="#idiomas">Idiomas</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#experiencia" data-i18n="nav.experiencia">Experiência</a></li>
+      <li><a href="#formacao" data-i18n="nav.formacao">Formação</a></li>
+      <li><a href="#certificados" data-i18n="nav.certificados">Certificados</a></li>
+      <li><a href="#idiomas" data-i18n="nav.idiomas">Idiomas</a></li>
+      <li><a href="#projetos" data-i18n="nav.projetos">Projetos</a></li>
+      <li><a href="#contato" data-i18n="nav.contato">Contato</a></li>
+      <li><button class="lang-toggle-btn" id="langToggleMobile" aria-label="Switch language">EN</button></li>
     </ul>
   </nav>
 
@@ -50,14 +52,14 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot-online"></span>
-        Disponível para projetos
+        <span data-i18n="hero.badge">Disponível para projetos</span>
       </div>
       <h1 class="hero-title">
-        Olá, eu sou<br />
+        <span data-i18n="hero.greeting">Olá, eu sou</span><br />
         <span class="hero-name">Pedro Aruanã</span>
       </h1>
       <p class="hero-subtitle">
-        Desenvolvedor <span class="typed-text" id="typedText"></span>
+        <span data-i18n="hero.role-prefix">Desenvolvedor</span> <span class="typed-text" id="typedText"></span>
       </p>
       <div class="code-tabs">
         <div class="code-tabs-bar">
@@ -79,12 +81,12 @@
       </div>
 
       <div class="hero-cta">
-        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-        <a href="#contato" class="btn btn-ghost">Falar comigo</a>
+        <a href="#projetos" class="btn btn-primary" data-i18n="hero.cta-projects">Ver Projetos</a>
+        <a href="#contato" class="btn btn-ghost" data-i18n="hero.cta-contact">Falar comigo</a>
       </div>
     </div>
     <div class="hero-scroll">
-      <span>Scroll</span>
+      <span data-i18n="hero.scroll">Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
@@ -92,17 +94,17 @@
   <!-- SOBRE -->
   <section class="section" id="sobre">
     <div class="container">
-      <div class="section-label">/ sobre mim</div>
+      <div class="section-label" data-i18n="about.label">/ sobre mim</div>
       <div class="about-grid">
         <div class="about-text">
-          <h2 class="section-title">Transformo sites comuns em <span class="accent">experiências únicas</span>.</h2>
-          <p>
+          <h2 class="section-title" data-i18n-html="about.title">Transformo sites comuns em <span class="accent">experiências únicas</span>.</h2>
+          <p data-i18n-html="about.p1">
             Olá! Me chamo <strong>Pedro Aruanã</strong>, tenho <strong>22 anos</strong> e sou de Salvador, Bahia.
             Programo há <strong>2 anos</strong> e sou desenvolvedor front-end com experiência também em full stack — gosto de pegar
             um site ou sistema comum e transformar na experiência que marca quem usa. Busco aprender e testar
             tecnologias novas na prática, não só na teoria.
           </p>
-          <p>
+          <p data-i18n="about.p2">
             Domino React e Angular na interface, mas construo o sistema completo: APIs REST com Node.js e FastAPI,
             autenticação JWT, testes automatizados com Vitest e Playwright, deploy com Docker e CI/CD.
             Atualmente estou estudando e testando automação com n8n.
@@ -110,15 +112,15 @@
           <div class="about-stats">
             <div class="stat">
               <span class="stat-num">27+</span>
-              <span class="stat-label">Repositórios no ar</span>
+              <span class="stat-label" data-i18n="about.stat1">Repositórios no ar</span>
             </div>
             <div class="stat">
               <span class="stat-num">71</span>
-              <span class="stat-label">Certificados</span>
+              <span class="stat-label" data-i18n="about.stat2">Certificados</span>
             </div>
 <div class="stat">
               <span class="stat-num">2+</span>
-              <span class="stat-label">Ano de exp.</span>
+              <span class="stat-label" data-i18n="about.stat3">Ano de exp.</span>
             </div>
           </div>
 
@@ -126,25 +128,25 @@
             <div class="journey-item">
               <span class="journey-year">2023</span>
               <span class="journey-dot"></span>
-              <span class="journey-desc">Primeiro código</span>
+              <span class="journey-desc" data-i18n="about.journey1">Primeiro código</span>
             </div>
             <div class="journey-line"></div>
             <div class="journey-item">
               <span class="journey-year">2024</span>
               <span class="journey-dot"></span>
-              <span class="journey-desc">Primeiro emprego</span>
+              <span class="journey-desc" data-i18n="about.journey2">Primeiro emprego</span>
             </div>
             <div class="journey-line"></div>
             <div class="journey-item">
               <span class="journey-year">2025</span>
               <span class="journey-dot active"></span>
-              <span class="journey-desc">Portfólio no ar</span>
+              <span class="journey-desc" data-i18n="about.journey3">Portfólio no ar</span>
             </div>
             <div class="journey-line"></div>
             <div class="journey-item">
-              <span class="journey-year">Previsão 2026</span>
+              <span class="journey-year" data-i18n="about.journey4-year">Previsão 2026</span>
               <span class="journey-dot future"></span>
-              <span class="journey-desc"><span class="hourglass">⏳</span> Formado</span>
+              <span class="journey-desc" data-i18n-html="about.journey4"><span class="hourglass">⏳</span> Formado</span>
             </div>
           </div>
         </div>
@@ -160,36 +162,36 @@
                 <span class="photo-role">Frontend Developer</span>
                 <div class="photo-location">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  Salvador, BA — Brasil
+                  <span data-i18n="about.location">Salvador, BA — Brasil</span>
                 </div>
-                <div class="photo-status"><span class="dot-online"></span> Disponível para projetos</div>
+                <div class="photo-status"><span class="dot-online"></span> <span data-i18n="hero.badge">Disponível para projetos</span></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <h3 class="diferencial-title">O que me diferencia</h3>
+      <h3 class="diferencial-title" data-i18n="about.diff-title">O que me diferencia</h3>
       <div class="diferencial-grid">
         <div class="diferencial-item">
           <span class="diferencial-icon">🖥️</span>
           <div>
-            <h4>Vim do suporte, entendo o usuário</h4>
-            <p>Trabalhei em helpdesk antes de virar dev — isso muda como eu construo interfaces. Sei onde o usuário trava, onde ele desiste, e faço o código pensando nisso.</p>
+            <h4 data-i18n="about.diff1-title">Vim do suporte, entendo o usuário</h4>
+            <p data-i18n="about.diff1-desc">Trabalhei em helpdesk antes de virar dev — isso muda como eu construo interfaces. Sei onde o usuário trava, onde ele desiste, e faço o código pensando nisso.</p>
           </div>
         </div>
         <div class="diferencial-item">
           <span class="diferencial-icon">🧪</span>
           <div>
-            <h4>Testo antes de quebrar em produção</h4>
-            <p>Vitest, Jest, Playwright, pytest — meus projetos têm testes automatizados e CI/CD rodando a cada commit. Não é só "funciona na minha máquina".</p>
+            <h4 data-i18n="about.diff2-title">Testo antes de quebrar em produção</h4>
+            <p data-i18n="about.diff2-desc">Vitest, Jest, Playwright, pytest — meus projetos têm testes automatizados e CI/CD rodando a cada commit. Não é só "funciona na minha máquina".</p>
           </div>
         </div>
         <div class="diferencial-item">
           <span class="diferencial-icon">🔍</span>
           <div>
-            <h4>Resolvo o bug que ninguém quer pegar</h4>
-            <p>Erro que só aparece em produção, comportamento que não faz sentido nenhum — é o tipo de problema que eu não largo até entender a causa raiz.</p>
+            <h4 data-i18n="about.diff3-title">Resolvo o bug que ninguém quer pegar</h4>
+            <p data-i18n="about.diff3-desc">Erro que só aparece em produção, comportamento que não faz sentido nenhum — é o tipo de problema que eu não largo até entender a causa raiz.</p>
           </div>
         </div>
       </div>
@@ -202,9 +204,9 @@
     <div class="container">
       <div class="skills-header-grid">
         <div class="skills-header-text">
-          <div class="section-label">/ habilidades</div>
-          <h2 class="section-title">Stack completo: interface, dados e IA em produção.</h2>
-          <p class="section-desc">Da interface ao banco de dados, do backend ao deploy — cada camada testada, versionada e em produção, não só no papel. CI/CD automatizado, testes com Vitest e Playwright, e IA aplicada em produção real, não só em teoria.</p>
+          <div class="section-label" data-i18n="skills.label">/ habilidades</div>
+          <h2 class="section-title" data-i18n="skills.title">Stack completo: interface, dados e IA em produção.</h2>
+          <p class="section-desc" data-i18n="skills.desc">Da interface ao banco de dados, do backend ao deploy — cada camada testada, versionada e em produção, não só no papel. CI/CD automatizado, testes com Vitest e Playwright, e IA aplicada em produção real, não só em teoria.</p>
         </div>
 
         <div class="skills-highlights">
@@ -212,15 +214,15 @@
             <div class="skill-cat-icon skill-cat-icon--purple">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             </div>
-            <h4>Sistema completo</h4>
-            <p>Cada projeto sai da minha mão com front, back, banco de dados e deploy prontos.</p>
+            <h4 data-i18n="skills.hl1-title">Sistema completo</h4>
+            <p data-i18n="skills.hl1-desc">Cada projeto sai da minha mão com front, back, banco de dados e deploy prontos.</p>
           </div>
           <div class="skills-highlight-card">
             <div class="skill-cat-icon skill-cat-icon--teal">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v5.5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 8.5V3"/><path d="M6.5 14h11"/></svg>
             </div>
-            <h4>Testes automatizados</h4>
-            <p>Vitest, Jest e Playwright rodando a cada commit, não só quando lembro.</p>
+            <h4 data-i18n="skills.hl2-title">Testes automatizados</h4>
+            <p data-i18n="skills.hl2-desc">Vitest, Jest e Playwright rodando a cada commit, não só quando lembro.</p>
             <div class="skills-highlight-logos">
               <span class="skill-tag"><img src="https://cdn.simpleicons.org/vitest/6E9F18" alt="">Vitest</span>
               <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" alt="">Jest</span>
@@ -231,8 +233,8 @@
             <div class="skill-cat-icon skill-cat-icon--blue">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
             </div>
-            <h4>Deploy sem fricção</h4>
-            <p>CI/CD e Docker levam o código do commit ao ar sem passo manual.</p>
+            <h4 data-i18n="skills.hl3-title">Deploy sem fricção</h4>
+            <p data-i18n="skills.hl3-desc">CI/CD e Docker levam o código do commit ao ar sem passo manual.</p>
             <div class="skills-highlight-logos">
               <span class="skill-tag"><img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="">CI/CD</span>
               <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="">Docker</span>
@@ -242,8 +244,8 @@
             <div class="skill-cat-icon skill-cat-icon--amber">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
             </div>
-            <h4>IA aplicada</h4>
-            <p>Já usei Claude e RAG pra resolver problema real, não só testar em chat.</p>
+            <h4 data-i18n="skills.hl4-title">IA aplicada</h4>
+            <p data-i18n="skills.hl4-desc">Já usei Claude e RAG pra resolver problema real, não só testar em chat.</p>
             <div class="skills-highlight-logos">
               <span class="skill-tag"><img src="https://cdn.simpleicons.org/claude/D97757" alt="">Claude</span>
               <span class="skill-tag">RAG</span>
@@ -260,7 +262,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
           </div>
           <h3 class="skill-cat-title">Frontend</h3>
-          <p class="skill-cat-desc">Interfaces com React e Angular, performance e experiência do usuário em primeiro lugar.</p>
+          <p class="skill-cat-desc" data-i18n="skills.cat1-desc">Interfaces com React e Angular, performance e experiência do usuário em primeiro lugar.</p>
           <div class="skill-tags">
             <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="">React</span>
             <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="">Angular</span>
@@ -278,7 +280,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="0.8" fill="currentColor" stroke="none"/><circle cx="7" cy="17" r="0.8" fill="currentColor" stroke="none"/></svg>
           </div>
           <h3 class="skill-cat-title">Backend</h3>
-          <p class="skill-cat-desc">APIs REST em Node.js e Python, autenticação e integração com serviços externos.</p>
+          <p class="skill-cat-desc" data-i18n="skills.cat2-desc">APIs REST em Node.js e Python, autenticação e integração com serviços externos.</p>
           <div class="skill-tags">
             <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="">Node.js</span>
             <span class="skill-tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="">Python</span>
@@ -294,8 +296,8 @@
           <div class="skill-cat-icon skill-cat-icon--blue">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
           </div>
-          <h3 class="skill-cat-title">Banco de Dados</h3>
-          <p class="skill-cat-desc">Modelagem relacional e não relacional, do protótipo rápido à produção.</p>
+          <h3 class="skill-cat-title" data-i18n="skills.cat3-title">Banco de Dados</h3>
+          <p class="skill-cat-desc" data-i18n="skills.cat3-desc">Modelagem relacional e não relacional, do protótipo rápido à produção.</p>
           <div class="skill-tags">
             <span class="skill-tag" style="padding-right: 7px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="">MySQL</span>
             <span class="skill-tag" style="padding-left: 3px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="">PostgreSQL</span>
@@ -310,8 +312,8 @@
           <div class="skill-cat-icon skill-cat-icon--amber">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
-          <h3 class="skill-cat-title">Ferramentas e Deploy</h3>
-          <p class="skill-cat-desc">Deploy automatizado, testes, metodologia ágil e IA aplicada em produção.</p>
+          <h3 class="skill-cat-title" data-i18n="skills.cat4-title">Ferramentas e Deploy</h3>
+          <p class="skill-cat-desc" data-i18n="skills.cat4-desc">Deploy automatizado, testes, metodologia ágil e IA aplicada em produção.</p>
           <div class="skill-tags">
             <span class="skill-tag"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="">Vercel</span>
             <span class="skill-tag"><img src="https://cdn.simpleicons.org/render/46E3B7" alt="">Render</span>
@@ -333,8 +335,8 @@
   <!-- EXPERIÊNCIA -->
   <section class="section" id="experiencia">
     <div class="container">
-      <div class="section-label">/ experiência</div>
-      <h2 class="section-title">Experiência Profissional</h2>
+      <div class="section-label" data-i18n="exp.label">/ experiência</div>
+      <h2 class="section-title" data-i18n="exp.title">Experiência Profissional</h2>
 
       <div class="timeline">
         <div class="timeline-item">
@@ -345,27 +347,27 @@
           <div class="timeline-card">
             <div class="timeline-header">
               <div>
-                <h3 class="timeline-role">Aprendiz — Marketing &amp; Suporte de T.I</h3>
+                <h3 class="timeline-role" data-i18n="exp.role">Aprendiz — Marketing &amp; Suporte de T.I</h3>
                 <span class="timeline-company">Lubritec</span>
               </div>
               <div class="timeline-meta">
                 <span class="timeline-period">Jul 2024 – Mai 2025</span>
-                <span class="timeline-location">Salvador, BA · Presencial</span>
+                <span class="timeline-location" data-i18n="exp.location">Salvador, BA · Presencial</span>
               </div>
             </div>
             <ul class="timeline-bullets">
-              <li>Suporte técnico a usuários internos — atendimento remoto via <strong>AnyDesk</strong> e resolução de chamados de hardware e software</li>
-              <li>Gestão de CRM com <strong>SAP</strong>, <strong>Salescloud</strong> e <strong>Salesforce</strong> — registro e acompanhamento de atendimentos</li>
-              <li>Substituição temporária de analista de B.I por 45 dias — elaboração de <strong>relatórios e planilhas gerenciais</strong> no Excel</li>
-              <li>Formatação, manutenção e reinstalação de sistemas em computadores; configuração de celulares e iPads corporativos</li>
-              <li>Apoio em infraestrutura de T.I — organização, inventário e suporte a equipamentos da empresa</li>
+              <li data-i18n-html="exp.bullet1">Suporte técnico a usuários internos — atendimento remoto via <strong>AnyDesk</strong> e resolução de chamados de hardware e software</li>
+              <li data-i18n-html="exp.bullet2">Gestão de CRM com <strong>SAP</strong>, <strong>Salescloud</strong> e <strong>Salesforce</strong> — registro e acompanhamento de atendimentos</li>
+              <li data-i18n-html="exp.bullet3">Substituição temporária de analista de B.I por 45 dias — elaboração de <strong>relatórios e planilhas gerenciais</strong> no Excel</li>
+              <li data-i18n="exp.bullet4">Formatação, manutenção e reinstalação de sistemas em computadores; configuração de celulares e iPads corporativos</li>
+              <li data-i18n="exp.bullet5">Apoio em infraestrutura de T.I — organização, inventário e suporte a equipamentos da empresa</li>
             </ul>
             <div class="timeline-tags">
-              <span>AnyDesk</span><span>SAP</span><span>Salesforce</span><span>Suporte T.I</span><span>Excel / B.I</span>
+              <span>AnyDesk</span><span>SAP</span><span>Salesforce</span><span data-i18n="exp.tag-support">Suporte T.I</span><span>Excel / B.I</span>
             </div>
             <div class="timeline-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              Carta de referência disponível
+              <span data-i18n="exp.reference">Carta de referência disponível</span>
             </div>
           </div>
         </div>
@@ -376,8 +378,8 @@
   <!-- FORMAÇÃO -->
   <section class="section section-alt" id="formacao">
     <div class="container">
-      <div class="section-label">/ formação</div>
-      <h2 class="section-title">Formação Acadêmica</h2>
+      <div class="section-label" data-i18n="edu.label">/ formação</div>
+      <h2 class="section-title" data-i18n="edu.title">Formação Acadêmica</h2>
 
       <div class="timeline">
         <div class="timeline-item">
@@ -388,21 +390,21 @@
           <div class="timeline-card">
             <div class="timeline-header">
               <div>
-                <h3 class="timeline-role">Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+                <h3 class="timeline-role" data-i18n="edu.role1">Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
                 <span class="timeline-company edu">Estácio de Sá</span>
               </div>
               <div class="timeline-meta">
                 <span class="timeline-period">Ago 2024 – Dez 2026</span>
-                <span class="timeline-location">Em andamento</span>
+                <span class="timeline-location" data-i18n="edu.ongoing">Em andamento</span>
               </div>
             </div>
             <ul class="timeline-bullets">
-              <li>Formação com foco em <strong>desenvolvimento de software</strong>, lógica de programação e engenharia de sistemas</li>
-              <li>Disciplinas de <strong>banco de dados</strong>, modelagem de dados e estruturação de sistemas</li>
-              <li>Desenvolvimento e aplicação prática de conhecimentos em <strong>desenvolvimento web</strong> e programação orientada a objetos</li>
+              <li data-i18n-html="edu.bullet1">Formação com foco em <strong>desenvolvimento de software</strong>, lógica de programação e engenharia de sistemas</li>
+              <li data-i18n-html="edu.bullet2">Disciplinas de <strong>banco de dados</strong>, modelagem de dados e estruturação de sistemas</li>
+              <li data-i18n-html="edu.bullet3">Desenvolvimento e aplicação prática de conhecimentos em <strong>desenvolvimento web</strong> e programação orientada a objetos</li>
             </ul>
             <div class="timeline-tags">
-              <span>ADS</span><span>Desenvolvimento de Software</span><span>Banco de Dados</span><span>Engenharia de Sistemas</span>
+              <span>ADS</span><span data-i18n="edu.tag-swdev">Desenvolvimento de Software</span><span data-i18n="edu.tag-db">Banco de Dados</span><span data-i18n="edu.tag-syseng">Engenharia de Sistemas</span>
             </div>
           </div>
         </div>
@@ -414,21 +416,21 @@
           <div class="timeline-card">
             <div class="timeline-header">
               <div>
-                <h3 class="timeline-role">Curso de Inglês — English Language and Literature</h3>
+                <h3 class="timeline-role" data-i18n="edu.role2">Curso de Inglês — English Language and Literature</h3>
                 <span class="timeline-company edu">Wizard by Pearson</span>
               </div>
               <div class="timeline-meta">
                 <span class="timeline-period">2019 – 2020</span>
-                <span class="timeline-location">Concluído</span>
+                <span class="timeline-location" data-i18n="edu.completed">Concluído</span>
               </div>
             </div>
             <ul class="timeline-bullets">
-              <li>2 anos de curso com foco em <strong>conversação</strong>, gramática e escrita</li>
-              <li>Base sólida para comunicação em situações do dia a dia</li>
-              <li>Leitura e compreensão de <strong>conteúdo técnico em inglês</strong>, essencial pra documentação e materiais de estudo em tecnologia</li>
+              <li data-i18n-html="edu.bullet4">2 anos de curso com foco em <strong>conversação</strong>, gramática e escrita</li>
+              <li data-i18n="edu.bullet5">Base sólida para comunicação em situações do dia a dia</li>
+              <li data-i18n-html="edu.bullet6">Leitura e compreensão de <strong>conteúdo técnico em inglês</strong>, essencial pra documentação e materiais de estudo em tecnologia</li>
             </ul>
             <div class="timeline-tags">
-              <span>Inglês</span><span>Conversação</span><span>Leitura Técnica</span>
+              <span data-i18n="edu.tag-english">Inglês</span><span data-i18n="edu.tag-conversation">Conversação</span><span data-i18n="edu.tag-techreading">Leitura Técnica</span>
             </div>
           </div>
         </div>
@@ -439,9 +441,9 @@
   <!-- CERTIFICADOS -->
   <section class="section section-alt" id="certificados">
     <div class="container">
-      <div class="section-label">/ certificados</div>
-      <h2 class="section-title center">Cursos & Certificações</h2>
-      <p class="section-desc center">Certificações emitidas por instituições reconhecidas.</p>
+      <div class="section-label" data-i18n="cert.label">/ certificados</div>
+      <h2 class="section-title center" data-i18n="cert.title">Cursos & Certificações</h2>
+      <p class="section-desc center" data-i18n="cert.desc">Certificações emitidas por instituições reconhecidas.</p>
 
       <div class="certs-grid">
 
@@ -451,7 +453,7 @@
           <span class="cert-issuer">University of Helsinki</span>
           <span class="cert-period">2026</span>
           <div class="cert-tags"><span>Next.js</span><span>React</span><span>Full Stack</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-helsinki-nextjs.png')">Ver certificado ↗</button>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-helsinki-nextjs.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -459,8 +461,8 @@
           <h3 class="cert-title">Fortinet Certified Fundamentals in Cybersecurity</h3>
           <span class="cert-issuer">Fortinet</span>
           <span class="cert-period">2026 – 2028</span>
-          <div class="cert-tags"><span>Cybersecurity</span><span>Fundamentos</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-fortinet-cybersecurity.png')">Ver certificado ↗</button>
+          <div class="cert-tags"><span>Cybersecurity</span><span data-i18n="tag.fundamentals">Fundamentos</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-fortinet-cybersecurity.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -469,7 +471,7 @@
           <span class="cert-issuer">freeCodeCamp</span>
           <span class="cert-period">2026</span>
           <div class="cert-tags"><span>Full Stack</span><span>JavaScript</span><span>APIs</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-freecodecamp-fullstack.png')">Ver certificado ↗</button>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-freecodecamp-fullstack.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -477,8 +479,8 @@
           <h3 class="cert-title">CS50's Introduction to Artificial Intelligence with Python</h3>
           <span class="cert-issuer">Harvard University</span>
           <span class="cert-period">2026</span>
-          <div class="cert-tags"><span>IA</span><span>Python</span><span>Algoritmos</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-harvard-cs50-ai.png')">Ver certificado ↗</button>
+          <div class="cert-tags"><span data-i18n="tag.ai">IA</span><span>Python</span><span data-i18n="tag.algorithms">Algoritmos</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-harvard-cs50-ai.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -486,8 +488,8 @@
           <h3 class="cert-title">Integrations: APIs & Connected Workflows</h3>
           <span class="cert-issuer">n8n</span>
           <span class="cert-period">2026</span>
-          <div class="cert-tags"><span>n8n</span><span>Automação</span><span>APIs</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-n8n-integrations.png')">Ver certificado ↗</button>
+          <div class="cert-tags"><span>n8n</span><span data-i18n="tag.automation">Automação</span><span>APIs</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-n8n-integrations.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -496,7 +498,7 @@
           <span class="cert-issuer">Instituto Federal do Rio Grande do Sul</span>
           <span class="cert-period">2026</span>
           <div class="cert-tags"><span>React Native</span><span>Mobile</span><span>Expo</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-ifrs-react-native.png')">Ver certificado ↗</button>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-ifrs-react-native.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -505,7 +507,7 @@
           <span class="cert-issuer">Instituto Federal do Rio Grande do Sul</span>
           <span class="cert-period">2026</span>
           <div class="cert-tags"><span>Node.js</span><span>APIs</span><span>Backend</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-ifrs-nodejs.png')">Ver certificado ↗</button>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-ifrs-nodejs.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card">
@@ -514,7 +516,7 @@
           <span class="cert-issuer">IBM</span>
           <span class="cert-period">2026</span>
           <div class="cert-tags"><span>HTML</span><span>CSS</span><span>Frontend</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-ibm-webdev.png')">Ver certificado ↗</button>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-ibm-webdev.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card extra">
@@ -522,8 +524,8 @@
           <h3 class="cert-title">Agents and Workflows</h3>
           <span class="cert-issuer">OpenAI</span>
           <span class="cert-period">2026</span>
-          <div class="cert-tags"><span>IA</span><span>Agentes</span><span>Workflows</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-openai-agents.png')">Ver certificado ↗</button>
+          <div class="cert-tags"><span data-i18n="tag.ai">IA</span><span data-i18n="tag.agents">Agentes</span><span>Workflows</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-openai-agents.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card extra">
@@ -531,8 +533,8 @@
           <h3 class="cert-title">Claude Code in Action</h3>
           <span class="cert-issuer">Anthropic</span>
           <span class="cert-period">2026</span>
-          <div class="cert-tags"><span>Claude Code</span><span>IA Aplicada</span><span>Automação</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-claude-code-action.png')">Ver certificado ↗</button>
+          <div class="cert-tags"><span>Claude Code</span><span data-i18n="tag.applied-ai">IA Aplicada</span><span data-i18n="tag.automation">Automação</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-claude-code-action.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card extra">
@@ -540,8 +542,8 @@
           <h3 class="cert-title">MongoDB (RAG)</h3>
           <span class="cert-issuer">MongoDB</span>
           <span class="cert-period">2026</span>
-          <div class="cert-tags"><span>MongoDB</span><span>RAG</span><span>IA Generativa</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-mongodb-rag.png')">Ver certificado ↗</button>
+          <div class="cert-tags"><span>MongoDB</span><span>RAG</span><span data-i18n="tag.genai">IA Generativa</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-mongodb-rag.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
         <div class="cert-card extra">
@@ -549,18 +551,18 @@
           <h3 class="cert-title">Scrum Fundamentals Certified (SFC)</h3>
           <span class="cert-issuer">SCRUMstudy</span>
           <span class="cert-period">2026</span>
-          <div class="cert-tags"><span>Scrum</span><span>Metodologia Ágil</span></div>
-          <button class="cert-view-btn" onclick="openCert('certs/cert-scrumstudy-sfc.png')">Ver certificado ↗</button>
+          <div class="cert-tags"><span>Scrum</span><span data-i18n="tag.agile">Metodologia Ágil</span></div>
+          <button class="cert-view-btn" onclick="openCert('certs/cert-scrumstudy-sfc.png')" data-i18n="cert.view-btn">Ver certificado ↗</button>
         </div>
 
       </div>
 
       <div class="certs-toggle">
         <button class="btn-ver-mais" id="certsToggle">
-          Ver mais <span class="toggle-arrow">↓</span>
+          <span data-i18n="common.see-more">Ver mais</span> <span class="toggle-arrow">↓</span>
         </button>
         <a href="https://www.linkedin.com/in/pedro-aruan%C3%A3/" target="_blank" rel="noopener" class="btn-ver-mais">
-          Ver todos os certificados no LinkedIn
+          <span data-i18n="cert.see-all-linkedin">Ver todos os certificados no LinkedIn</span>
           <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
       </div>
@@ -570,9 +572,9 @@
   <!-- PROJETOS -->
   <section class="section" id="projetos">
     <div class="container">
-      <div class="section-label">/ projetos</div>
-      <h2 class="section-title center">O que eu construí</h2>
-      <p class="section-desc center">Alguns dos projetos que desenvolvei. Clique para ver mais.</p>
+      <div class="section-label" data-i18n="proj.label">/ projetos</div>
+      <h2 class="section-title center" data-i18n="proj.title">O que eu construí</h2>
+      <p class="section-desc center" data-i18n="proj.desc">Alguns dos projetos que desenvolvei. Clique para ver mais.</p>
 
       <div class="projects-grid">
 
@@ -593,7 +595,7 @@
             </div>
           </div>
           <h3 class="project-title">Wasteland Garden</h3>
-          <p class="project-desc">Gerenciador de tarefas gamificado em pixel art, ambientado em 2056 num mundo sem ar. Cada tarefa é uma semente que você rega e colhe pra gerar oxigênio. Modo visitante via localStorage, autenticação JWT e testes automatizados com Vitest e Playwright.</p>
+          <p class="project-desc" data-i18n="proj.wasteland-desc">Gerenciador de tarefas gamificado em pixel art, ambientado em 2056 num mundo sem ar. Cada tarefa é uma semente que você rega e colhe pra gerar oxigênio. Modo visitante via localStorage, autenticação JWT e testes automatizados com Vitest e Playwright.</p>
           <div class="project-stack">
             <span>React 18</span>
             <span>TypeScript</span>
@@ -619,7 +621,7 @@
             </div>
           </div>
           <h3 class="project-title">ScannerBuild</h3>
-          <p class="project-desc">Selecione um ponto qualquer no mapa e o ScannerBuild traça o contorno real do prédio via OpenStreetMap, estima altura, andares e entradas, e monta um modelo 3D navegável — com cache, rate-limit e retry em paralelo pra lidar com a instabilidade do serviço externo.</p>
+          <p class="project-desc" data-i18n="proj.scannerbuild-desc">Selecione um ponto qualquer no mapa e o ScannerBuild traça o contorno real do prédio via OpenStreetMap, estima altura, andares e entradas, e monta um modelo 3D navegável — com cache, rate-limit e retry em paralelo pra lidar com a instabilidade do serviço externo.</p>
           <div class="project-stack">
             <span>Next.js</span>
             <span>Three.js</span>
@@ -644,7 +646,7 @@
             </div>
           </div>
           <h3 class="project-title">Cicada 3301</h3>
-          <p class="project-desc">Puzzle web interativo inspirado no enigma Cicada 3301. Cinco fases, cada uma com uma técnica diferente de criptografia e investigação — incluindo esteganografia LSB implementada do zero com Pillow. No final, um certificado personalizado em PDF.</p>
+          <p class="project-desc" data-i18n="proj.cicada-desc">Puzzle web interativo inspirado no enigma Cicada 3301. Cinco fases, cada uma com uma técnica diferente de criptografia e investigação — incluindo esteganografia LSB implementada do zero com Pillow. No final, um certificado personalizado em PDF.</p>
           <div class="project-stack">
             <span>Python</span>
             <span>Flask</span>
@@ -670,7 +672,7 @@
             </div>
           </div>
           <h3 class="project-title">Create Your Language</h3>
-          <p class="project-desc">Wizard de 7 etapas sobre como você imagina sua linguagem de programação, com uma animação de "construção" numa IDE simulada — e no final você baixa um interpretador de verdade (lexer, parser e interpretador), roda com node cli.js run.</p>
+          <p class="project-desc" data-i18n="proj.createlanguage-desc">Wizard de 7 etapas sobre como você imagina sua linguagem de programação, com uma animação de "construção" numa IDE simulada — e no final você baixa um interpretador de verdade (lexer, parser e interpretador), roda com node cli.js run.</p>
           <div class="project-stack">
             <span>Next.js</span>
             <span>React</span>
@@ -695,7 +697,7 @@
             </div>
           </div>
           <h3 class="project-title">BotGram</h3>
-          <p class="project-desc">Construtor visual de bots de venda para o Telegram. Configura produtos, preços e mensagens pelo site e recebe o código do bot pronto pra rodar — sem saber programar. Preview em tempo real simulando uma conversa no Telegram.</p>
+          <p class="project-desc" data-i18n="proj.botgram-desc">Construtor visual de bots de venda para o Telegram. Configura produtos, preços e mensagens pelo site e recebe o código do bot pronto pra rodar — sem saber programar. Preview em tempo real simulando uma conversa no Telegram.</p>
           <div class="project-stack">
             <span>Angular 21</span>
             <span>TypeScript</span>
@@ -721,7 +723,7 @@
             </div>
           </div>
           <h3 class="project-title">CPU Master</h3>
-          <p class="project-desc">Simulador de montagem de PC com checagem de compatibilidade em tempo real — soquete, tipo de memória, tamanho da GPU, radiador do cooler — e visualização 3D do gabinete. Estimativa de FPS e builds prontas de custo-benefício a extremo.</p>
+          <p class="project-desc" data-i18n="proj.cpumaster-desc">Simulador de montagem de PC com checagem de compatibilidade em tempo real — soquete, tipo de memória, tamanho da GPU, radiador do cooler — e visualização 3D do gabinete. Estimativa de FPS e builds prontas de custo-benefício a extremo.</p>
           <div class="project-stack">
             <span>Next.js</span>
             <span>React</span>
@@ -746,7 +748,7 @@
             </div>
           </div>
           <h3 class="project-title">GameHub</h3>
-          <p class="project-desc">Plataforma de jogos digitais inspirada na Steam. Login com animação 3D em Three.js, catálogo com busca, carrinho, favoritos e checkout com múltiplas formas de pagamento. Deploy em 3 serviços diferentes.</p>
+          <p class="project-desc" data-i18n="proj.gamehub-desc">Plataforma de jogos digitais inspirada na Steam. Login com animação 3D em Three.js, catálogo com busca, carrinho, favoritos e checkout com múltiplas formas de pagamento. Deploy em 3 serviços diferentes.</p>
           <div class="project-stack">
             <span>Python</span>
             <span>FastAPI</span>
@@ -772,7 +774,7 @@
             </div>
           </div>
           <h3 class="project-title">HireMind AI</h3>
-          <p class="project-desc">Sobe um currículo em PDF e em segundos recebe um score de 0 a 100, as habilidades extraídas automaticamente e dicas de melhoria. Backend em FastAPI com autenticação JWT e banco PostgreSQL real.</p>
+          <p class="project-desc" data-i18n="proj.hiremind-desc">Sobe um currículo em PDF e em segundos recebe um score de 0 a 100, as habilidades extraídas automaticamente e dicas de melhoria. Backend em FastAPI com autenticação JWT e banco PostgreSQL real.</p>
           <div class="project-stack">
             <span>Python</span>
             <span>FastAPI</span>
@@ -798,7 +800,7 @@
             </div>
           </div>
           <h3 class="project-title">HelpDesk EA</h3>
-          <p class="project-desc">Nasceu de uma frustração real: sistemas de suporte lentos e cheios de coisa inútil. Construí do zero com Angular + Node.js, autenticação JWT, dashboard com métricas em tempo real e deploy automático via GitHub Actions.</p>
+          <p class="project-desc" data-i18n="proj.helpdesk-desc">Nasceu de uma frustração real: sistemas de suporte lentos e cheios de coisa inútil. Construí do zero com Angular + Node.js, autenticação JWT, dashboard com métricas em tempo real e deploy automático via GitHub Actions.</p>
           <div class="project-stack">
             <span>Angular 17</span>
             <span>TypeScript</span>
@@ -813,10 +815,10 @@
 
       <div class="projects-toggle">
         <button class="btn-ver-mais" id="projectsToggle">
-          Ver mais <span class="toggle-arrow">↓</span>
+          <span data-i18n="common.see-more">Ver mais</span> <span class="toggle-arrow">↓</span>
         </button>
         <a href="https://github.com/Pedroaruana" target="_blank" rel="noopener" class="btn-ver-mais">
-          Ver mais projetos no GitHub
+          <span data-i18n="proj.see-more-github">Ver mais projetos no GitHub</span>
           <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
       </div>
@@ -826,17 +828,17 @@
   <!-- IDIOMAS -->
   <section class="section" id="idiomas">
     <div class="container">
-      <div class="section-label">/ idiomas</div>
-      <h2 class="section-title">Idiomas</h2>
+      <div class="section-label" data-i18n="lang.label">/ idiomas</div>
+      <h2 class="section-title" data-i18n="lang.title">Idiomas</h2>
 
       <div class="langs-grid">
 
         <div class="lang-card">
           <div class="lang-flag"><img src="https://flagcdn.com/48x36/us.png" alt="EUA"></div>
           <div class="lang-info">
-            <h3 class="lang-name">Inglês</h3>
-            <span class="lang-level">Intermediário — B2</span>
-            <p class="lang-desc">Leitura fluente de documentação técnica e escrita eficiente para comunicação profissional.</p>
+            <h3 class="lang-name" data-i18n="lang.english">Inglês</h3>
+            <span class="lang-level" data-i18n="lang.intermediate">Intermediário — B2</span>
+            <p class="lang-desc" data-i18n="lang.english-desc">Leitura fluente de documentação técnica e escrita eficiente para comunicação profissional.</p>
           </div>
           <div class="lang-bar-wrap">
             <div class="lang-bar" style="--pct: 70%"></div>
@@ -846,9 +848,9 @@
         <div class="lang-card">
           <div class="lang-flag"><img src="https://flagcdn.com/48x36/es.png" alt="Espanha"></div>
           <div class="lang-info">
-            <h3 class="lang-name">Espanhol</h3>
-            <span class="lang-level">Básico — A2</span>
-            <p class="lang-desc">Compreensão de textos simples e comunicação básica.</p>
+            <h3 class="lang-name" data-i18n="lang.spanish">Espanhol</h3>
+            <span class="lang-level" data-i18n="lang.basic">Básico — A2</span>
+            <p class="lang-desc" data-i18n="lang.spanish-desc">Compreensão de textos simples e comunicação básica.</p>
           </div>
           <div class="lang-bar-wrap">
             <div class="lang-bar" style="--pct: 30%"></div>
@@ -858,9 +860,9 @@
         <div class="lang-card">
           <div class="lang-flag"><img src="https://flagcdn.com/48x36/br.png" alt="Brasil"></div>
           <div class="lang-info">
-            <h3 class="lang-name">Português</h3>
-            <span class="lang-level">Nativo</span>
-            <p class="lang-desc">Língua nativa com domínio completo escrito e oral.</p>
+            <h3 class="lang-name" data-i18n="lang.portuguese">Português</h3>
+            <span class="lang-level" data-i18n="lang.native">Nativo</span>
+            <p class="lang-desc" data-i18n="lang.portuguese-desc">Língua nativa com domínio completo escrito e oral.</p>
           </div>
           <div class="lang-bar-wrap">
             <div class="lang-bar" style="--pct: 100%"></div>
@@ -874,14 +876,14 @@
   <!-- CONTATO -->
   <section class="section section-alt" id="contato">
     <div class="container">
-      <div class="section-label">/ contato</div>
+      <div class="section-label" data-i18n="contact.label">/ contato</div>
 
       <div style="text-align:center">
-        <span class="contact-status-pill"><span class="contact-status-dot"></span>Disponível para oportunidades</span>
+        <span class="contact-status-pill"><span class="contact-status-dot"></span><span data-i18n="contact.status">Disponível para oportunidades</span></span>
       </div>
 
-      <h2 class="section-title center">Quer transformar sua ideia em produto de verdade?</h2>
-      <p class="contact-highlight">Vamos conversar.</p>
+      <h2 class="section-title center" data-i18n="contact.title">Quer transformar sua ideia em produto de verdade?</h2>
+      <p class="contact-highlight" data-i18n="contact.highlight">Vamos conversar.</p>
 
       <div class="contact-cta-row">
         <a href="mailto:aruanapedro@gmail.com" class="contact-cta contact-cta--primary">
@@ -902,13 +904,13 @@
 
       <div class="contact-footer-row">
         <span class="contact-footer-name"><span class="contact-footer-dot"></span>Pedro Aruanã</span>
-        <span class="contact-footer-note">Resposta em até 24h</span>
+        <span class="contact-footer-note" data-i18n="contact.response-time">Resposta em até 24h</span>
       </div>
 
       <div style="text-align:center">
       <a href="Pedro_Aruana_Curriculo.pdf" download class="btn-download-cv">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Baixar Currículo (PDF)
+        <span data-i18n="contact.download-cv">Baixar Currículo (PDF)</span>
       </a>
       </div>
     </div>
@@ -917,9 +919,9 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-bar">
-      <p class="footer-copy">© 2026 SALVADOR - BA. TODOS OS DIREITOS RESERVADOS.</p>
+      <p class="footer-copy" data-i18n="footer.copy">© 2026 SALVADOR - BA. TODOS OS DIREITOS RESERVADOS.</p>
       <div class="footer-powered">
-        <span class="footer-powered-label">POWERED BY</span>
+        <span class="footer-powered-label" data-i18n="footer.powered-by">POWERED BY</span>
         <div class="footer-powered-icons">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" title="React" />
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="Angular" title="Angular" />
@@ -949,11 +951,11 @@
         <div class="proj-modal-actions">
           <a id="projBtnGithub" href="#" target="_blank" rel="noopener" class="proj-btn proj-btn--gh">
             <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            Ver no GitHub
+            <span data-i18n="modal.view-github">Ver no GitHub</span>
           </a>
           <a id="projBtnDemo" href="#" target="_blank" rel="noopener" class="proj-btn proj-btn--demo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Ver Demo online
+            <span data-i18n="modal.view-demo">Ver Demo online</span>
           </a>
         </div>
       </div>

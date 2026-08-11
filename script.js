@@ -1,3 +1,186 @@
+// i18n
+const translations = {
+  en: {
+    'nav.sobre': 'About',
+    'nav.experiencia': 'Experience',
+    'nav.formacao': 'Education',
+    'nav.certificados': 'Certificates',
+    'nav.projetos': 'Projects',
+    'nav.idiomas': 'Languages',
+    'nav.contato': 'Contact',
+    'hero.badge': 'Available for projects',
+    'hero.greeting': "Hi, I'm",
+    'hero.role-prefix': 'Developer',
+    'hero.cta-projects': 'View Projects',
+    'hero.cta-contact': 'Get in touch',
+    'hero.scroll': 'Scroll',
+    'about.label': '/ about me',
+    'about.title': 'Turning ordinary websites into <span class="accent">unique experiences</span>.',
+    'about.p1': 'Hi! My name is <strong>Pedro Aruanã</strong>, I\'m <strong>22 years old</strong> and I\'m from Salvador, Bahia. I\'ve been coding for <strong>2 years</strong> and I\'m a front-end developer with full stack experience too — I like taking an ordinary site or system and turning it into an experience people remember. I\'m always learning and testing new technologies hands-on, not just in theory.',
+    'about.p2': "I'm proficient in React and Angular on the interface, but I build the whole system: REST APIs with Node.js and FastAPI, JWT authentication, automated tests with Vitest and Playwright, deployment with Docker and CI/CD. I'm currently studying and testing automation with n8n.",
+    'about.stat1': 'Repos live',
+    'about.stat2': 'Certificates',
+    'about.stat3': 'Years of exp.',
+    'about.journey1': 'First line of code',
+    'about.journey2': 'First job',
+    'about.journey3': 'Portfolio live',
+    'about.journey4-year': 'Forecast 2026',
+    'about.journey4': '<span class="hourglass">⏳</span> Graduated',
+    'about.location': 'Salvador, BA — Brazil',
+    'about.diff-title': 'What sets me apart',
+    'about.diff1-title': 'Came from support, I understand the user',
+    'about.diff1-desc': 'I worked in helpdesk before becoming a dev — that changes how I build interfaces. I know where users get stuck, where they give up, and I code with that in mind.',
+    'about.diff2-title': 'I test before it breaks in production',
+    'about.diff2-desc': 'Vitest, Jest, Playwright, pytest — my projects have automated tests and CI/CD running on every commit. It\'s not just "works on my machine".',
+    'about.diff3-title': 'I fix the bug nobody wants to touch',
+    'about.diff3-desc': "An error that only shows up in production, behavior that makes no sense at all — that's the kind of problem I won't let go until I find the root cause.",
+    'skills.label': '/ skills',
+    'skills.title': 'Full stack: interface, data and AI in production.',
+    'skills.desc': "From the interface to the database, from backend to deploy — every layer tested, versioned and in production, not just on paper. Automated CI/CD, tests with Vitest and Playwright, and AI applied in real production, not just in theory.",
+    'skills.hl1-title': 'Complete system',
+    'skills.hl1-desc': 'Every project leaves my hands with front, back, database and deploy ready.',
+    'skills.hl2-title': 'Automated testing',
+    'skills.hl2-desc': "Vitest, Jest and Playwright running on every commit, not just when I remember.",
+    'skills.hl3-title': 'Frictionless deploy',
+    'skills.hl3-desc': 'CI/CD and Docker take the code from commit to live without a manual step.',
+    'skills.hl4-title': 'Applied AI',
+    'skills.hl4-desc': "I've used Claude and RAG to solve real problems, not just test in a chat.",
+    'skills.cat1-desc': 'Interfaces with React and Angular, performance and user experience first.',
+    'skills.cat2-desc': 'REST APIs in Node.js and Python, authentication and integration with external services.',
+    'skills.cat3-title': 'Database',
+    'skills.cat3-desc': 'Relational and non-relational modeling, from quick prototype to production.',
+    'skills.cat4-title': 'Tools & Deploy',
+    'skills.cat4-desc': 'Automated deploy, testing, agile methodology and applied AI in production.',
+    'exp.label': '/ experience',
+    'exp.title': 'Professional Experience',
+    'exp.role': 'Apprentice — Marketing & IT Support',
+    'exp.location': 'Salvador, BA · On-site',
+    'exp.bullet1': 'Technical support for internal users — remote assistance via <strong>AnyDesk</strong> and resolving hardware and software tickets',
+    'exp.bullet2': 'CRM management with <strong>SAP</strong>, <strong>Salescloud</strong> and <strong>Salesforce</strong> — logging and tracking service requests',
+    'exp.bullet3': 'Temporarily covered for a B.I analyst for 45 days — building <strong>management reports and spreadsheets</strong> in Excel',
+    'exp.bullet4': 'Formatting, maintaining and reinstalling computer systems; setting up corporate phones and iPads',
+    'exp.bullet5': 'Support with IT infrastructure — organizing, inventory and equipment support for the company',
+    'exp.tag-support': 'IT Support',
+    'exp.reference': 'Reference letter available',
+    'edu.label': '/ education',
+    'edu.title': 'Academic Background',
+    'edu.role1': 'Associate Degree in Systems Analysis and Development',
+    'edu.ongoing': 'Ongoing',
+    'edu.bullet1': 'Program focused on <strong>software development</strong>, programming logic and systems engineering',
+    'edu.bullet2': '<strong>Database</strong> courses, data modeling and systems design',
+    'edu.bullet3': 'Development and hands-on application of <strong>web development</strong> and object-oriented programming knowledge',
+    'edu.tag-swdev': 'Software Development',
+    'edu.tag-db': 'Database',
+    'edu.tag-syseng': 'Systems Engineering',
+    'edu.role2': 'English Course — English Language and Literature',
+    'edu.completed': 'Completed',
+    'edu.bullet4': '2-year course focused on <strong>conversation</strong>, grammar and writing',
+    'edu.bullet5': 'Solid foundation for everyday communication',
+    'edu.bullet6': 'Reading and understanding <strong>technical content in English</strong>, essential for documentation and study materials in tech',
+    'edu.tag-english': 'English',
+    'edu.tag-conversation': 'Conversation',
+    'edu.tag-techreading': 'Technical Reading',
+    'cert.label': '/ certificates',
+    'cert.title': 'Courses & Certifications',
+    'cert.desc': 'Certifications issued by recognized institutions.',
+    'cert.view-btn': 'View certificate ↗',
+    'cert.see-all-linkedin': 'See all certificates on LinkedIn',
+    'tag.fundamentals': 'Fundamentals',
+    'tag.ai': 'AI',
+    'tag.algorithms': 'Algorithms',
+    'tag.automation': 'Automation',
+    'tag.agents': 'Agents',
+    'tag.applied-ai': 'Applied AI',
+    'tag.genai': 'Generative AI',
+    'tag.agile': 'Agile Methodology',
+    'proj.label': '/ projects',
+    'proj.title': "What I've built",
+    'proj.desc': "Some of the projects I've developed. Click to see more.",
+    'proj.see-more-github': 'See more projects on GitHub',
+    'proj.wasteland-desc': 'Gamified pixel-art task manager set in 2056, in a world without air. Each task is a seed you water and harvest to generate oxygen. Guest mode via localStorage, JWT auth and automated tests with Vitest and Playwright.',
+    'proj.scannerbuild-desc': "Pick any point on the map and ScannerBuild traces the building's real outline via OpenStreetMap, estimates height, floors and entrances, and builds a navigable 3D model — with caching, rate-limiting and parallel retry to handle the external service's instability.",
+    'proj.cicada-desc': 'Interactive web puzzle inspired by the Cicada 3301 enigma. Five stages, each with a different cryptography and investigation technique — including LSB steganography implemented from scratch with Pillow. At the end, a personalized PDF certificate.',
+    'proj.createlanguage-desc': 'A 7-step wizard about how you imagine your programming language, with a "building" animation in a simulated IDE — and at the end you download a real interpreter (lexer, parser and interpreter), runs with node cli.js run.',
+    'proj.botgram-desc': "Visual builder for Telegram sales bots. Configure products, prices and messages on the site and get the bot's code ready to run — no coding needed. Real-time preview simulating a Telegram conversation.",
+    'proj.cpumaster-desc': 'PC building simulator with real-time compatibility checking — socket, memory type, GPU size, cooler radiator — and 3D case visualization. FPS estimates and ready-made builds from budget to extreme.',
+    'proj.gamehub-desc': 'Digital games platform inspired by Steam. Login with 3D animation in Three.js, catalog with search, cart, favorites and checkout with multiple payment methods. Deployed across 3 different services.',
+    'proj.hiremind-desc': 'Upload a resume as a PDF and get a score from 0 to 100 in seconds, automatically extracted skills and improvement tips. Backend in FastAPI with JWT auth and a real PostgreSQL database.',
+    'proj.helpdesk-desc': 'Born from a real frustration: slow support systems full of useless stuff. Built from scratch with Angular + Node.js, JWT auth, real-time metrics dashboard and automatic deploy via GitHub Actions.',
+    'lang.label': '/ languages',
+    'lang.title': 'Languages',
+    'lang.english': 'English',
+    'lang.intermediate': 'Intermediate — B2',
+    'lang.english-desc': 'Fluent reading of technical documentation and efficient writing for professional communication.',
+    'lang.spanish': 'Spanish',
+    'lang.basic': 'Basic — A2',
+    'lang.spanish-desc': 'Understanding of simple texts and basic communication.',
+    'lang.portuguese': 'Portuguese',
+    'lang.native': 'Native',
+    'lang.portuguese-desc': 'Native language with full written and spoken fluency.',
+    'contact.label': '/ contact',
+    'contact.status': 'Available for opportunities',
+    'contact.title': 'Want to turn your idea into a real product?',
+    'contact.highlight': "Let's talk.",
+    'contact.response-time': 'Response within 24h',
+    'contact.download-cv': 'Download Resume (PDF)',
+    'footer.copy': '© 2026 SALVADOR - BA. ALL RIGHTS RESERVED.',
+    'footer.powered-by': 'POWERED BY',
+    'modal.view-github': 'View on GitHub',
+    'modal.view-demo': 'View live demo',
+    'common.see-more': 'See more',
+    'common.see-less': 'See less'
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'pt';
+
+function t(key) {
+  if (currentLang === 'en' && translations.en[key]) return translations.en[key];
+  const el = document.querySelector(`[data-i18n="${key}"], [data-i18n-html="${key}"]`);
+  if (el) return el.dataset.pt || el.dataset.ptHtml || el.textContent;
+  return key;
+}
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (lang === 'en') {
+      if (el.dataset.pt === undefined) el.dataset.pt = el.textContent;
+      el.textContent = translations.en[key] || el.dataset.pt;
+    } else if (el.dataset.pt !== undefined) {
+      el.textContent = el.dataset.pt;
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (lang === 'en') {
+      if (el.dataset.ptHtml === undefined) el.dataset.ptHtml = el.innerHTML;
+      el.innerHTML = translations.en[key] || el.dataset.ptHtml;
+    } else if (el.dataset.ptHtml !== undefined) {
+      el.innerHTML = el.dataset.ptHtml;
+    }
+  });
+
+  document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
+    btn.textContent = lang === 'en' ? 'PT' : 'EN';
+  });
+
+  localStorage.setItem('lang', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (currentLang === 'en') applyLanguage('en');
+  const toggleFn = () => applyLanguage(currentLang === 'en' ? 'pt' : 'en');
+  const langToggle = document.getElementById('langToggle');
+  const langToggleMobile = document.getElementById('langToggleMobile');
+  if (langToggle) langToggle.addEventListener('click', toggleFn);
+  if (langToggleMobile) langToggleMobile.addEventListener('click', toggleFn);
+});
+
 // GitHub Heatmap — dados reais
 (function () {
   const grid = document.getElementById('heatmapGrid');
@@ -366,6 +549,7 @@ const projectData = {
     title: 'HelpDesk EA',
     img: 'screenshots/helpdesk.png',
     desc: 'Trabalhei em suporte de T.I e sempre reclamei dos sistemas que usávamos: lentos e cheios de coisa que ninguém usa. Construí o meu do zero — Angular no frontend, API própria em Node.js com banco PostgreSQL real, autenticação JWT e CI/CD automático via GitHub Actions. Também foi minha entrada no Angular e no desenvolvimento de APIs de verdade.',
+    descEn: 'I worked in IT support and always complained about the systems we used: slow and full of stuff nobody needed. So I built my own from scratch — Angular on the frontend, my own Node.js API with a real PostgreSQL database, JWT auth and automatic CI/CD via GitHub Actions. This was also my entry point into Angular and real API development.',
     stack: ['Angular 17', 'TypeScript', 'Node.js', 'PostgreSQL', 'Angular Material', 'CI/CD'],
     github: 'https://github.com/Pedroaruana/HelpDeskEA',
     demo: 'https://pedroaruana.github.io/HelpDeskEA/dashboard'
@@ -374,6 +558,7 @@ const projectData = {
     title: 'ScannerBuild',
     img: 'screenshots/scannerbuild.png',
     desc: 'Sempre gostei da ideia de ver um lugar real virar um modelo 3D. Aqui você clica num prédio no mapa, o backend busca o contorno real dele no OpenStreetMap (via Overpass API), estima altura, andares e entradas, e o resultado vira um modelo 3D navegável, exportável em .glb, .png, .pdf ou .json. A parte que mais gostei de resolver foi deixar o app resiliente de verdade contra a instabilidade do Overpass: cache, timeout curto, retry em paralelo com espelho alternativo e rate-limit por IP.',
+    descEn: 'I always liked the idea of turning a real place into a 3D model. Here you click a building on the map, the backend fetches its real outline from OpenStreetMap (via the Overpass API), estimates height, floors and entrances, and the result becomes a navigable 3D model, exportable as .glb, .png, .pdf or .json. The part I enjoyed solving the most was making the app genuinely resilient against Overpass instability: caching, short timeouts, parallel retry with a fallback mirror, and per-IP rate limiting.',
     stack: ['Next.js', 'React', 'TypeScript', 'Three.js', 'Leaflet', 'Zod'],
     github: 'https://github.com/Pedroaruana/Scanner-Build',
     demo: 'https://scanner-build.vercel.app/'
@@ -382,6 +567,7 @@ const projectData = {
     title: 'HireMind AI',
     img: 'screenshots/hiremind.png',
     desc: 'Comecei querendo entender como integrar IA com uma aplicação real. Você sobe um currículo em PDF, o sistema extrai as habilidades, classifica o nível (Júnior/Pleno/Sênior) e devolve um score de 0 a 100 com dicas personalizadas. O maior desafio foi o fluxo de autenticação — no início o usuário tinha que registrar a conta direto no Swagger da API. Refiz tudo do zero no frontend e entendi na prática como JWT funciona.',
+    descEn: 'I started out wanting to understand how to integrate AI into a real application. You upload a resume as a PDF, the system extracts the skills, classifies the seniority level (Junior/Mid/Senior) and returns a score from 0 to 100 with personalized tips. The biggest challenge was the auth flow — at first the user had to register the account directly through the API\'s Swagger. I rebuilt it all from scratch on the frontend and learned how JWT works in practice.',
     stack: ['Python', 'FastAPI', 'React', 'Vite', 'PostgreSQL'],
     github: 'https://github.com/Pedroaruana/hiremind-ai',
     demo: 'https://hiremind-ai-fawn.vercel.app'
@@ -390,6 +576,7 @@ const projectData = {
     title: 'Create Your Language',
     img: 'screenshots/create-your-language.png',
     desc: 'O plano era gerar só um markdown explicando como a linguagem inventada funcionaria. No meio do caminho achei bobo: a pessoa baixa, lê, e não roda nada. Mudei pra gerar um interpretador de verdade — a pessoa responde um wizard de 7 etapas (paradigma, tipagem, sintaxe, palavras-chave) e baixa um .zip com lexer, parser e interpretador reais, roda com node cli.js run. O parser tinha que aceitar 3 jeitos diferentes de fechar bloco dependendo do que a pessoa escolhe no wizard — testei gerando o zip de cada combinação e rodando de verdade pra conferir o output.',
+    descEn: 'The original plan was to generate just a markdown file explaining how the invented language would work. Halfway through I thought that was pointless: the person downloads it, reads it, and nothing actually runs. So I changed it to generate a real interpreter instead — you answer a 7-step wizard (paradigm, typing, syntax, keywords) and download a .zip with a real lexer, parser and interpreter, runnable with node cli.js run. The parser had to accept 3 different ways of closing a block depending on what the person picks in the wizard — I tested it by generating the zip for every combination and actually running it to check the output.',
     stack: ['Next.js', 'React', 'TypeScript', 'Vitest', 'Docker'],
     github: 'https://github.com/Pedroaruana/Create-Your-Language-',
     demo: 'https://create-your-language.vercel.app/'
@@ -398,6 +585,7 @@ const projectData = {
     title: 'GameHub',
     img: 'screenshots/gamehub.png',
     desc: 'Quis entender como funciona uma loja digital de verdade por dentro — autenticação, carrinho, checkout, banco de dados, tudo junto. Fiz o frontend em HTML, CSS e JS puro, sem framework, pra realmente entender o DOM. Three.js na tela de login foi meu primeiro contato com 3D no browser. Backend em FastAPI com Supabase e Row Level Security em todas as tabelas.',
+    descEn: 'I wanted to understand how a real digital store works under the hood — auth, cart, checkout, database, all together. I built the frontend in plain HTML, CSS and JS, no framework, to really understand the DOM. Three.js on the login screen was my first contact with 3D in the browser. Backend in FastAPI with Supabase and Row Level Security on every table.',
     stack: ['Python', 'FastAPI', 'Supabase', 'Three.js', 'JavaScript'],
     github: 'https://github.com/Pedroaruana/gamehub',
     demo: 'https://gamehub-omega-blond.vercel.app/'
@@ -406,6 +594,7 @@ const projectData = {
     title: 'BotGram',
     img: 'screenshots/botgram.png',
     desc: 'Surgiu de uma observação simples: muita gente vende pelo Telegram mas não sabe criar um bot. O usuário escolhe um template, preenche as informações do negócio e vê em tempo real como o bot vai responder — tem um preview estilo Telegram na lateral. No final, baixa um bot.js pronto pra rodar. Usei Angular 21 com signals: todos os campos são signal() e o preview e o código gerado são computed() que derivam automaticamente.',
+    descEn: 'It came from a simple observation: a lot of people sell on Telegram but don\'t know how to build a bot. The user picks a template, fills in the business info and sees in real time how the bot will respond — there\'s a Telegram-style preview on the side. At the end, they download a ready-to-run bot.js. I used Angular 21 with signals: every field is a signal() and the preview plus generated code are computed() values that derive automatically.',
     stack: ['Angular 21', 'TypeScript', 'Tailwind CSS v4', 'Signals', 'Fastify', 'Vercel'],
     github: 'https://github.com/Pedroaruana/BotGram',
     demo: 'https://botgram-henna.vercel.app/'
@@ -414,6 +603,7 @@ const projectData = {
     title: 'CPU Master',
     img: 'screenshots/cpu-master.png',
     desc: 'Sempre gostei de montar PC e quis juntar isso com programação num projeto de verdade. Aproveitei também pra aprender React Three Fiber do zero e treinar animação controlada por scroll usando só CSS puro, sem lib de animação. A montagem 3D no scroll não usa three.js nem nada pra essa parte — só perspective, preserve-3d, rotateX/rotateY, acertando a ordem das camadas pra uma peça não atravessar a outra. O motor de compatibilidade avisa gargalo de CPU x GPU, dá margem de segurança na fonte e barra radiador grande demais pro gabinete.',
+    descEn: 'I\'ve always liked building PCs and wanted to combine that with a real programming project. I also used it to learn React Three Fiber from scratch and to practice scroll-driven animation using pure CSS only, no animation library. The 3D build-up on scroll doesn\'t use three.js at all for that part — just perspective, preserve-3d, rotateX/rotateY, getting the layer order right so one part doesn\'t clip through another. The compatibility engine warns about CPU x GPU bottlenecks, adds a safety margin on the PSU, and blocks a cooler radiator that\'s too big for the case.',
     stack: ['Next.js', 'React', 'TypeScript', 'Three.js', 'Tailwind CSS'],
     github: 'https://github.com/Pedroaruana/CPU-MASTER',
     demo: 'https://cpu-master-steel.vercel.app/'
@@ -422,6 +612,7 @@ const projectData = {
     title: 'Cicada 3301',
     img: 'screenshots/cicada.png',
     desc: 'Sempre fui fascinado pelo enigma Cicada 3301 de 2012. Criei minha própria versão: um puzzle web de 5 fases, cada uma exigindo uma técnica diferente pra achar o link da próxima — de criptografia a análise de imagem. A parte mais difícil foi a esteganografia LSB, implementada do zero com Pillow, escondendo dados nos bits menos significativos de cada pixel sem alterar a imagem visivelmente. No final, o jogador recebe um certificado personalizado em PDF. 24 testes automatizados com pytest e CI/CD via GitHub Actions.',
+    descEn: 'I\'ve always been fascinated by the 2012 Cicada 3301 puzzle. I built my own version: a 5-stage web puzzle, each stage requiring a different technique to find the link to the next one — from cryptography to image analysis. The hardest part was LSB steganography, implemented from scratch with Pillow, hiding data in the least significant bits of each pixel without visibly altering the image. At the end, the player gets a personalized PDF certificate. 24 automated tests with pytest and CI/CD via GitHub Actions.',
     stack: ['Python', 'Flask', 'Pillow', 'Docker', 'pytest', 'CI/CD'],
     github: 'https://github.com/Pedroaruana/Cicada-3301',
     demo: 'https://pedroaruana.pythonanywhere.com/'
@@ -430,6 +621,7 @@ const projectData = {
     title: 'Wasteland Garden',
     img: 'screenshots/wasteland-garden.png',
     desc: 'Cansei dos gerenciadores de tarefa convencionais — Trello, Todoist, Notion funcionam, mas nenhum dá vontade de abrir. Criei um gerenciador gamificado ambientado em 2056: cada tarefa é uma semente que passa por 5 estágios ao longo de 7 dias, regada a cada 12h, e ao ser colhida gera oxigênio. Tem modo visitante via localStorage (sem precisar criar conta), autenticação JWT e aproveitei pra aprender testes automatizados a sério: Vitest, Testing Library e Playwright end-to-end.',
+    descEn: 'I got tired of conventional task managers — Trello, Todoist, Notion all work, but none of them make you want to open them. I built a gamified manager set in 2056: each task is a seed that goes through 5 stages over 7 days, watered every 12h, and generates oxygen when harvested. It has a guest mode via localStorage (no account needed), JWT auth, and I used it to seriously learn automated testing: Vitest, Testing Library and end-to-end Playwright.',
     stack: ['React 18', 'TypeScript', 'Fastify', 'PostgreSQL', 'Prisma', 'Zustand'],
     github: 'https://github.com/Pedroaruana/Wasteland-Garden',
     demo: 'https://pipe-stonks-frontend.vercel.app/'
@@ -442,7 +634,7 @@ function openProject(id) {
   document.getElementById('projModalImg').src = p.img;
   document.getElementById('projModalImg').alt = p.title;
   document.getElementById('projModalTitle').textContent = p.title;
-  document.getElementById('projModalDesc').textContent = p.desc;
+  document.getElementById('projModalDesc').textContent = (currentLang === 'en' && p.descEn) ? p.descEn : p.desc;
   document.getElementById('projModalStack').innerHTML = p.stack.map(t => `<span>${t}</span>`).join('');
   document.getElementById('projBtnGithub').href = p.github;
   document.getElementById('projBtnDemo').href = p.demo;
@@ -485,9 +677,7 @@ certsToggle.addEventListener('click', () => {
   certsOpen = !certsOpen;
   extraCerts.forEach(card => card.classList.toggle('visible', certsOpen));
   certsToggle.classList.toggle('open', certsOpen);
-  certsToggle.innerHTML = certsOpen
-    ? 'Ver menos <span class="toggle-arrow">↓</span>'
-    : 'Ver mais <span class="toggle-arrow">↓</span>';
+  certsToggle.innerHTML = (certsOpen ? t('common.see-less') : t('common.see-more')) + ' <span class="toggle-arrow">↓</span>';
 });
 
 // Projects toggle
@@ -500,9 +690,7 @@ if (projectsToggle) {
     projectsOpen = !projectsOpen;
     extraProjects.forEach(card => card.classList.toggle('visible', projectsOpen));
     projectsToggle.classList.toggle('open', projectsOpen);
-    projectsToggle.innerHTML = projectsOpen
-      ? 'Ver menos <span class="toggle-arrow">↓</span>'
-      : 'Ver mais <span class="toggle-arrow">↓</span>';
+    projectsToggle.innerHTML = (projectsOpen ? t('common.see-less') : t('common.see-more')) + ' <span class="toggle-arrow">↓</span>';
   });
 }
 
