@@ -447,7 +447,7 @@ if (hourglass) {
     const rest = 1 - e;
     devices.style.transform = `translateY(${(-INTRO_LIFT * rest).toFixed(2)}vh) scale(${(1 + 0.05 * rest).toFixed(3)})`;
 
-    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    const inView = rect.top <= 0 && rect.bottom > 0;
     const intro = inView && p < INTRO_HOLD;
 
     // scene index over the remaining scroll
@@ -867,5 +867,6 @@ window.addEventListener('scroll', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', measure);
   window.addEventListener('load', measure);
+  if (window.ResizeObserver) new ResizeObserver(measure).observe(track);
   measure();
 })();

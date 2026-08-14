@@ -2507,7 +2507,7 @@ a { color: inherit; text-decoration: none; }
 /* ===== PROJETOS ===== */
 .project-card {
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius);
   padding: 28px;
   display: flex;
@@ -2565,6 +2565,45 @@ a { color: inherit; text-decoration: none; }
 .project-thumb-wrap .project-thumb {
   width: 100%;
   margin: 0;
+}
+
+.project-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  background: #0a0a0c;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.pb-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.pb-dot.pb-red { background: var(--red); }
+.pb-dot.pb-yellow { background: var(--yellow); }
+.pb-dot.pb-green { background: var(--green); }
+
+.pb-live {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+}
+
+.pb-live i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
 }
 
 .project-thumb-wrap::after {
