@@ -733,7 +733,13 @@
       <div class="section-label" data-i18n="proj.label">/ projetos</div>
       <div class="proj-header">
         <h2 class="proj-heading" data-i18n="proj.title">O que eu construí</h2>
-        <p class="proj-subheading" data-i18n="proj.desc">Alguns dos projetos que desenvolvei. Role para ver todos.</p>
+        <div class="proj-header-side">
+          <p class="proj-subheading" data-i18n="proj.desc">Alguns dos projetos que desenvolvei. Role para ver todos.</p>
+          <a href="https://github.com/Pedroaruana" target="_blank" rel="noopener" class="proj-github-link">
+            <span data-i18n="proj.see-more-github">Ver mais projetos no GitHub</span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -741,173 +747,138 @@
       <div class="proj-rail-inner">
         <div class="proj-track" id="projTrack">
 
-        <!-- SVG helpers reutilizados via JS abaixo -->
         <div class="project-card" onclick="openProject('wasteland')">
-          <img class="project-thumb" src="screenshots/wasteland-garden.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/Wasteland-Garden" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://pipe-stonks-frontend.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/wasteland-garden.png" alt="" loading="lazy" />
+            <span class="project-caption">01 / 09 &middot; GESTAO GAMIFICADA</span>
           </div>
-          <h3 class="project-title">Wasteland Garden</h3>
-          <p class="project-desc" data-i18n="proj.wasteland-desc">Gerenciador de tarefas gamificado em pixel art, ambientado em 2056 num mundo sem ar. Cada tarefa é uma semente que você rega e colhe pra gerar oxigênio. Modo visitante via localStorage, autenticação JWT e testes automatizados com Vitest e Playwright.</p>
+          <div class="project-body">
+            <h3 class="project-title">Wasteland Garden</h3>
+            <p class="project-desc" data-i18n="proj.wasteland-desc">Gerenciador de tarefas gamificado em pixel art, ambientado em 2056 num mundo sem ar. Cada tarefa é uma semente que você rega e colhe pra gerar oxigênio. Modo visitante via localStorage, autenticação JWT e testes automatizados com Vitest e Playwright.</p>
+          </div>
+          <a href="https://pipe-stonks-frontend.vercel.app/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
 
         <div class="project-card" onclick="openProject('scannerbuild')">
-          <img class="project-thumb" src="screenshots/scannerbuild.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/Scanner-Build" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://scanner-build.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/scannerbuild.png" alt="" loading="lazy" />
+            <span class="project-caption">02 / 09 &middot; VISUALIZACAO 3D</span>
           </div>
-          <h3 class="project-title">ScannerBuild</h3>
-          <p class="project-desc" data-i18n="proj.scannerbuild-desc">Selecione um ponto qualquer no mapa e o ScannerBuild traça o contorno real do prédio via OpenStreetMap, estima altura, andares e entradas, e monta um modelo 3D navegável — com cache, rate-limit e retry em paralelo pra lidar com a instabilidade do serviço externo.</p>
+          <div class="project-body">
+            <h3 class="project-title">ScannerBuild</h3>
+            <p class="project-desc" data-i18n="proj.scannerbuild-desc">Selecione um ponto qualquer no mapa e o ScannerBuild traça o contorno real do prédio via OpenStreetMap, estima altura, andares e entradas, e monta um modelo 3D navegável — com cache, rate-limit e retry em paralelo pra lidar com a instabilidade do serviço externo.</p>
+          </div>
+          <a href="https://scanner-build.vercel.app/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
 
         <div class="project-card" onclick="openProject('cicada')">
-          <img class="project-thumb" src="screenshots/cicada.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/Cicada-3301" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://pedroaruana.pythonanywhere.com/" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/cicada.png" alt="" loading="lazy" />
+            <span class="project-caption">03 / 09 &middot; PUZZLE INTERATIVO</span>
           </div>
-          <h3 class="project-title">Cicada 3301</h3>
-          <p class="project-desc" data-i18n="proj.cicada-desc">Puzzle web interativo inspirado no enigma Cicada 3301. Cinco fases, cada uma com uma técnica diferente de criptografia e investigação — incluindo esteganografia LSB implementada do zero com Pillow. No final, um certificado personalizado em PDF.</p>
+          <div class="project-body">
+            <h3 class="project-title">Cicada 3301</h3>
+            <p class="project-desc" data-i18n="proj.cicada-desc">Puzzle web interativo inspirado no enigma Cicada 3301. Cinco fases, cada uma com uma técnica diferente de criptografia e investigação — incluindo esteganografia LSB implementada do zero com Pillow. No final, um certificado personalizado em PDF.</p>
+          </div>
+          <a href="https://pedroaruana.pythonanywhere.com/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
 
         <div class="project-card" onclick="openProject('createlanguage')">
-          <img class="project-thumb" src="screenshots/create-your-language.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/Create-Your-Language-" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://create-your-language.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/create-your-language.png" alt="" loading="lazy" />
+            <span class="project-caption">04 / 09 &middot; FERRAMENTA DEV</span>
           </div>
-          <h3 class="project-title">Create Your Language</h3>
-          <p class="project-desc" data-i18n="proj.createlanguage-desc">Wizard de 7 etapas sobre como você imagina sua linguagem de programação, com uma animação de "construção" numa IDE simulada — e no final você baixa um interpretador de verdade (lexer, parser e interpretador), roda com node cli.js run.</p>
+          <div class="project-body">
+            <h3 class="project-title">Create Your Language</h3>
+            <p class="project-desc" data-i18n="proj.createlanguage-desc">Wizard de 7 etapas sobre como você imagina sua linguagem de programação, com uma animação de "construção" numa IDE simulada — e no final você baixa um interpretador de verdade (lexer, parser e interpretador), roda com node cli.js run.</p>
+          </div>
+          <a href="https://create-your-language.vercel.app/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
 
         <div class="project-card" onclick="openProject('botgram')">
-          <img class="project-thumb" src="screenshots/botgram.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/BotGram" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://botgram-henna.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/botgram.png" alt="" loading="lazy" />
+            <span class="project-caption">05 / 09 &middot; AUTOMACAO</span>
           </div>
-          <h3 class="project-title">BotGram</h3>
-          <p class="project-desc" data-i18n="proj.botgram-desc">Construtor visual de bots de venda para o Telegram. Configura produtos, preços e mensagens pelo site e recebe o código do bot pronto pra rodar — sem saber programar. Preview em tempo real simulando uma conversa no Telegram.</p>
+          <div class="project-body">
+            <h3 class="project-title">BotGram</h3>
+            <p class="project-desc" data-i18n="proj.botgram-desc">Construtor visual de bots de venda para o Telegram. Configura produtos, preços e mensagens pelo site e recebe o código do bot pronto pra rodar — sem saber programar. Preview em tempo real simulando uma conversa no Telegram.</p>
+          </div>
+          <a href="https://botgram-henna.vercel.app/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
 
         <div class="project-card" onclick="openProject('cpumaster')">
-          <img class="project-thumb" src="screenshots/cpu-master.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/CPU-MASTER" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://cpu-master-steel.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/cpu-master.png" alt="" loading="lazy" />
+            <span class="project-caption">06 / 09 &middot; SIMULADOR 3D</span>
           </div>
-          <h3 class="project-title">CPU Master</h3>
-          <p class="project-desc" data-i18n="proj.cpumaster-desc">Simulador de montagem de PC com checagem de compatibilidade em tempo real — soquete, tipo de memória, tamanho da GPU, radiador do cooler — e visualização 3D do gabinete. Estimativa de FPS e builds prontas de custo-benefício a extremo.</p>
+          <div class="project-body">
+            <h3 class="project-title">CPU Master</h3>
+            <p class="project-desc" data-i18n="proj.cpumaster-desc">Simulador de montagem de PC com checagem de compatibilidade em tempo real — soquete, tipo de memória, tamanho da GPU, radiador do cooler — e visualização 3D do gabinete. Estimativa de FPS e builds prontas de custo-benefício a extremo.</p>
+          </div>
+          <a href="https://cpu-master-steel.vercel.app/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
 
         <div class="project-card" onclick="openProject('gamehub')">
-          <img class="project-thumb" src="screenshots/gamehub.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/gamehub" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://gamehub-omega-blond.vercel.app/" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/gamehub.png" alt="" loading="lazy" />
+            <span class="project-caption">07 / 09 &middot; E-COMMERCE DE JOGOS</span>
           </div>
-          <h3 class="project-title">GameHub</h3>
-          <p class="project-desc" data-i18n="proj.gamehub-desc">Plataforma de jogos digitais inspirada na Steam. Login com animação 3D em Three.js, catálogo com busca, carrinho, favoritos e checkout com múltiplas formas de pagamento. Deploy em 3 serviços diferentes.</p>
+          <div class="project-body">
+            <h3 class="project-title">GameHub</h3>
+            <p class="project-desc" data-i18n="proj.gamehub-desc">Plataforma de jogos digitais inspirada na Steam. Login com animação 3D em Three.js, catálogo com busca, carrinho, favoritos e checkout com múltiplas formas de pagamento. Deploy em 3 serviços diferentes.</p>
+          </div>
+          <a href="https://gamehub-omega-blond.vercel.app/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
 
         <div class="project-card" onclick="openProject('hiremind')">
-          <img class="project-thumb" src="screenshots/hiremind.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/hiremind-ai" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://hiremind-ai-fawn.vercel.app" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/hiremind.png" alt="" loading="lazy" />
+            <span class="project-caption">08 / 09 &middot; IA / RECRUTAMENTO</span>
           </div>
-          <h3 class="project-title">HireMind AI</h3>
-          <p class="project-desc" data-i18n="proj.hiremind-desc">Sobe um currículo em PDF e em segundos recebe um score de 0 a 100, as habilidades extraídas automaticamente e dicas de melhoria. Backend em FastAPI com autenticação JWT e banco PostgreSQL real.</p>
+          <div class="project-body">
+            <h3 class="project-title">HireMind AI</h3>
+            <p class="project-desc" data-i18n="proj.hiremind-desc">Sobe um currículo em PDF e em segundos recebe um score de 0 a 100, as habilidades extraídas automaticamente e dicas de melhoria. Backend em FastAPI com autenticação JWT e banco PostgreSQL real.</p>
+          </div>
+          <a href="https://hiremind-ai-fawn.vercel.app" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
 
         <div class="project-card" onclick="openProject('helpdesk')">
-          <img class="project-thumb" src="screenshots/helpdesk.png" alt="" loading="lazy" />
-          <div class="project-header">
-            <div class="project-links" onclick="event.stopPropagation()">
-              <a href="https://github.com/Pedroaruana/HelpDeskEA" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a href="https://pedroaruana.github.io/HelpDeskEA/dashboard" target="_blank" rel="noopener" class="project-link demo-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Demo
-              </a>
-            </div>
+          <div class="project-thumb-wrap">
+            <img class="project-thumb" src="screenshots/helpdesk.png" alt="" loading="lazy" />
+            <span class="project-caption">09 / 09 &middot; SISTEMA DE SUPORTE</span>
           </div>
-          <h3 class="project-title">HelpDesk EA</h3>
-          <p class="project-desc" data-i18n="proj.helpdesk-desc">Nasceu de uma frustração real: sistemas de suporte lentos e cheios de coisa inútil. Construí do zero com Angular + Node.js, autenticação JWT, dashboard com métricas em tempo real e deploy automático via GitHub Actions.</p>
-        </div>
-
-        <div class="proj-track-end">
-          <a href="https://github.com/Pedroaruana" target="_blank" rel="noopener" class="btn-ver-mais">
-            <span data-i18n="proj.see-more-github">Ver mais projetos no GitHub</span>
-            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <div class="project-body">
+            <h3 class="project-title">HelpDesk EA</h3>
+            <p class="project-desc" data-i18n="proj.helpdesk-desc">Nasceu de uma frustração real: sistemas de suporte lentos e cheios de coisa inútil. Construí do zero com Angular + Node.js, autenticação JWT, dashboard com métricas em tempo real e deploy automático via GitHub Actions.</p>
+          </div>
+          <a href="https://pedroaruana.github.io/HelpDeskEA/dashboard" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+            <span data-i18n="proj.view-project">Ver Projeto</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
 
