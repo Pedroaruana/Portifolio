@@ -1027,3 +1027,34 @@ window.addEventListener('scroll', () => {
   if (video.readyState >= 2) start();
   else video.addEventListener('loadeddata', start, { once: true });
 })();
+
+// Stats "sobre mim" contam de 0 até o valor final quando a seção aparece
+(function () {
+  const wrap = document.getElementById('aboutStats');
+  if (!wrap) return;
+  const nums = wrap.querySelectorAll('.stat-num');
+  const DURATION = 1400;
+  let done = false;
+
+  function animate() {
+    if (done) return;
+    done = true;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min(1, (now - start) / DURATION);
+      const eased = 1 - Math.pow(1 - p, 3);
+      nums.forEach(el => {
+        const target = parseInt(el.dataset.countTo, 10);
+        const suffix = el.dataset.suffix || '';
+        el.textContent = Math.round(target * eased) + suffix;
+      });
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some(e => e.isIntersecting)) animate();
+  }, { threshold: 0.4 });
+  io.observe(wrap);
+})();
