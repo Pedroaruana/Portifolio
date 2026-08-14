@@ -870,3 +870,139 @@ window.addEventListener('scroll', () => {
     if (!raf) target = track.scrollLeft;
   }, { passive: true });
 })();
+
+// Portrait particle dissolve — live video rendered as green particles that scatter under the cursor
+(function () {
+  const wrap = document.getElementById('portraitFx');
+  const canvas = document.getElementById('portraitCanvas');
+  const video = document.getElementById('portraitSrc');
+  if (!wrap || !canvas || !video) return;
+
+  const ctx = canvas.getContext('2d', { alpha: false });
+  const GAP = 2;          // espaçamento da grade de partículas
+  const GAMMA = 0.42;     // levanta as sombras — o vídeo é muito escuro
+  const FLOOR = 0.20;     // abaixo disso é fundo: some de vez
+  const GAIN = 1.5;       // contraste do que sobra
+  const INV = 1 / (1 - FLOOR);
+
+  let particles = [];
+  let cols = 0, rows = 0;
+  let dpr = 1, W = 0, H = 0;
+  let off = null, octx = null;
+  let running = false;
+  const mouse = { x: -9999, y: -9999, active: false };
+
+  function build() {
+    const rect = wrap.getBoundingClientRect();
+    if (!rect.width) return;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = Math.floor(rect.width);
+    H = Math.floor(rect.height);
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    off = document.createElement('canvas');
+    off.width = W;
+    off.height = H;
+    octx = off.getContext('2d', { willReadFrequently: true });
+
+    cols = Math.ceil(W / GAP);
+    rows = Math.ceil(H / GAP);
+    particles = new Array(cols * rows);
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const x = c * GAP, y = r * GAP;
+        particles[r * cols + c] = { x, y, ox: x, oy: y, vx: 0, vy: 0, l: 0 };
+      }
+    }
+  }
+
+  function sampleFrame() {
+    if (video.readyState < 2) return;
+    const vw = video.videoWidth, vh = video.videoHeight;
+    if (!vw || !vh) return;
+    const scale = Math.max(W / vw, H / vh);
+    const dw = vw * scale, dh = vh * scale;
+    octx.drawImage(video, (W - dw) / 2, (H - dh) / 2, dw, dh);
+
+    const data = octx.getImageData(0, 0, W, H).data;
+    for (let r = 0; r < rows; r++) {
+      const sy = Math.min(H - 1, r * GAP);
+      for (let c = 0; c < cols; c++) {
+        const sx = Math.min(W - 1, c * GAP);
+        const i = (sy * W + sx) * 4;
+        const lum = (data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114) / 255;
+        // levanta sombras, corta o fundo e reespalha o resto em 0..1
+        const g = Math.pow(lum, GAMMA);
+        particles[r * cols + c].l = g <= FLOOR ? 0 : Math.min(1, (g - FLOOR) * INV * GAIN);
+      }
+    }
+  }
+
+  function draw() {
+    requestAnimationFrame(draw);
+    if (!running || !W) return;
+    sampleFrame();
+
+    ctx.fillStyle = '#0d0d0f';
+    ctx.fillRect(0, 0, W, H);
+
+    for (let k = 0; k < particles.length; k++) {
+      const p = particles[k];
+      if (p.l <= 0) continue;
+
+      if (mouse.active) {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < 9000 && d2 > 0.01) {
+          const f = (9000 - d2) / 9000;
+          const d = Math.sqrt(d2);
+          p.vx += (dx / d) * f * 2.6;
+          p.vy += (dy / d) * f * 2.6;
+        }
+      }
+      p.vx += (p.ox - p.x) * 0.05;
+      p.vy += (p.oy - p.y) * 0.05;
+      p.vx *= 0.85;
+      p.vy *= 0.85;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // opacidade proporcional ao brilho, SEM piso — senão o fundo vira um bloco verde
+      ctx.fillStyle = 'rgba(74, 240, 132, ' + p.l.toFixed(2) + ')';
+      ctx.fillRect(p.x, p.y, 1.8, 1.8);
+    }
+  }
+
+  wrap.addEventListener('pointermove', (e) => {
+    const r = wrap.getBoundingClientRect();
+    mouse.x = e.clientX - r.left;
+    mouse.y = e.clientY - r.top;
+    mouse.active = true;
+  });
+  wrap.addEventListener('pointerleave', () => { mouse.active = false; });
+  window.addEventListener('resize', build);
+
+  // pausa o vídeo quando a seção sai da tela — economiza CPU
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      running = e.isIntersecting;
+      if (e.isIntersecting) video.play().catch(() => {});
+      else video.pause();
+    }
+  }, { threshold: 0.01 });
+
+  function start() {
+    build();
+    io.observe(wrap);
+    video.play().catch(() => {});
+    requestAnimationFrame(draw);
+  }
+
+  if (video.readyState >= 2) start();
+  else video.addEventListener('loadeddata', start, { once: true });
+})();

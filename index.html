@@ -105,7 +105,7 @@
           </p>
           <div class="about-stats">
             <div class="stat">
-              <span class="stat-num">27+</span>
+              <span class="stat-num">29+</span>
               <span class="stat-label" data-i18n="about.stat1">Repositórios no ar</span>
             </div>
             <div class="stat">
@@ -146,20 +146,9 @@
         </div>
         <div class="about-card">
           <div class="about-card-inner">
-            <div class="photo-card">
-              <div class="photo-frame">
-                <img src="fotos.jpg" alt="Pedro Aruanã" class="photo-img" />
-                <div class="photo-glow"></div>
-              </div>
-              <div class="photo-info">
-                <h3 class="photo-name">Pedro Aruanã</h3>
-                <span class="photo-role">Frontend Developer</span>
-                <div class="photo-location">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  <span data-i18n="about.location">Salvador, BA — Brasil</span>
-                </div>
-                <div class="photo-status"><span class="dot-online"></span> <span data-i18n="hero.badge">Disponível para projetos</span></div>
-              </div>
+            <div class="portrait-fx" id="portraitFx">
+              <canvas id="portraitCanvas"></canvas>
+              <video id="portraitSrc" src="assets/portrait.mp4" muted loop playsinline preload="auto" aria-label="Pedro Aruanã programando"></video>
             </div>
           </div>
         </div>
