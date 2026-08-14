@@ -2365,10 +2365,11 @@ a { color: inherit; text-decoration: none; }
   .proj-rail {
     position: sticky;
     top: 76px; /* fica logo abaixo do nav fixo, sem tampar ele */
-    /* ocupa a viewport inteira enquanto presa, senão sobra vazio embaixo */
+    /* ocupa a viewport inteira enquanto presa, senão sobra vazio embaixo —
+       mas alinhado no topo, senão os cards ficam longe do título */
     height: calc(100vh - 76px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
   .proj-rail .proj-track {
     width: 100%;
