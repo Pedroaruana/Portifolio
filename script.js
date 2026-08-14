@@ -105,7 +105,8 @@ const translations = {
     'proj.cpumaster-desc': 'PC building simulator with real-time compatibility checking — socket, memory type, GPU size, cooler radiator — and 3D case visualization. FPS estimates and ready-made builds from budget to extreme.',
     'proj.gamehub-desc': 'Digital games platform inspired by Steam. Login with 3D animation in Three.js, catalog with search, cart, favorites and checkout with multiple payment methods. Deployed across 3 different services.',
     'proj.hiremind-desc': 'Upload a resume as a PDF and get a score from 0 to 100 in seconds, automatically extracted skills and improvement tips. Backend in FastAPI with JWT auth and a real PostgreSQL database.',
-    'proj.helpdesk-desc': 'Born from a real frustration: slow support systems full of useless stuff. Built from scratch with Angular + Node.js, JWT auth, real-time metrics dashboard and automatic deploy via GitHub Actions.',
+    'proj.emeudente-desc': 'Point to the tooth that\'s bothering you on a 3D model, answer 3 quick questions and find out what might be going on — then find a nearby clinic.',
+    'proj.worldskunks-desc': 'Real-time satellite orbital tracking, with TLE sync, active satellite count and propulsion status in a space mission-control style interface.',
     'contact.label': '/ contact',
     'contact.status': 'Available for opportunities',
     'contact.title': 'Want to turn your idea into a real product?',
@@ -666,14 +667,23 @@ app = <span class="${f}">FastAPI</span>()
 
 // Project modal
 const projectData = {
-  helpdesk: {
-    title: 'HelpDesk EA',
-    img: 'screenshots/helpdesk.png',
-    desc: 'Trabalhei em suporte de T.I e sempre reclamei dos sistemas que usávamos: lentos e cheios de coisa que ninguém usa. Construí o meu do zero — Angular no frontend, API própria em Node.js com banco PostgreSQL real, autenticação JWT e CI/CD automático via GitHub Actions. Também foi minha entrada no Angular e no desenvolvimento de APIs de verdade.',
-    descEn: 'I worked in IT support and always complained about the systems we used: slow and full of stuff nobody needed. So I built my own from scratch — Angular on the frontend, my own Node.js API with a real PostgreSQL database, JWT auth and automatic CI/CD via GitHub Actions. This was also my entry point into Angular and real API development.',
-    stack: ['Angular 17', 'TypeScript', 'Node.js', 'PostgreSQL', 'Angular Material', 'CI/CD'],
-    github: 'https://github.com/Pedroaruana/HelpDeskEA',
-    demo: 'https://pedroaruana.github.io/HelpDeskEA/dashboard'
+  emeudente: {
+    title: 'E Meu Dente?',
+    img: 'screenshots/e-meu-dente.png',
+    desc: 'Ferramenta de triagem odontológica rápida: você aponta o dente que está incomodando num modelo 3D interativo, responde 3 perguntas sobre o que está sentindo — dor, sensibilidade, aparência ou mobilidade — e recebe um resultado sobre o que pode estar acontecendo, com clínicas perto de você. 100% gratuito, sem cadastro, resultado em 1 minuto. Não substitui uma avaliação odontológica de verdade.',
+    descEn: 'Quick dental triage tool: you point to the tooth that\'s bothering you on an interactive 3D model, answer 3 questions about what you\'re feeling — pain, sensitivity, appearance or mobility — and get a result on what might be happening, plus nearby clinics. 100% free, no signup, result in 1 minute. Not a substitute for a real dental evaluation.',
+    stack: ['React', 'Three.js', 'TypeScript', 'Tailwind CSS'],
+    github: 'https://github.com/Pedroaruana/E-Meu-Dente',
+    demo: 'https://e-meu-dente-web.vercel.app'
+  },
+  worldskunks: {
+    title: 'World Skunks',
+    img: 'screenshots/world-skunks.png',
+    desc: 'Rastreamento orbital de satélites em tempo real, numa interface estilo painel de controle espacial. Sincronização de dados TLE (Two-Line Element), contagem de satélites ativos e status de propulsão, com um modelo 3D de foguete renderizado na cena.',
+    descEn: 'Real-time satellite orbital tracking, in a space mission-control style interface. TLE (Two-Line Element) data sync, active satellite count and propulsion status, with a 3D rocket model rendered in the scene.',
+    stack: ['Three.js', 'React', 'TypeScript'],
+    github: 'https://github.com/Pedroaruana/World-Skunks',
+    demo: 'https://worldskunks.netlify.app/'
   },
   scannerbuild: {
     title: 'ScannerBuild',
