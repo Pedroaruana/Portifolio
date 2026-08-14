@@ -2339,12 +2339,42 @@ a { color: inherit; text-decoration: none; }
   gap: 24px;
 }
 
+.proj-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.proj-heading {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  max-width: 640px;
+  margin: 0;
+}
+
+.proj-subheading {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: right;
+  max-width: 260px;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .proj-header { flex-direction: column; align-items: flex-start; }
+  .proj-subheading { text-align: left; }
+}
+
 /* ===== PROJECTS HORIZONTAL RAIL ===== */
 .proj-rail {
   position: relative;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  margin-top: 48px;
+  margin-top: 40px;
 }
 
 .proj-rail-inner {
@@ -2352,7 +2382,8 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 6vh;
   overflow: hidden;
 }
 
