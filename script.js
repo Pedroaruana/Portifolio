@@ -93,7 +93,7 @@ const translations = {
     'tag.genai': 'Generative AI',
     'tag.agile': 'Agile Methodology',
     'proj.label': '/ projects',
-    'proj.title': "What I've built",
+    'proj.title': "Projects that turn ideas into solutions",
     'proj.desc': "Some of the projects I've developed. Click to see more.",
     'proj.see-more-github': 'See more projects on GitHub',
     'proj.view-project': 'View Project',
@@ -835,38 +835,19 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Projects horizontal scroll rail
+// Projects horizontal scroll rail — vertical wheel input scrolls the row sideways
 (function () {
   const rail = document.getElementById('projRail');
   const track = document.getElementById('projTrack');
   if (!rail || !track) return;
 
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-  let maxTranslate = 0;
-  let ticking = false;
-
-  function measure() {
-    maxTranslate = Math.max(0, track.scrollWidth - window.innerWidth);
-    rail.style.height = `${window.innerHeight + maxTranslate}px`;
-    render();
-  }
-
-  function render() {
-    if (maxTranslate <= 0) { track.style.transform = 'translateX(0)'; return; }
-    const rect = rail.getBoundingClientRect();
-    const p = clamp(-rect.top / maxTranslate, 0, 1);
-    track.style.transform = `translateX(${-p * maxTranslate}px)`;
-  }
-
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => { render(); ticking = false; });
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', measure);
-  window.addEventListener('load', measure);
-  if (window.ResizeObserver) new ResizeObserver(measure).observe(track);
-  measure();
+  rail.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    const goingRight = e.deltaY > 0;
+    const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+    const atStart = track.scrollLeft <= 0;
+    if ((goingRight && atEnd) || (!goingRight && atStart)) return;
+    e.preventDefault();
+    track.scrollLeft += e.deltaY;
+  }, { passive: false });
 })();

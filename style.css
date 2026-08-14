@@ -2399,21 +2399,18 @@ a { color: inherit; text-decoration: none; }
   margin-top: 40px;
 }
 
-.proj-rail-inner {
-  position: sticky;
-  top: 8vh;
-  display: flex;
-  align-items: flex-start;
-  overflow: hidden;
-}
-
 .proj-track {
   display: flex;
   align-items: flex-start;
   gap: 24px;
-  padding: 0 clamp(20px, 6vw, 80px);
-  will-change: transform;
+  padding: 4px clamp(20px, 6vw, 80px) 24px;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+
+.proj-track::-webkit-scrollbar { display: none; }
 
 .proj-track .project-card {
   width: min(360px, 82vw);
