@@ -845,40 +845,51 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Projects horizontal scroll rail — vertical wheel input scrolls the row sideways, with eased momentum
+// Projects horizontal rail — pinned na tela; o scroll da página vira scroll
+// dos cards até acabar, só então libera o scroll vertical normal de novo.
 (function () {
+  const pinWrap = document.getElementById('projPinWrap');
   const rail = document.getElementById('projRail');
   const track = document.getElementById('projTrack');
-  if (!rail || !track) return;
+  if (!pinWrap || !rail || !track) return;
 
-  let target = track.scrollLeft;
-  let raf = null;
+  const isDesktop = () => window.matchMedia('(min-width: 861px)').matches;
+  let maxScroll = 0;
+  let ticking = false;
 
-  function animate() {
-    const diff = target - track.scrollLeft;
-    if (Math.abs(diff) < 0.5) {
-      track.scrollLeft = target;
-      raf = null;
-      return;
+  function measure() {
+    maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    if (isDesktop()) {
+      // altura extra = distância horizontal a percorrer, é isso que faz o
+      // sticky "segurar" a seção enquanto os cards passam
+      pinWrap.style.height = (rail.offsetHeight + maxScroll) + 'px';
+    } else {
+      pinWrap.style.height = 'auto';
     }
-    track.scrollLeft += diff * 0.18;
-    raf = requestAnimationFrame(animate);
   }
 
-  rail.addEventListener('wheel', (e) => {
-    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-    const max = track.scrollWidth - track.clientWidth;
-    const atEnd = target >= max - 1;
-    const atStart = target <= 0;
-    if ((e.deltaY > 0 && atEnd) || (e.deltaY < 0 && atStart)) return;
-    e.preventDefault();
-    target = Math.max(0, Math.min(max, target + e.deltaY));
-    if (!raf) raf = requestAnimationFrame(animate);
-  }, { passive: false });
+  function update() {
+    ticking = false;
+    if (!isDesktop() || maxScroll <= 0) return;
+    const rect = pinWrap.getBoundingClientRect();
+    const progress = Math.min(1, Math.max(0, -rect.top / maxScroll));
+    track.scrollLeft = progress * maxScroll;
+  }
 
-  track.addEventListener('scroll', () => {
-    if (!raf) target = track.scrollLeft;
-  }, { passive: true });
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { measure(); update(); });
+
+  // imagens/vídeos ainda carregando mudam a altura da trilha
+  window.addEventListener('load', () => { measure(); update(); });
+
+  measure();
+  update();
 })();
 
 // Portrait particle dissolve — live video rendered as green particles that scatter under the cursor
