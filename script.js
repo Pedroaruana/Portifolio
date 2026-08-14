@@ -93,7 +93,7 @@ const translations = {
     'tag.genai': 'Generative AI',
     'tag.agile': 'Agile Methodology',
     'proj.label': '/ projects',
-    'proj.title': "Projects that turn ideas into solutions",
+    'proj.title': "Projects that turn ideas into solutions.",
     'proj.desc': "Some of the projects I've developed. Click to see more.",
     'proj.see-more-github': 'See more projects on GitHub',
     'proj.view-project': 'View Project',
@@ -835,19 +835,38 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Projects horizontal scroll rail — vertical wheel input scrolls the row sideways
+// Projects horizontal scroll rail — vertical wheel input scrolls the row sideways, with eased momentum
 (function () {
   const rail = document.getElementById('projRail');
   const track = document.getElementById('projTrack');
   if (!rail || !track) return;
 
+  let target = track.scrollLeft;
+  let raf = null;
+
+  function animate() {
+    const diff = target - track.scrollLeft;
+    if (Math.abs(diff) < 0.5) {
+      track.scrollLeft = target;
+      raf = null;
+      return;
+    }
+    track.scrollLeft += diff * 0.18;
+    raf = requestAnimationFrame(animate);
+  }
+
   rail.addEventListener('wheel', (e) => {
     if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-    const goingRight = e.deltaY > 0;
-    const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
-    const atStart = track.scrollLeft <= 0;
-    if ((goingRight && atEnd) || (!goingRight && atStart)) return;
+    const max = track.scrollWidth - track.clientWidth;
+    const atEnd = target >= max - 1;
+    const atStart = target <= 0;
+    if ((e.deltaY > 0 && atEnd) || (e.deltaY < 0 && atStart)) return;
     e.preventDefault();
-    track.scrollLeft += e.deltaY;
+    target = Math.max(0, Math.min(max, target + e.deltaY));
+    if (!raf) raf = requestAnimationFrame(animate);
   }, { passive: false });
+
+  track.addEventListener('scroll', () => {
+    if (!raf) target = track.scrollLeft;
+  }, { passive: true });
 })();
