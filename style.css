@@ -9,8 +9,9 @@
   --border: #2a2a32;
   --text: #e8e8f0;
   --text-muted: #7a7a90;
-  --accent: #7c6aff;
-  --accent-glow: rgba(124, 106, 255, 0.3);
+  --accent: #3ecf6e;
+  --accent-glow: rgba(62, 207, 110, 0.3);
+  --accent-hover: #34b25f;
   --accent-2: #00d4aa;
   --red: #ff5f57;
   --yellow: #febc2e;
