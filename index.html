@@ -14,7 +14,7 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">pedro<span class="accent">.</span>dev</a>
+      <a href="#hero" class="nav-logo">pedro<span class="accent">.dev</span></a>
       <ul class="nav-links">
         <li><a href="#sobre" data-i18n="nav.sobre">Sobre</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -23,7 +23,7 @@
         <li><a href="#certificados" data-i18n="nav.certificados">Certificados</a></li>
         <li><a href="#projetos" data-i18n="nav.projetos">Projetos</a></li>
         <li><a href="#contato" data-i18n="nav.contato">Contato</a></li>
-        <li><button class="lang-toggle-btn" id="langToggle" aria-label="Switch language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg><span id="langToggleText">EN</span></button></li>
+        <li><button class="lang-toggle-btn" id="langToggle" aria-label="Switch language"><span class="lang-opt" data-lang="en">EN</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="pt">PT</span></button></li>
       </ul>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -37,7 +37,7 @@
       <li><a href="#certificados" data-i18n="nav.certificados">Certificados</a></li>
       <li><a href="#projetos" data-i18n="nav.projetos">Projetos</a></li>
       <li><a href="#contato" data-i18n="nav.contato">Contato</a></li>
-      <li><button class="lang-toggle-btn" id="langToggleMobile" aria-label="Switch language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg><span id="langToggleTextMobile">EN</span></button></li>
+      <li><button class="lang-toggle-btn" id="langToggleMobile" aria-label="Switch language"><span class="lang-opt" data-lang="en">EN</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="pt">PT</span></button></li>
     </ul>
   </nav>
 
@@ -732,15 +732,17 @@
     <div class="container">
       <div class="section-label" data-i18n="proj.label">/ projetos</div>
       <h2 class="section-title center" data-i18n="proj.title">O que eu construí</h2>
-      <p class="section-desc center" data-i18n="proj.desc">Alguns dos projetos que desenvolvei. Clique para ver mais.</p>
+      <p class="section-desc center" data-i18n="proj.desc">Alguns dos projetos que desenvolvei. Role para ver todos.</p>
+    </div>
 
-      <div class="projects-grid">
+    <div class="proj-rail" id="projRail">
+      <div class="proj-rail-inner">
+        <div class="proj-track" id="projTrack">
 
         <!-- SVG helpers reutilizados via JS abaixo -->
         <div class="project-card" onclick="openProject('wasteland')">
           <img class="project-thumb" src="screenshots/wasteland-garden.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">🌱</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/Wasteland-Garden" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -766,7 +768,6 @@
         <div class="project-card" onclick="openProject('scannerbuild')">
           <img class="project-thumb" src="screenshots/scannerbuild.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">📡</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/Scanner-Build" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -791,7 +792,6 @@
         <div class="project-card" onclick="openProject('cicada')">
           <img class="project-thumb" src="screenshots/cicada.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">🦗</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/Cicada-3301" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -817,7 +817,6 @@
         <div class="project-card" onclick="openProject('createlanguage')">
           <img class="project-thumb" src="screenshots/create-your-language.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">🔤</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/Create-Your-Language-" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -842,7 +841,6 @@
         <div class="project-card" onclick="openProject('botgram')">
           <img class="project-thumb" src="screenshots/botgram.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">💬</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/BotGram" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -868,7 +866,6 @@
         <div class="project-card" onclick="openProject('cpumaster')">
           <img class="project-thumb" src="screenshots/cpu-master.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">🖥️</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/CPU-MASTER" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -890,10 +887,9 @@
           </div>
         </div>
 
-        <div class="project-card extra" onclick="openProject('gamehub')">
+        <div class="project-card" onclick="openProject('gamehub')">
           <img class="project-thumb" src="screenshots/gamehub.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">🎮</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/gamehub" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -916,10 +912,9 @@
           </div>
         </div>
 
-        <div class="project-card extra" onclick="openProject('hiremind')">
+        <div class="project-card" onclick="openProject('hiremind')">
           <img class="project-thumb" src="screenshots/hiremind.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">🤖</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/hiremind-ai" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -942,10 +937,9 @@
           </div>
         </div>
 
-        <div class="project-card extra" onclick="openProject('helpdesk')">
+        <div class="project-card" onclick="openProject('helpdesk')">
           <img class="project-thumb" src="screenshots/helpdesk.png" alt="" loading="lazy" />
           <div class="project-header">
-            <div class="project-icon">🎫</div>
             <div class="project-links" onclick="event.stopPropagation()">
               <a href="https://github.com/Pedroaruana/HelpDeskEA" target="_blank" rel="noopener" class="project-link">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -969,16 +963,14 @@
           </div>
         </div>
 
-      </div>
+        <div class="proj-track-end">
+          <a href="https://github.com/Pedroaruana" target="_blank" rel="noopener" class="btn-ver-mais">
+            <span data-i18n="proj.see-more-github">Ver mais projetos no GitHub</span>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
 
-      <div class="projects-toggle">
-        <button class="btn-ver-mais" id="projectsToggle">
-          <span data-i18n="common.see-more">Ver mais</span> <span class="toggle-arrow">↓</span>
-        </button>
-        <a href="https://github.com/Pedroaruana" target="_blank" rel="noopener" class="btn-ver-mais">
-          <span data-i18n="proj.see-more-github">Ver mais projetos no GitHub</span>
-          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
+        </div>
       </div>
     </div>
   </section>

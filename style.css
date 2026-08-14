@@ -68,12 +68,11 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -0.5px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent), var(--accent-2));
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: navLogoFlow 4s linear infinite;
+  color: var(--text);
+}
+
+.nav-logo .accent {
+  color: var(--accent);
 }
 
 @keyframes navLogoFlow {
@@ -110,22 +109,37 @@ a { color: inherit; text-decoration: none; }
 .lang-toggle-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(124, 106, 255, 0.08);
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  gap: 5px;
+  background: none;
+  border: none;
+  font-family: 'Fira Code', monospace;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  padding: 6px 14px;
-  border-radius: 100px;
+  padding: 6px 4px;
   cursor: pointer;
-  transition: all var(--transition);
 }
 
-.lang-toggle-btn:hover {
-  background: var(--accent);
-  color: #fff;
+.lang-opt {
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.lang-opt.active {
+  color: var(--accent);
+}
+
+.lang-toggle-btn:hover .lang-opt {
+  color: var(--text);
+}
+
+.lang-toggle-btn:hover .lang-opt.active {
+  color: var(--accent);
+}
+
+.lang-sep {
+  color: var(--text-muted);
+  opacity: 0.5;
 }
 
 .nav-mobile .lang-toggle-btn {
@@ -1257,10 +1271,10 @@ a { color: inherit; text-decoration: none; }
 .dev-story[data-intro="1"] .ds-info  { opacity: 0; transform: translateX(18px); }
 
 .ds-hint {
-  position: absolute;
+  position: fixed;
   left: 50%;
-  bottom: 6vh;
-  transform: translateX(-50%);
+  top: 54%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1268,6 +1282,7 @@ a { color: inherit; text-decoration: none; }
   opacity: 0;
   transition: opacity 0.7s ease;
   pointer-events: none;
+  z-index: 4;
 }
 
 .dev-story[data-intro="1"] .ds-hint { opacity: 1; }
@@ -2322,6 +2337,44 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+}
+
+/* ===== PROJECTS HORIZONTAL RAIL ===== */
+.proj-rail {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: 48px;
+}
+
+.proj-rail-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.proj-track {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  padding: 0 clamp(20px, 6vw, 80px);
+  will-change: transform;
+}
+
+.proj-track .project-card {
+  width: min(360px, 82vw);
+  flex: 0 0 auto;
+}
+
+.proj-track-end {
+  flex: 0 0 auto;
+  width: min(260px, 70vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ===== IDIOMAS ===== */

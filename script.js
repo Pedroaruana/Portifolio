@@ -153,8 +153,8 @@ function applyLanguage(lang) {
     }
   });
 
-  document.querySelectorAll('#langToggleText, #langToggleTextMobile').forEach(span => {
-    span.textContent = lang === 'en' ? 'PT' : 'EN';
+  document.querySelectorAll('.lang-opt').forEach(opt => {
+    opt.classList.toggle('active', opt.dataset.lang === lang);
   });
 
   localStorage.setItem('lang', lang);
@@ -162,6 +162,9 @@ function applyLanguage(lang) {
 
 document.addEventListener('DOMContentLoaded', () => {
   if (currentLang === 'en') applyLanguage('en');
+  document.querySelectorAll('.lang-opt').forEach(opt => {
+    opt.classList.toggle('active', opt.dataset.lang === currentLang);
+  });
   const toggleFn = () => applyLanguage(currentLang === 'en' ? 'pt' : 'en');
   const langToggle = document.getElementById('langToggle');
   const langToggleMobile = document.getElementById('langToggleMobile');
@@ -443,7 +446,8 @@ if (hourglass) {
     const rest = 1 - e;
     devices.style.transform = `translateY(${(-INTRO_LIFT * rest).toFixed(2)}vh) scale(${(1 + 0.05 * rest).toFixed(3)})`;
 
-    const intro = p < INTRO_HOLD;
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    const intro = inView && p < INTRO_HOLD;
 
     // scene index over the remaining scroll
     const after = clamp((p - INTRO_HOLD) / (1 - INTRO_HOLD), 0, 1);
@@ -829,3 +833,38 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// Projects horizontal scroll rail
+(function () {
+  const rail = document.getElementById('projRail');
+  const track = document.getElementById('projTrack');
+  if (!rail || !track) return;
+
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  let maxTranslate = 0;
+  let ticking = false;
+
+  function measure() {
+    maxTranslate = Math.max(0, track.scrollWidth - window.innerWidth);
+    rail.style.height = `${window.innerHeight + maxTranslate}px`;
+    render();
+  }
+
+  function render() {
+    if (maxTranslate <= 0) { track.style.transform = 'translateX(0)'; return; }
+    const rect = rail.getBoundingClientRect();
+    const p = clamp(-rect.top / maxTranslate, 0, 1);
+    track.style.transform = `translateX(${-p * maxTranslate}px)`;
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { render(); ticking = false; });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+  measure();
+})();
