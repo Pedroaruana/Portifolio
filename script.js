@@ -160,18 +160,16 @@ function applyLanguage(lang) {
     }
   });
 
-  document.querySelectorAll('.lang-opt').forEach(opt => {
-    opt.classList.toggle('active', opt.dataset.lang === lang);
-  });
+  const FLAG_US = '<svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#B22234"/><rect y="1.23" width="24" height="1.23" fill="#fff"/><rect y="3.69" width="24" height="1.23" fill="#fff"/><rect y="6.15" width="24" height="1.23" fill="#fff"/><rect y="8.62" width="24" height="1.23" fill="#fff"/><rect y="11.08" width="24" height="1.23" fill="#fff"/><rect y="13.54" width="24" height="1.23" fill="#fff"/><rect width="10.3" height="8.62" fill="#3C3B6E"/></svg>';
+  const FLAG_BR = '<svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#009739"/><polygon points="12,2 22,8 12,14 2,8" fill="#FEDD00"/><circle cx="12" cy="8" r="4" fill="#012169"/></svg>';
+  document.querySelectorAll('.lang-flag').forEach(el => { el.innerHTML = lang === 'en' ? FLAG_US : FLAG_BR; });
+  document.querySelectorAll('.lang-code').forEach(el => { el.textContent = lang === 'en' ? 'EN' : 'BR'; });
 
   localStorage.setItem('lang', lang);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (currentLang === 'en') applyLanguage('en');
-  document.querySelectorAll('.lang-opt').forEach(opt => {
-    opt.classList.toggle('active', opt.dataset.lang === currentLang);
-  });
+  applyLanguage(currentLang);
   const toggleFn = () => applyLanguage(currentLang === 'en' ? 'pt' : 'en');
   const langToggle = document.getElementById('langToggle');
   const langToggleMobile = document.getElementById('langToggleMobile');
