@@ -56,6 +56,7 @@ const translations = {
     'exp.role': 'Apprentice — Marketing & IT Support',
     'exp.location': 'Salvador, BA · On-site',
     'exp.duration': '11 months · Apprentice',
+    'exp.subtitle': 'Professional experiences that strengthened my practice in development, collaboration, communication and problem solving.',
     'exp.bullet1': 'Technical support for internal users — remote assistance via <strong>AnyDesk</strong> and resolving hardware and software tickets',
     'exp.bullet2': 'CRM management with <strong>SAP</strong>, <strong>Salescloud</strong> and <strong>Salesforce</strong> — logging and tracking service requests',
     'exp.bullet3': 'Temporarily covered for a B.I analyst for 45 days — building <strong>management reports and spreadsheets</strong> in Excel',
