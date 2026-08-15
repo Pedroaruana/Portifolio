@@ -15,14 +15,49 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">pedro<span class="accent">.dev</span></a>
-      <ul class="nav-links">
-        <li><a href="#sobre" data-i18n="nav.sobre">Sobre</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experiencia" data-i18n="nav.experiencia">Experiência</a></li>
-        <li><a href="#formacao" data-i18n="nav.formacao">Formação</a></li>
-        <li><a href="#certificados" data-i18n="nav.certificados">Certificados</a></li>
-        <li><a href="#projetos" data-i18n="nav.projetos">Projetos</a></li>
-        <li><a href="#contato" data-i18n="nav.contato">Contato</a></li>
+      <ul class="nav-links nav-links--icons">
+        <li>
+          <a href="#sobre" class="nav-icon-link" aria-label="Sobre">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span class="nav-tooltip" data-i18n="nav.sobre">Sobre</span>
+          </a>
+        </li>
+        <li>
+          <a href="#skills" class="nav-icon-link" aria-label="Skills">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <span class="nav-tooltip">Skills</span>
+          </a>
+        </li>
+        <li>
+          <a href="#experiencia" class="nav-icon-link" aria-label="Experiência">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span class="nav-tooltip" data-i18n="nav.experiencia">Experiência</span>
+          </a>
+        </li>
+        <li>
+          <a href="#formacao" class="nav-icon-link" aria-label="Formação">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+            <span class="nav-tooltip" data-i18n="nav.formacao">Formação</span>
+          </a>
+        </li>
+        <li>
+          <a href="#certificados" class="nav-icon-link" aria-label="Certificados">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.7 13.6L7 22l5-3 5 3-1.7-8.4"/></svg>
+            <span class="nav-tooltip" data-i18n="nav.certificados">Certificados</span>
+          </a>
+        </li>
+        <li>
+          <a href="#projetos" class="nav-icon-link" aria-label="Projetos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span class="nav-tooltip" data-i18n="nav.projetos">Projetos</span>
+          </a>
+        </li>
+        <li>
+          <a href="#contato" class="nav-icon-link" aria-label="Contato">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span class="nav-tooltip" data-i18n="nav.contato">Contato</span>
+          </a>
+        </li>
         <li><button class="lang-toggle-btn" id="langToggle" aria-label="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">BR</span><svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg></button></li>
       </ul>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu">
