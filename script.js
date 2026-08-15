@@ -15,7 +15,7 @@ const translations = {
     'hero.scroll': 'Scroll',
     'about.label': '/ about me',
     'about.title': 'Turning ordinary websites into <span class="accent">unique experiences</span>.',
-    'about.p1': 'Hi! My name is <strong>Pedro Aruanã</strong>, I\'m <strong>22 years old</strong> and I\'m from Salvador, Bahia. I\'ve been coding for <strong>2 years</strong> and I\'m a front-end developer with full stack experience too — I like taking an ordinary site or system and turning it into an experience people remember. I\'m always learning and testing new technologies hands-on, not just in theory.',
+    'about.p1': 'Hi! My name is <strong>Pedro Aruanã</strong>, I\'m <strong>23 years old</strong> and I\'m from Salvador, Bahia. I\'ve been coding for <strong>2 years</strong> and I\'m a front-end developer with full stack experience too — I like taking an ordinary site or system and turning it into an experience people remember. I\'m always learning and testing new technologies hands-on, not just in theory.',
     'about.p2': "I'm proficient in React and Angular on the interface, but I build the whole system: REST APIs with Node.js and FastAPI, JWT authentication, automated tests with Vitest and Playwright, deployment with Docker and CI/CD. I'm currently studying and testing automation with n8n.",
     'about.stat1': 'Repos live',
     'about.stat2': 'Certificates',
