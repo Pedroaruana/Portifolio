@@ -3602,6 +3602,72 @@ a { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
 }
 
+/* card em duas colunas: logo + dados da empresa à esquerda, cargo à direita */
+.timeline-card--split {
+  display: flex;
+  gap: 32px;
+}
+
+.timeline-side {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.timeline-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+  padding: 6px;
+  margin-bottom: 6px;
+}
+
+.timeline-side .timeline-period,
+.timeline-side .timeline-location {
+  white-space: normal;
+}
+
+.timeline-duration {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
+}
+
+.timeline-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline-eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.timeline-card--split .timeline-role { margin-bottom: 20px; }
+
+@media (max-width: 700px) {
+  .timeline-card--split {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .timeline-side {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+  .timeline-logo { margin-bottom: 0; }
+}
+
 .timeline-role {
   font-size: 1.05rem;
   font-weight: 700;
