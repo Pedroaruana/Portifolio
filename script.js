@@ -803,12 +803,14 @@ document.addEventListener('keydown', (e) => {
 const certsToggle = document.getElementById('certsToggle');
 const extraCerts = document.querySelectorAll('.cert-card.extra');
 let certsOpen = false;
+const seeMoreLabel = () => (currentLang === 'en' ? 'See more' : 'Ver mais');
+const seeLessLabel = () => (currentLang === 'en' ? 'See less' : 'Ver menos');
 
 certsToggle.addEventListener('click', () => {
   certsOpen = !certsOpen;
   extraCerts.forEach(card => card.classList.toggle('visible', certsOpen));
   certsToggle.classList.toggle('open', certsOpen);
-  certsToggle.innerHTML = (certsOpen ? t('common.see-less') : t('common.see-more')) + ' <span class="toggle-arrow">↓</span>';
+  certsToggle.innerHTML = (certsOpen ? seeLessLabel() : seeMoreLabel()) + ' <span class="toggle-arrow">↓</span>';
 });
 
 // Projects toggle
@@ -821,7 +823,7 @@ if (projectsToggle) {
     projectsOpen = !projectsOpen;
     extraProjects.forEach(card => card.classList.toggle('visible', projectsOpen));
     projectsToggle.classList.toggle('open', projectsOpen);
-    projectsToggle.innerHTML = (projectsOpen ? t('common.see-less') : t('common.see-more')) + ' <span class="toggle-arrow">↓</span>';
+    projectsToggle.innerHTML = (projectsOpen ? seeLessLabel() : seeMoreLabel()) + ' <span class="toggle-arrow">↓</span>';
   });
 }
 
