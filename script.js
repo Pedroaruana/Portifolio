@@ -70,6 +70,7 @@ const translations = {
     'skills.step9-desc': 'Order and notification flows running on their own.',
     'skills.step10-title': '10 · Deploy',
     'skills.step10-desc': 'Store live, versioned and monitored in production.',
+    'skills.building-now': 'BUILDING NOW',
     'skills.check1': 'Interface built',
     'skills.check2': 'API connected',
     'skills.check3': 'Database active',
@@ -205,6 +206,12 @@ function applyLanguage(lang) {
   const FLAG_BR = '<svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#009739"/><polygon points="12,2 22,8 12,14 2,8" fill="#FEDD00"/><circle cx="12" cy="8" r="4" fill="#012169"/></svg>';
   document.querySelectorAll('.lang-flag').forEach(el => { el.innerHTML = lang === 'en' ? FLAG_US : FLAG_BR; });
   document.querySelectorAll('.lang-code').forEach(el => { el.textContent = lang === 'en' ? 'EN' : 'BR'; });
+
+  // "ver mais/ver menos" e a legenda da cena não são data-i18n — atualizam sozinhos
+  // só no clique, então precisam ser avisados aqui pra não ficar com texto preso
+  // no idioma antigo quando o usuário troca de idioma sem clicar neles.
+  if (typeof refreshToggleLabels === 'function') refreshToggleLabels();
+  if (window.__refreshDsScene) window.__refreshDsScene();
 
   localStorage.setItem('lang', lang);
 }
@@ -452,18 +459,31 @@ if (hourglass) {
   };
 
   // scene 0 is the closed / floating intro; steps below start at scene 1
+  const SCENE_NAMES = {
+    pt: ['Abrir notebook', 'Tela acende', 'Frontend', 'Backend', 'Banco de dados', 'Testes automatizados', 'Docker', 'CI/CD', 'Automação', 'Deploy'],
+    en: ['Open the laptop', 'Screen turns on', 'Frontend', 'Backend', 'Database', 'Automated tests', 'Docker', 'CI/CD', 'Automation', 'Deploy']
+  };
   const scenes = [
-    { name: 'Abrir notebook', panel: null },
-    { name: 'Tela acende', panel: null },
-    { name: 'Frontend', panel: null },
-    { name: 'Backend', panel: 'api' },
-    { name: 'Banco de dados', panel: 'db' },
-    { name: 'Testes automatizados', panel: 'test' },
-    { name: 'Docker', panel: 'docker' },
-    { name: 'CI/CD', panel: 'ci' },
-    { name: 'Automação', panel: 'n8n' },
-    { name: 'Deploy', panel: 'live' }
+    { panel: null },
+    { panel: null },
+    { panel: null },
+    { panel: 'api' },
+    { panel: 'db' },
+    { panel: 'test' },
+    { panel: 'docker' },
+    { panel: 'ci' },
+    { panel: 'n8n' },
+    { panel: 'live' }
   ];
+  let currentScene = -1;
+  function refreshSceneLabels() {
+    if (currentScene < 0) return;
+    const names = SCENE_NAMES[currentLang] || SCENE_NAMES.pt;
+    sceneEl.textContent = names[currentScene];
+    const prefix = currentLang === 'en' ? 'SCENE' : 'CENA';
+    counterEl.textContent = `${prefix} ${String(currentScene + 1).padStart(2, '0')} / ${String(scenes.length).padStart(2, '0')}`;
+  }
+  window.__refreshDsScene = refreshSceneLabels;
 
   const LID_CLOSED = -90;
   const LID_OPEN = -8;
@@ -515,8 +535,8 @@ if (hourglass) {
       return;
     }
 
-    sceneEl.textContent = scenes[scene].name;
-    counterEl.textContent = `CENA ${String(scene + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+    currentScene = scene;
+    refreshSceneLabels();
 
     steps.forEach((li, i) => {
       li.classList.toggle('active', i === scene);
@@ -869,6 +889,13 @@ if (projectsToggle) {
     projectsToggle.classList.toggle('open', projectsOpen);
     projectsToggle.innerHTML = (projectsOpen ? seeLessLabel() : seeMoreLabel()) + ' <span class="toggle-arrow">↓</span>';
   });
+}
+
+// esses botões só re-renderizam o próprio texto no clique — sem isso, trocar
+// de idioma pelo botão de bandeira deixa o texto deles preso no idioma antigo
+function refreshToggleLabels() {
+  if (certsToggle) certsToggle.innerHTML = (certsOpen ? seeLessLabel() : seeMoreLabel()) + ' <span class="toggle-arrow">↓</span>';
+  if (projectsToggle) projectsToggle.innerHTML = (projectsOpen ? seeLessLabel() : seeMoreLabel()) + ' <span class="toggle-arrow">↓</span>';
 }
 
 // Smooth active nav link highlight
