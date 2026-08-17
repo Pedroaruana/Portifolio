@@ -98,7 +98,7 @@ const translations = {
     'edu.label': '/ education',
     'edu.title': 'Academic Background',
     'edu.role-label': 'EDUCATION',
-    'edu.period1': 'Aug 2024 – Dec 2026',
+    'edu.period1': 'Aug 2023 – Dec 2026',
     'edu.role1': 'Associate Degree in Systems Analysis and Development',
     'edu.ongoing': 'Ongoing',
     'edu.bullet1': 'Program focused on <strong>software development</strong>, programming logic and systems engineering',
