@@ -61,7 +61,7 @@ Experiência construindo aplicações web completas com foco em código limpo, b
 
 ## 🏅 Certificações
 
-- ☁️ AWS Certified Cloud Practitioner — 2026
+- ☁️ AWS Cloud Practitioner — 2026
 - 📊 Google Analytics Certification — 2026
 - 🔒 Cybersecurity Essentials — Cisco, 2023
 - 🐍 Programação com Python — Santander, 2024
