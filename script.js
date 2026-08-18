@@ -686,6 +686,23 @@ app = <span class="${f}">FastAPI</span>()
 <span class="${k}">EXPOSE</span> <span class="tok-num">3000</span>
 
 <span class="${k}">CMD</span> [<span class="${s}">"node"</span>, <span class="${s}">"dist/server.js"</span>]`
+    },
+    n8n: {
+      filename: 'order-notify.workflow.json',
+      meta: 'Webhook · Function · HTTP Request',
+      code:
+`{
+  <span class="${t}">"name"</span>: <span class="${s}">"Order Notification"</span>,
+  <span class="${t}">"nodes"</span>: [
+    { <span class="${t}">"type"</span>: <span class="${s}">"n8n-nodes-base.webhook"</span>, <span class="${t}">"name"</span>: <span class="${s}">"New Order"</span> },
+    { <span class="${t}">"type"</span>: <span class="${s}">"n8n-nodes-base.function"</span>, <span class="${t}">"name"</span>: <span class="${s}">"Format Message"</span> },
+    { <span class="${t}">"type"</span>: <span class="${s}">"n8n-nodes-base.httpRequest"</span>, <span class="${t}">"name"</span>: <span class="${s}">"Send WhatsApp"</span> }
+  ],
+  <span class="${t}">"connections"</span>: {
+    <span class="${s}">"New Order"</span>: [[<span class="${s}">"Format Message"</span>]],
+    <span class="${s}">"Format Message"</span>: [[<span class="${s}">"Send WhatsApp"</span>]]
+  }
+}`
     }
   };
 
