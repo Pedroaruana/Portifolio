@@ -12,12 +12,12 @@
 
 ## 🙋 Sobre mim
 
-Tenho 22 anos e gosto de transformar ideias em produtos reais — do layout ao banco de dados.
+Tenho 23 anos e gosto de transformar ideias em produtos reais — do layout ao banco de dados.
 Experiência construindo aplicações web completas com foco em código limpo, boa UX e soluções que realmente funcionam.
 
 - 🎓 Tecnólogo em ADS — Estácio de Sá (2024–2026)
-- 💼 1+ ano de experiência
-- 🚀 5 projetos no ar
+- 💼 2+ ano de experiência
+- 🚀 29 projetos no ar
 
 ---
 
