@@ -144,6 +144,8 @@ const translations = {
     'proj.cap8': 'GAMING E-COMMERCE',
     'proj.cap9': 'AI / RECRUITMENT',
     'proj.cap10': '3D DENTAL TRIAGE',
+    'proj.cap11': 'PRICE MONITORING',
+    'proj.gurudasvendas-desc': 'Tracks electronics prices in stores like Kabum, Amazon and Mercado Livre and pings you on WhatsApp the moment a price drops in your favor.',
     'proj.wasteland-desc': 'Gamified pixel-art task manager set in 2056, in a world without air. Each task is a seed you water and harvest to generate oxygen. Guest mode via localStorage, JWT auth and automated tests with Vitest and Playwright.',
     'proj.scannerbuild-desc': "Pick any point on the map and ScannerBuild traces the building's real outline via OpenStreetMap, estimates height, floors and entrances, and builds a navigable 3D model — with caching, rate-limiting and parallel retry to handle the external service's instability.",
     'proj.cicada-desc': 'Interactive web puzzle inspired by the Cicada 3301 enigma. Five stages, each with a different cryptography and investigation technique — including LSB steganography implemented from scratch with Pillow. At the end, a personalized PDF certificate.',
@@ -756,6 +758,15 @@ const projectData = {
     stack: ['React', 'Three.js', 'TypeScript', 'Tailwind CSS'],
     github: 'https://github.com/Pedroaruana/E-Meu-Dente',
     demo: 'https://e-meu-dente-web.vercel.app'
+  },
+  gurudasvendas: {
+    title: 'Guru das Vendas',
+    img: 'screenshots/guru-das-vendas.png',
+    desc: 'O oráculo que vigia os preços de eletrônicos por você. Acompanha lojas como Kabum, Amazon e Mercado Livre e avisa por WhatsApp assim que alguém erra o preço a seu favor, com um painel pra consultar o histórico.',
+    descEn: 'The oracle that watches electronics prices for you. Tracks stores like Kabum, Amazon and Mercado Livre and pings you on WhatsApp the moment a price drops in your favor, with a dashboard to check the history.',
+    stack: ['Next.js', 'TypeScript', 'WhatsApp API', 'Web Scraping'],
+    github: 'https://github.com/Pedroaruana/Guru-das-Vendas',
+    demo: 'https://gurudasvendas.netlify.app/'
   },
   worldskunks: {
     title: 'World Skunks',
