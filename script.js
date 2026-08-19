@@ -764,7 +764,7 @@ const projectData = {
     img: 'screenshots/guru-das-vendas.png',
     desc: 'O oráculo que vigia os preços de eletrônicos por você. Acompanha lojas como Kabum, Amazon e Mercado Livre e avisa por WhatsApp assim que alguém erra o preço a seu favor, com um painel pra consultar o histórico.',
     descEn: 'The oracle that watches electronics prices for you. Tracks stores like Kabum, Amazon and Mercado Livre and pings you on WhatsApp the moment a price drops in your favor, with a dashboard to check the history.',
-    stack: ['Next.js', 'TypeScript', 'WhatsApp API', 'Web Scraping'],
+    stack: ['Vue.js', 'Next.js', 'TypeScript', 'WhatsApp API', 'Web Scraping'],
     github: 'https://github.com/Pedroaruana/Guru-das-Vendas',
     demo: 'https://gurudasvendas.netlify.app/'
   },
