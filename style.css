@@ -71,10 +71,19 @@ a { color: inherit; text-decoration: none; }
 }
 
 .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -0.5px;
   color: var(--text);
+}
+
+.nav-logo-icon {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: var(--accent);
 }
 
 .nav-logo .accent {
