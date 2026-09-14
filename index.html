@@ -143,11 +143,11 @@
           </p>
           <div class="about-stats" id="aboutStats">
             <div class="stat">
-              <span class="stat-num" data-count-to="30" data-suffix="+">0+</span>
+              <span class="stat-num" data-count-to="31" data-suffix="+">0+</span>
               <span class="stat-label" data-i18n="about.stat1">Repositórios no ar</span>
             </div>
             <div class="stat">
-              <span class="stat-num" data-count-to="75" data-suffix="">0</span>
+              <span class="stat-num" data-count-to="76" data-suffix="">0</span>
               <span class="stat-label" data-i18n="about.stat2">Certificados</span>
             </div>
 <div class="stat">
@@ -571,6 +571,33 @@
           </div>
           <div class="timeline-card timeline-card--split">
             <div class="timeline-side">
+              <img class="timeline-logo" src="logos/programadores-do-amanha.jpg" alt="Programadores do Amanhã" onerror="this.style.display='none'">
+              <span class="timeline-company edu">Programadores do Amanhã</span>
+              <span class="timeline-period" data-i18n="edu.period0">Set 2026 – Mar 2027</span>
+              <span class="timeline-location" data-i18n="edu.ongoing">Em andamento</span>
+            </div>
+            <div class="timeline-main">
+              <span class="timeline-eyebrow" data-i18n="edu.role-label">FORMAÇÃO</span>
+              <h3 class="timeline-role" data-i18n="edu.role0">Formação Full Stack JavaScript</h3>
+              <ul class="timeline-bullets">
+                <li data-i18n-html="edu.bullet0a">Formação intensiva em <strong>JavaScript full stack</strong>, do front-end ao back-end</li>
+                <li data-i18n="edu.bullet0b">Aulas de inglês incluídas na grade curricular</li>
+                <li data-i18n="edu.bullet0c">Curso 100% online, com carga horária semanal e projetos práticos</li>
+              </ul>
+              <div class="timeline-tags">
+                <span>JavaScript</span><span data-i18n="edu.tag-fullstack">Full Stack</span><span data-i18n="edu.tag-english">Inglês</span><span data-i18n="edu.tag-online">Online</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="timeline-dot edu"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card timeline-card--split">
+            <div class="timeline-side">
               <img class="timeline-logo" src="logos/estacio.png" alt="Estácio de Sá" onerror="this.style.display='none'">
               <span class="timeline-company edu">Estácio de Sá</span>
               <span class="timeline-period" data-i18n="edu.period1">Ago 2023 – Dez 2026</span>
@@ -817,11 +844,31 @@
             </div>
             <img class="project-thumb" src="screenshots/wasteland-garden.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">01 / 11 &middot; <span data-i18n="proj.cap1">GESTAO GAMIFICADA</span></span>
+              <span class="project-caption">01 / 12 &middot; <span data-i18n="proj.cap1">GESTAO GAMIFICADA</span></span>
               <h3 class="project-title">Wasteland Garden</h3>
               <p class="project-desc" data-i18n="proj.wasteland-desc">Gerenciador de tarefas gamificado em pixel art, ambientado em 2056 num mundo sem ar. Cada tarefa é uma semente que você rega e colhe pra gerar oxigênio. Modo visitante via localStorage, autenticação JWT e testes automatizados com Vitest e Playwright.</p>
             </div>
             <a href="https://pipe-stonks-frontend.vercel.app/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
+              <span data-i18n="proj.view-project">Ver Projeto</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="openProject('cryptographer')">
+          <div class="project-thumb-wrap">
+            <div class="project-browser-bar">
+              <span class="pb-dot pb-red"></span><span class="pb-dot pb-yellow"></span><span class="pb-dot pb-green"></span>
+              <span class="pb-url">cryptographer-seven.vercel.app</span>
+              <span class="pb-live"><i></i>LIVE</span>
+            </div>
+            <img class="project-thumb" src="screenshots/cryptographer.jpg" alt="" loading="lazy" />
+            <div class="project-overlay">
+              <span class="project-caption">02 / 12 &middot; <span data-i18n="proj.cap-crypto">CRIPTOGRAFIA CLIENT-SIDE</span></span>
+              <h3 class="project-title">Cryptographer</h3>
+              <p class="project-desc" data-i18n="proj.cryptographer-desc">Ferramentas de criptografia 100% no navegador: lacrar arquivos com AES-256, chaveiro com troca de chaves e assinatura, esconder segredos em fotos e áudio, e simuladores de cifras clássicas.</p>
+            </div>
+            <a href="https://cryptographer-seven.vercel.app/" target="_blank" rel="noopener" class="project-view-btn" onclick="event.stopPropagation()">
               <span data-i18n="proj.view-project">Ver Projeto</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
@@ -837,7 +884,7 @@
             </div>
             <img class="project-thumb" src="screenshots/scannerbuild.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">02 / 11 &middot; <span data-i18n="proj.cap2">VISUALIZACAO 3D</span></span>
+              <span class="project-caption">03 / 12 &middot; <span data-i18n="proj.cap2">VISUALIZACAO 3D</span></span>
               <h3 class="project-title">ScannerBuild</h3>
               <p class="project-desc" data-i18n="proj.scannerbuild-desc">Selecione um ponto qualquer no mapa e o ScannerBuild traça o contorno real do prédio via OpenStreetMap, estima altura, andares e entradas, e monta um modelo 3D navegável — com cache, rate-limit e retry em paralelo pra lidar com a instabilidade do serviço externo.</p>
             </div>
@@ -857,7 +904,7 @@
             </div>
             <img class="project-thumb" src="screenshots/cicada.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">03 / 11 &middot; <span data-i18n="proj.cap3">PUZZLE INTERATIVO</span></span>
+              <span class="project-caption">04 / 12 &middot; <span data-i18n="proj.cap3">PUZZLE INTERATIVO</span></span>
               <h3 class="project-title">Cicada 3301</h3>
               <p class="project-desc" data-i18n="proj.cicada-desc">Puzzle web interativo inspirado no enigma Cicada 3301. Cinco fases, cada uma com uma técnica diferente de criptografia e investigação — incluindo esteganografia LSB implementada do zero com Pillow. No final, um certificado personalizado em PDF.</p>
             </div>
@@ -877,7 +924,7 @@
             </div>
             <img class="project-thumb" src="screenshots/create-your-language.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">04 / 11 &middot; <span data-i18n="proj.cap4">FERRAMENTA DEV</span></span>
+              <span class="project-caption">05 / 12 &middot; <span data-i18n="proj.cap4">FERRAMENTA DEV</span></span>
               <h3 class="project-title">Create Your Language</h3>
               <p class="project-desc" data-i18n="proj.createlanguage-desc">Wizard de 7 etapas sobre como você imagina sua linguagem de programação, com uma animação de "construção" numa IDE simulada — e no final você baixa um interpretador de verdade (lexer, parser e interpretador), roda com node cli.js run.</p>
             </div>
@@ -897,7 +944,7 @@
             </div>
             <img class="project-thumb" src="screenshots/world-skunks.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">05 / 11 &middot; <span data-i18n="proj.cap5">RASTREAMENTO ORBITAL</span></span>
+              <span class="project-caption">06 / 12 &middot; <span data-i18n="proj.cap5">RASTREAMENTO ORBITAL</span></span>
               <h3 class="project-title">World Skunks</h3>
               <p class="project-desc" data-i18n="proj.worldskunks-desc">Rastreamento orbital de satélites em tempo real, com sincronização TLE, contagem de satélites ativos e status de propulsão numa interface estilo painel de controle espacial.</p>
             </div>
@@ -917,7 +964,7 @@
             </div>
             <img class="project-thumb" src="screenshots/botgram.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">06 / 11 &middot; <span data-i18n="proj.cap6">AUTOMACAO</span></span>
+              <span class="project-caption">07 / 12 &middot; <span data-i18n="proj.cap6">AUTOMACAO</span></span>
               <h3 class="project-title">BotGram</h3>
               <p class="project-desc" data-i18n="proj.botgram-desc">Construtor visual de bots de venda para o Telegram. Configura produtos, preços e mensagens pelo site e recebe o código do bot pronto pra rodar — sem saber programar. Preview em tempo real simulando uma conversa no Telegram.</p>
             </div>
@@ -937,7 +984,7 @@
             </div>
             <img class="project-thumb" src="screenshots/cpu-master.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">07 / 11 &middot; <span data-i18n="proj.cap7">SIMULADOR 3D</span></span>
+              <span class="project-caption">08 / 12 &middot; <span data-i18n="proj.cap7">SIMULADOR 3D</span></span>
               <h3 class="project-title">CPU Master</h3>
               <p class="project-desc" data-i18n="proj.cpumaster-desc">Simulador de montagem de PC com checagem de compatibilidade em tempo real — soquete, tipo de memória, tamanho da GPU, radiador do cooler — e visualização 3D do gabinete. Estimativa de FPS e builds prontas de custo-benefício a extremo.</p>
             </div>
@@ -957,7 +1004,7 @@
             </div>
             <img class="project-thumb" src="screenshots/gamehub.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">08 / 11 &middot; <span data-i18n="proj.cap8">E-COMMERCE DE JOGOS</span></span>
+              <span class="project-caption">09 / 12 &middot; <span data-i18n="proj.cap8">E-COMMERCE DE JOGOS</span></span>
               <h3 class="project-title">GameHub</h3>
               <p class="project-desc" data-i18n="proj.gamehub-desc">Plataforma de jogos digitais inspirada na Steam. Login com animação 3D em Three.js, catálogo com busca, carrinho, favoritos e checkout com múltiplas formas de pagamento. Deploy em 3 serviços diferentes.</p>
             </div>
@@ -977,7 +1024,7 @@
             </div>
             <img class="project-thumb" src="screenshots/hiremind.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">09 / 11 &middot; <span data-i18n="proj.cap9">IA / RECRUTAMENTO</span></span>
+              <span class="project-caption">10 / 12 &middot; <span data-i18n="proj.cap9">IA / RECRUTAMENTO</span></span>
               <h3 class="project-title">HireMind AI</h3>
               <p class="project-desc" data-i18n="proj.hiremind-desc">Sobe um currículo em PDF e em segundos recebe um score de 0 a 100, as habilidades extraídas automaticamente e dicas de melhoria. Backend em FastAPI com autenticação JWT e banco PostgreSQL real.</p>
             </div>
@@ -997,7 +1044,7 @@
             </div>
             <img class="project-thumb" src="screenshots/e-meu-dente.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">10 / 11 &middot; <span data-i18n="proj.cap10">TRIAGEM ODONTOLOGICA 3D</span></span>
+              <span class="project-caption">11 / 12 &middot; <span data-i18n="proj.cap10">TRIAGEM ODONTOLOGICA 3D</span></span>
               <h3 class="project-title">E Meu Dente?</h3>
               <p class="project-desc" data-i18n="proj.emeudente-desc">Aponte o dente que está incomodando num modelo 3D, responda 3 perguntas rápidas e descubra o que pode estar acontecendo — depois encontre uma clínica perto de você.</p>
             </div>
@@ -1017,7 +1064,7 @@
             </div>
             <img class="project-thumb" src="screenshots/guru-das-vendas.png" alt="" loading="lazy" />
             <div class="project-overlay">
-              <span class="project-caption">11 / 11 &middot; <span data-i18n="proj.cap11">MONITORAMENTO DE PRECOS</span></span>
+              <span class="project-caption">12 / 12 &middot; <span data-i18n="proj.cap11">MONITORAMENTO DE PRECOS</span></span>
               <h3 class="project-title">Guru das Vendas</h3>
               <p class="project-desc" data-i18n="proj.gurudasvendas-desc">Acompanha preços de eletrônicos em lojas como Kabum, Amazon e Mercado Livre e avisa por WhatsApp assim que alguém erra o preço a seu favor.</p>
             </div>
@@ -1100,6 +1147,7 @@
 
         <div class="contact-footer-row">
           <span class="contact-footer-name"><span class="contact-footer-dot"></span>Pedro Aruanã</span>
+          <span class="contact-footer-role" data-i18n="contact.role">Full Stack</span>
           <span class="contact-footer-note" data-i18n="contact.response-time">Resposta em até 24h</span>
         </div>
 

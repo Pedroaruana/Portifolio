@@ -98,6 +98,14 @@ const translations = {
     'edu.label': '/ education',
     'edu.title': 'Academic Background',
     'edu.role-label': 'EDUCATION',
+    'edu.period0': 'Sep 2026 – Mar 2027',
+    'edu.role0': 'Full Stack JavaScript Program',
+    'edu.upcoming': 'Starting soon',
+    'edu.bullet0a': 'Intensive program in <strong>full stack JavaScript</strong>, from front-end to back-end',
+    'edu.bullet0b': 'English classes included in the curriculum',
+    'edu.bullet0c': '100% online course, with weekly hours and hands-on projects',
+    'edu.tag-fullstack': 'Full Stack',
+    'edu.tag-online': 'Online',
     'edu.period1': 'Aug 2023 – Dec 2026',
     'edu.role1': 'Associate Degree in Systems Analysis and Development',
     'edu.ongoing': 'Ongoing',
@@ -135,6 +143,7 @@ const translations = {
     'proj.see-more-github': 'See more projects on GitHub',
     'proj.view-project': 'View Project',
     'proj.cap1': 'GAMIFIED MANAGEMENT',
+    'proj.cap-crypto': 'CLIENT-SIDE CRYPTOGRAPHY',
     'proj.cap2': '3D VISUALIZATION',
     'proj.cap3': 'INTERACTIVE PUZZLE',
     'proj.cap4': 'DEV TOOL',
@@ -147,6 +156,7 @@ const translations = {
     'proj.cap11': 'PRICE MONITORING',
     'proj.gurudasvendas-desc': 'Tracks electronics prices in stores like Kabum, Amazon and Mercado Livre and pings you on WhatsApp the moment a price drops in your favor.',
     'proj.wasteland-desc': 'Gamified pixel-art task manager set in 2056, in a world without air. Each task is a seed you water and harvest to generate oxygen. Guest mode via localStorage, JWT auth and automated tests with Vitest and Playwright.',
+    'proj.cryptographer-desc': 'Browser-only cryptography tools: lock files with AES-256, a keyring with key exchange and signing, hide secrets in photos and audio, and classic cipher simulators.',
     'proj.scannerbuild-desc': "Pick any point on the map and ScannerBuild traces the building's real outline via OpenStreetMap, estimates height, floors and entrances, and builds a navigable 3D model — with caching, rate-limiting and parallel retry to handle the external service's instability.",
     'proj.cicada-desc': 'Interactive web puzzle inspired by the Cicada 3301 enigma. Five stages, each with a different cryptography and investigation technique — including LSB steganography implemented from scratch with Pillow. At the end, a personalized PDF certificate.',
     'proj.createlanguage-desc': 'A 7-step wizard about how you imagine your programming language, with a "building" animation in a simulated IDE — and at the end you download a real interpreter (lexer, parser and interpreter), runs with node cli.js run.',
@@ -160,6 +170,7 @@ const translations = {
     'contact.status': 'Available for opportunities',
     'contact.title': 'Want to turn your idea into a real product?',
     'contact.highlight': "Let's talk.",
+    'contact.role': 'Full Stack',
     'contact.response-time': 'Response within 24h',
     'contact.download-cv': 'Download Resume (PDF)',
     'footer.copy': '© 2026 SALVADOR - BA. ALL RIGHTS RESERVED.',
@@ -848,6 +859,15 @@ const projectData = {
     stack: ['React 18', 'TypeScript', 'Fastify', 'PostgreSQL', 'Prisma', 'Zustand'],
     github: 'https://github.com/Pedroaruana/Wasteland-Garden',
     demo: 'https://pipe-stonks-frontend.vercel.app/'
+  },
+  cryptographer: {
+    title: 'Cryptographer',
+    img: 'screenshots/cryptographer.jpg',
+    desc: 'Um cofre digital que roda 100% no navegador, sem upload nem conta — o arquivo nunca sai da máquina, bloqueado pela própria política de segurança do site. Lacra arquivos e mensagens com AES-256-GCM, tem um chaveiro pra trancar um arquivo pra alguém específico via troca de chaves ECDH sem combinar senha antes (com assinatura e repartição de segredo estilo Shamir), esconde dados dentro de PNGs e WAVs por esteganografia, lê e apaga metadados EXIF de fotos, gera impressão digital SHA-256/512 com assinatura e selo por senha, e traz 8 simuladores de cifras clássicas e modernas. Funciona offline como PWA depois da primeira visita, em PT/EN.',
+    descEn: 'A digital vault that runs 100% in the browser, no upload, no account — the file never leaves the machine, enforced by the site\'s own security policy. Locks files and messages with AES-256-GCM, has a keyring to lock a file for a specific person via ECDH key exchange without agreeing on a password beforehand (with signing and Shamir-style secret splitting), hides data inside PNGs and WAVs via steganography, reads and strips EXIF metadata from photos, generates SHA-256/512 fingerprints with signing and password sealing, and ships 8 classic and modern cipher simulators. Works offline as a PWA after the first visit, in PT/EN.',
+    stack: ['React', 'TypeScript', 'Vite', 'Web Crypto API', 'Tailwind CSS'],
+    github: 'https://github.com/Pedroaruana/Cryptographer',
+    demo: 'https://cryptographer-seven.vercel.app/'
   }
 };
 
