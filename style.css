@@ -26,7 +26,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Preahvihear', sans-serif;
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
@@ -90,7 +90,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .nav-logo-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Preahvihear', sans-serif;
   font-weight: 800;
   line-height: 1;
 }
@@ -1974,7 +1974,7 @@ a { color: inherit; text-decoration: none; }
   background: #0a0a10;
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Preahvihear', sans-serif;
 }
 
 .store [data-el] {
@@ -3633,7 +3633,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Preahvihear', sans-serif;
 }
 
 .btn-ver-mais:hover {
