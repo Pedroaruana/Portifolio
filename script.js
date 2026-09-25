@@ -401,7 +401,7 @@ document.addEventListener('click', (e) => {
 });
 
 // Typed text
-const words = ['Frontend', 'React Dev', 'Angular Dev', 'UI Developer', 'JavaScript Dev'];
+const words = ['Full Stack', 'React Dev', 'Angular Dev', 'UI Developer', 'JavaScript Dev'];
 let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;

@@ -1,0 +1,26 @@
+# Pedro Aruanã
+
+> Desenvolvedor full stack em Salvador, Bahia, Brasil. Trabalha com React, Angular, Node.js, FastAPI, PostgreSQL, Docker, CI/CD e automação com n8n.
+
+Pedro Aruanã é um desenvolvedor full stack de 23 anos, com experiência prática construindo produtos reais, contribuindo para projetos open source e testando ferramentas de IA aplicada ao desenvolvimento.
+
+## Contato
+
+- GitHub: https://github.com/Pedroaruana
+- LinkedIn: https://www.linkedin.com/in/pedro-aruan%C3%A3/
+- E-mail: aruanapedro@gmail.com
+
+## Site
+
+- Portfólio: https://portifiolio-pedro.vercel.app/
+- Seções: Sobre, Skills, Experiência Profissional, Formação Acadêmica, Certificados, Projetos, Contato
+
+## Experiência
+
+- TaskFlow (código aberto) — Tech Lead, desde ago/2026
+- Bom Currículo (código aberto) — Desenvolvedor Full Stack, desde jul/2026
+- Lubritec — Aprendiz de Marketing e Suporte de T.I, jul/2024 a mai/2025
+
+## Projetos
+
+Mais de 30 repositórios públicos no GitHub, incluindo Cryptographer (criptografia client-side), ScannerBuild (visualização 3D), Wasteland Garden (gestão de tarefas gamificada), Cicada 3301 (puzzle de criptografia) e Create Your Language.
