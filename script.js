@@ -162,6 +162,7 @@ const translations = {
     'proj.view-project': 'View Project',
     'proj.cap1': 'GAMIFIED MANAGEMENT',
     'proj.cap-crypto': 'CLIENT-SIDE CRYPTOGRAPHY',
+    'proj.cap-sunhub': 'ORBITAL SIMULATOR',
     'proj.cap2': '3D VISUALIZATION',
     'proj.cap3': 'INTERACTIVE PUZZLE',
     'proj.cap4': 'DEV TOOL',
@@ -174,6 +175,7 @@ const translations = {
     'proj.cap11': 'PRICE MONITORING',
     'proj.gurudasvendas-desc': 'Tracks electronics prices in stores like Kabum, Amazon and Mercado Livre and pings you on WhatsApp the moment a price drops in your favor.',
     'proj.wasteland-desc': 'Gamified pixel-art task manager set in 2056, in a world without air. Each task is a seed you water and harvest to generate oxygen. Guest mode via localStorage, JWT auth and automated tests with Vitest and Playwright.',
+    'proj.sunhub-desc': 'Simulator for buying Sun light reflected by a satellite after sunset: spin the globe to your plot, watch the reflector pass and close a simulated quote.',
     'proj.cryptographer-desc': 'Browser-only cryptography tools: lock files with AES-256, a keyring with key exchange and signing, hide secrets in photos and audio, and classic cipher simulators.',
     'proj.scannerbuild-desc': "Pick any point on the map and ScannerBuild traces the building's real outline via OpenStreetMap, estimates height, floors and entrances, and builds a navigable 3D model — with caching, rate-limiting and parallel retry to handle the external service's instability.",
     'proj.cicada-desc': 'Interactive web puzzle inspired by the Cicada 3301 enigma. Five stages, each with a different cryptography and investigation technique — including LSB steganography implemented from scratch with Pillow. At the end, a personalized PDF certificate.',
@@ -877,6 +879,15 @@ const projectData = {
     stack: ['React 18', 'TypeScript', 'Fastify', 'PostgreSQL', 'Prisma', 'Zustand'],
     github: 'https://github.com/Pedroaruana/Wasteland-Garden',
     demo: 'https://pipe-stonks-frontend.vercel.app/'
+  },
+  sunhub: {
+    title: 'SunHub',
+    img: 'screenshots/sunhub.png',
+    desc: 'Simulador de compra de luz do Sol refletida por satélite depois do anoitecer. Você gira um globo com imagem de satélite de verdade até a propriedade, vê o Sol e a sombra ao longo de 24 horas naquele ponto, assiste à passagem de um refletor em órbita baixa (640 km) devolvendo luz durante 11 minutos e escolhe um pacote com a cadeia de cálculo aberta, do polígono desenhado até o preço. O fechamento gera um orçamento simulado, guardado no próprio aparelho, sem conta nem dados pessoais. Não existe empresa SunHub: é uma simulação sobre pesquisa real de refletores orbitais. Roda como site e como app Android (Capacitor), em PT e EN.',
+    descEn: 'Simulator for buying Sun light reflected by a satellite after sunset. You spin a real satellite-imagery globe to your property, see the Sun and shadow over 24 hours at that exact spot, watch a low-orbit reflector (640 km) pass and return light for 11 minutes, and pick a package with the calculation chain laid open, from the drawn polygon to the price. Closing generates a simulated quote, stored on the device, with no account or personal data. There is no SunHub company: it is a simulation built on real orbital reflector research. Runs as a website and as an Android app (Capacitor), in PT and EN.',
+    stack: ['React', 'TypeScript', 'Cesium', 'Capacitor', 'Tailwind CSS'],
+    github: 'https://github.com/Pedroaruana/SunHub',
+    demo: 'https://sunhub.aruanapedro.workers.dev/'
   },
   cryptographer: {
     title: 'Cryptographer',
