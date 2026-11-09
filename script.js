@@ -1197,3 +1197,138 @@ window.addEventListener('scroll', () => {
   }, { threshold: 0.4 });
   io.observe(wrap);
 })();
+
+// Agent cursors building the experience and education sections
+;(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms))
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v))
+  const AGENTS = [
+    { name: 'agent: layout', color: '#3ecf6e' },
+    { name: 'agent: copy', color: '#00d4aa' },
+    { name: 'agent: style', color: '#f5c542' }
+  ]
+  const ARROW = '<svg viewBox="0 0 24 24"><path d="M3 2l7.5 19 2.6-7.9L21 10.5z" fill="currentColor" stroke="#0d0d0f" stroke-width="1.4" stroke-linejoin="round"/></svg>'
+  const ITEM_TARGETS = '.timeline-marker, .timeline-card, .timeline-logo, .timeline-company, .timeline-period, .timeline-duration, .timeline-location, .timeline-eyebrow, .timeline-role, .timeline-bullets li, .timeline-tags, .timeline-reference'
+
+  const setup = section => {
+    const header = [...section.querySelectorAll('.section-label, .section-title')]
+    const items = [...section.querySelectorAll('.timeline-item')]
+    if (!header.length || !items.length) return
+
+    const groups = [{ anchor: header[0], targets: header }, ...items.map(item => ({ anchor: item, targets: [...item.querySelectorAll(ITEM_TARGETS)] }))]
+    groups.forEach(g => {
+      g.targets.forEach(el => el.classList.add(el.classList.contains('timeline-card') ? 'ag-frame' : 'ag'))
+      g.visible = new Promise(res => { g.show = res })
+    })
+
+    section.classList.add('agents-ready')
+
+    const layer = document.createElement('div')
+    layer.className = 'agents-layer'
+    layer.setAttribute('aria-hidden', 'true')
+    const cursors = AGENTS.map(a => {
+      const cursor = document.createElement('div')
+      cursor.className = 'ag-cursor'
+      cursor.style.setProperty('--c', a.color)
+      cursor.innerHTML = `${ARROW}<span class="ag-label">${a.name}</span>`
+      const box = document.createElement('div')
+      box.className = 'ag-box'
+      box.style.setProperty('--c', a.color)
+      layer.append(box, cursor)
+      return { cursor, box, x: 0, y: 0 }
+    })
+    const en = document.documentElement.lang === 'en'
+    const status = document.createElement('div')
+    status.className = 'ag-status'
+    status.innerHTML = `<i></i><span>${en ? 'agents building' : 'agentes em produção'}</span>`
+    layer.append(status)
+    section.append(layer)
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return
+        const g = groups.find(x => x.anchor === e.target)
+        g.show()
+        io.unobserve(e.target)
+      })
+    }, { threshold: 0.1 })
+    groups.forEach(g => io.observe(g.anchor))
+
+    const rel = el => {
+      const s = section.getBoundingClientRect()
+      const r = el.getBoundingClientRect()
+      return { left: r.left - s.left, top: r.top - s.top, width: r.width, height: r.height, sw: s.width }
+    }
+
+    const fly = (c, x, y, ms) => {
+      c.cursor.style.transitionDuration = `${ms}ms, 0.35s`
+      c.cursor.style.transform = `translate(${x}px, ${y}px)`
+      c.x = x
+      c.y = y
+      return sleep(ms)
+    }
+
+    const moveTo = async (c, el) => {
+      const r = rel(el)
+      const x = r.left + Math.min(r.width * 0.4, 160)
+      const y = r.top + Math.min(r.height * 0.5, 40)
+      Object.assign(c.box.style, { left: `${r.left - 4}px`, top: `${r.top - 4}px`, width: `${r.width + 8}px`, height: `${r.height + 8}px` })
+      const dist = Math.hypot(x - c.x, y - c.y)
+      await fly(c, x, y, clamp(160 + dist * 0.45, 200, 480))
+      c.box.classList.add('on')
+    }
+
+    const work = async (c, queue, delay) => {
+      await sleep(delay)
+      while (queue.length) {
+        const el = queue.shift()
+        await moveTo(c, el)
+        await sleep(40 + Math.random() * 60)
+        el.classList.add('built')
+        await sleep(80)
+        c.box.classList.remove('on')
+      }
+    }
+
+    const run = async () => {
+      let started = false
+      for (const g of groups) {
+        await g.visible
+        if (!started) {
+          started = true
+          status.classList.add('on')
+          const first = rel(g.targets[0])
+          cursors.forEach((c, i) => {
+            c.x = i % 2 ? first.sw + 40 : -40
+            c.y = first.top + 40 + i * 30
+            c.cursor.style.transitionDuration = '0ms, 0.35s'
+            c.cursor.style.transform = `translate(${c.x}px, ${c.y}px)`
+            c.cursor.classList.add('on')
+          })
+          await sleep(60)
+        }
+        const queue = [...g.targets]
+        await Promise.all(cursors.map((c, i) => work(c, queue, i * 90)))
+      }
+      const sw = section.getBoundingClientRect().width
+      await Promise.all(cursors.map((c, i) => {
+        c.cursor.classList.remove('on')
+        return fly(c, i % 2 ? -60 : sw + 60, c.y - 80, 900)
+      }))
+      status.classList.add('done')
+      status.querySelector('span').textContent = en ? 'build complete' : 'build concluído'
+      await sleep(2200)
+      status.classList.remove('on')
+      await sleep(500)
+      layer.remove()
+    }
+    run()
+  }
+
+  ;['experiencia', 'formacao'].forEach(id => {
+    const section = document.getElementById(id)
+    if (section) setup(section)
+  })
+})()

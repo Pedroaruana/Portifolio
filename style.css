@@ -3938,3 +3938,127 @@ a { color: inherit; text-decoration: none; }
 
   .ht-body { font-size: 0.7rem; padding: 12px 14px; }
 }
+
+/* ===== AGENTS BUILDING TIMELINE SECTIONS ===== */
+#experiencia,
+#formacao {
+  position: relative;
+  overflow: hidden;
+}
+
+.agents-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.ag-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--c);
+  opacity: 0;
+  will-change: transform;
+  transition: transform 600ms cubic-bezier(0.45, 0.05, 0.25, 1), opacity 0.35s ease;
+}
+
+.ag-cursor.on { opacity: 1; }
+
+.ag-cursor svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55));
+}
+
+.ag-label {
+  position: absolute;
+  left: 14px;
+  top: 18px;
+  font: 600 10px 'Fira Code', monospace;
+  background: var(--c);
+  color: #0d0d0f;
+  padding: 2px 8px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.ag-box {
+  position: absolute;
+  border: 1.5px solid var(--c);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.ag-box.on { opacity: 1; }
+
+.agents-ready .ag {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.agents-ready .ag.built {
+  opacity: 1;
+  transform: none;
+}
+
+.agents-ready .ag-frame {
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.agents-ready .ag-frame:not(.built) {
+  background: transparent;
+  border-color: transparent;
+}
+
+@media (max-width: 600px) {
+  .ag-cursor svg { width: 16px; height: 16px; }
+  .ag-label { left: 11px; top: 14px; font-size: 9px; }
+}
+
+.ag-status {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font: 600 11px 'Fira Code', monospace;
+  letter-spacing: 0.4px;
+  color: #3ecf6e;
+  background: rgba(62, 207, 110, 0.12);
+  border: 1px solid rgba(62, 207, 110, 0.4);
+  border-radius: 100px;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.ag-status.on {
+  opacity: 1;
+  transform: none;
+}
+
+.ag-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3ecf6e;
+  animation: agPulse 1s ease-in-out infinite;
+}
+
+.ag-status.done i { animation: none; }
+
+@keyframes agPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(62, 207, 110, 0.6); }
+  50% { box-shadow: 0 0 0 5px rgba(62, 207, 110, 0); }
+}
+
+@media (max-width: 600px) {
+  .ag-status { top: 14px; right: 14px; font-size: 10px; padding: 5px 10px; }
+}
