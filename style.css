@@ -4062,3 +4062,196 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 600px) {
   .ag-status { top: 14px; right: 14px; font-size: 10px; padding: 5px 10px; }
 }
+
+/* ===== RECONHECIMENTO (CORPUS HUB) ===== */
+.recog {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 48px;
+  padding: 36px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.recog-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+.recog-title {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  line-height: 1.2;
+  margin: 10px 0 14px;
+}
+.recog-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+.recog-stats {
+  display: flex;
+  gap: 28px;
+  margin: 18px 0 22px;
+}
+.recog-stats div { display: flex; flex-direction: column; }
+.recog-stats strong { font-size: 1.7rem; color: var(--accent); line-height: 1; }
+.recog-stats span {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+.recog-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.recog-links .cert-view-btn { margin-top: 0; text-decoration: none; display: inline-flex; }
+.recog-shot {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0a0a0c;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.recog-shot:hover { border-color: var(--accent); transform: translateY(-3px); }
+.recog-shot img { display: block; width: 100%; height: auto; }
+@media (max-width: 900px) {
+  .recog { grid-template-columns: 1fr; gap: 24px; padding: 24px 20px; }
+}
+
+/* ===== CERTIFICACOES: LEDGER (lista em linhas) ===== */
+#certificados .certs-grid {
+  display: block;
+  counter-reset: cert;
+  border-top: 1px solid var(--border);
+}
+#certificados .cert-card {
+  counter-increment: cert;
+  display: grid;
+  grid-template-columns: 44px 44px minmax(0, 1.5fr) minmax(0, 1fr) 80px 150px;
+  grid-template-areas:
+    "n icon title tags period btn"
+    "n icon issuer tags period btn";
+  column-gap: 20px;
+  row-gap: 2px;
+  align-items: center;
+  padding: 18px 12px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background .25s ease, padding-left .25s ease;
+}
+#certificados .cert-card.extra { display: none; }
+#certificados .cert-card.extra.visible { display: grid; }
+#certificados .cert-card:hover {
+  transform: none;
+  box-shadow: none;
+  background: rgba(62, 207, 110, 0.05);
+  padding-left: 22px;
+}
+#certificados .cert-card::before {
+  content: counter(cert, decimal-leading-zero);
+  grid-area: n;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: color .25s ease;
+}
+#certificados .cert-card:hover::before { color: var(--accent); }
+#certificados .cert-icon { grid-area: icon; margin: 0; }
+#certificados .cert-icon img,
+#certificados .cert-icon {
+  opacity: .8;
+  transition: opacity .25s ease;
+}
+#certificados .cert-card:hover .cert-icon { opacity: 1; }
+#certificados .cert-title {
+  grid-area: title;
+  font-size: 1.05rem;
+  padding-right: 0;
+  transition: color .25s ease;
+}
+#certificados .cert-card:hover .cert-title { color: var(--accent); }
+#certificados .cert-issuer {
+  grid-area: issuer;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+#certificados .cert-period {
+  grid-area: period;
+  text-align: right;
+}
+#certificados .cert-tags {
+  grid-area: tags;
+  margin: 0;
+  gap: 0;
+}
+#certificados .cert-tags span {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+}
+#certificados .cert-tags span + span::before {
+  content: '/';
+  margin: 0 7px;
+  color: var(--accent);
+  opacity: .6;
+}
+#certificados .cert-view-btn {
+  grid-area: btn;
+  justify-self: end;
+  align-self: center;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  transition: color .25s ease;
+}
+#certificados .cert-view-btn::after { content: ''; position: absolute; inset: 0; }
+#certificados .cert-card:hover .cert-view-btn { background: none; color: var(--accent); }
+
+@media (max-width: 860px) {
+  #certificados .cert-card {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "icon title period"
+      "icon issuer issuer"
+      "icon tags tags"
+      "icon btn btn";
+    row-gap: 4px;
+  }
+  #certificados .cert-card::before { display: none; }
+  #certificados .cert-icon { align-self: start; }
+  #certificados .cert-period { align-self: start; }
+  #certificados .cert-view-btn { justify-self: start; margin-top: 4px; }
+  #certificados .cert-card:hover { padding-left: 12px; }
+}
+
+/* reconhecimento no mesmo tom: sem caixa, so a linha verde */
+.recog {
+  background: transparent;
+  border: 0;
+  border-left: 3px solid var(--accent);
+  border-radius: 0;
+  padding: 8px 0 8px 32px;
+}
+@media (max-width: 900px) { .recog { padding: 8px 0 8px 18px; } }
+
+/* certificacoes: usa a largura da tela */
+#certificados .container { max-width: 1560px; }
+#certificados.section { padding-left: 48px; padding-right: 48px; }
+@media (max-width: 860px) { #certificados.section { padding-left: 16px; padding-right: 16px; } }
