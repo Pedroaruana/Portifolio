@@ -175,9 +175,10 @@
             e mantenho prática e commits diários no GitHub.
           </p>
           <p data-i18n="about.p2">
-            Domino React e Angular na interface, mas construo o sistema completo: APIs REST com Node.js e FastAPI,
-            autenticação JWT, testes automatizados com Vitest e Playwright, deploy com Docker, CI/CD e Automação com n8n.
-            Atualmente estou estudando e testando hospedagem com AWS.
+            Transformo processos manuais em sistemas de produção com APIs, filas, agentes de IA, bancos, logs e deploy.
+            Do input ao output útil, com erro tratado e infraestrutura feita para continuar funcionando.
+            Entendo o processo, desenho o fluxo, implemento as integrações e cuido da parte que faz o sistema sobreviver.
+            Domino React, testes automatizados com Vitest e Playwright, deploy com Docker, CI/CD e Automação com n8n.
           </p>
           <div class="about-stats" id="aboutStats">
             <div class="stat">
@@ -948,7 +949,10 @@
       <div class="container">
         <div class="section-label" data-i18n="proj.label">/ projetos</div>
         <div class="proj-header">
-          <h2 class="proj-heading" data-i18n="proj.title">Projetos que transformam ideias em soluções.</h2>
+          <div class="proj-header-main">
+            <h2 class="proj-heading" data-i18n="proj.title">Sistemas, não só repositórios</h2>
+            <p class="proj-lead" data-i18n="proj.lead">Projetos que mostram o fluxo completo, da entrada ao resultado utilizável.</p>
+          </div>
           <div class="proj-header-side">
             <p class="proj-subheading" data-i18n="proj.desc">Alguns dos projetos que desenvolvi. Role para ver todos.</p>
             <a href="https://github.com/Pedroaruana" target="_blank" rel="noopener" class="proj-github-link">
@@ -1309,8 +1313,35 @@
 
   <!-- FOOTER -->
   <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-top-main">
+        <span class="footer-brand">Pedro Aruanã<span class="footer-brand-dot">.</span></span>
+        <p class="footer-tagline" data-i18n="footer.tagline">Full Stack focado em sistemas de produção: APIs, automação e IA aplicada.</p>
+        <p class="footer-built" data-i18n="footer.built">Canvas, 3D em CSS, animação guiada pelo scroll e i18n próprio. Tudo escrito do zero, sem biblioteca.</p>
+        <p class="footer-status"><i class="footer-status-dot"></i><span data-i18n="contact.response-time">Resposta em até 24h</span></p>
+      </div>
+      <nav class="footer-col footer-col-split" aria-label="Navegação">
+        <span class="footer-col-title" data-i18n="footer.nav">NAVEGAÇÃO</span>
+        <a href="#sobre" data-i18n="nav.sobre">Sobre</a>
+        <a href="#experiencia" data-i18n="nav.experiencia">Experiência</a>
+        <a href="#certificados" data-i18n="nav.certificados">Certificados</a>
+        <a href="#projetos" data-i18n="nav.projetos">Projetos</a>
+        <a href="#contato" data-i18n="nav.contato">Contato</a>
+      </nav>
+      <div class="footer-col">
+        <span class="footer-col-title" data-i18n="footer.social">REDES</span>
+        <a href="https://github.com/Pedroaruana" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/pedro-aruan%C3%A3/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:aruanapedro@gmail.com">E-mail</a>
+      </div>
+    </div>
     <div class="container footer-bar">
-      <p class="footer-copy" data-i18n="footer.copy">© 2026 SALVADOR - BA. TODOS OS DIREITOS RESERVADOS.</p>
+      <div class="footer-left">
+        <button type="button" class="motion-toggle" id="motionToggle" aria-live="polite">
+          <i class="mt-dot"></i><span class="mt-key">MOTION</span><span class="mt-mode" id="motionMode">Sistema</span>
+        </button>
+        <p class="footer-copy" data-i18n="footer.copy">© 2026 SALVADOR - BA. TODOS OS DIREITOS RESERVADOS.</p>
+      </div>
       <div class="footer-powered">
         <span class="footer-powered-label" data-i18n="footer.powered-by">POWERED BY</span>
         <div class="footer-powered-icons">

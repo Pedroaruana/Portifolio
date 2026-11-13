@@ -16,7 +16,7 @@ const translations = {
     'about.label': '/ about me',
     'about.title': 'Turning ordinary websites into <span class="accent">unique experiences</span>.',
     'about.p1': 'Hi! My name is <strong>Pedro Aruanã</strong>, I\'m <strong>23 years old</strong> and I\'m from Salvador, Bahia. I\'ve been coding for <strong>2 years</strong> and I\'m a front-end developer with full stack experience too — I like taking an ordinary site or system and turning it into an experience people remember. I\'m always learning and testing new technologies hands-on, not just in theory. I\'m also C1-certified in English by EF SET, and I keep up daily practice and commits on GitHub.',
-    'about.p2': "I'm proficient in React and Angular on the interface, but I build the whole system: REST APIs with Node.js and FastAPI, JWT authentication, automated tests with Vitest and Playwright, deployment with Docker, CI/CD and automation with n8n. I'm currently studying and testing hosting with AWS.",
+    'about.p2': "I turn manual processes into production systems with APIs, queues, AI agents, databases, logs and deployment. From input to useful output, with handled errors and infrastructure built to keep running. I understand the process, design the flow, implement the integrations and take care of the part that keeps the system alive. I'm proficient in React, automated testing with Vitest and Playwright, deployment with Docker, CI/CD and automation with n8n.",
     'about.stat1': 'Repos live',
     'about.stat2': 'Certificates',
     'about.stat3': 'Years of exp.',
@@ -165,7 +165,8 @@ const translations = {
     'tag.genai': 'Generative AI',
     'tag.agile': 'Agile Methodology',
     'proj.label': '/ projects',
-    'proj.title': "Projects that turn ideas into solutions.",
+    'proj.title': "Systems, not just repositories",
+    'proj.lead': "Projects that show the full flow, from input to usable result.",
     'proj.desc': "Some of the projects I've developed. Click to see more.",
     'proj.see-more-github': 'See more projects on GitHub',
     'proj.view-project': 'View Project',
@@ -202,6 +203,10 @@ const translations = {
     'contact.role': 'Full Stack',
     'contact.response-time': 'Response within 24h',
     'contact.download-cv': 'Download Resume (PDF)',
+    'footer.tagline': 'Full Stack focused on production systems: APIs, automation and applied AI.',
+    'footer.built': 'Canvas, CSS 3D, scroll-driven animation and a custom i18n. All written from scratch, no libraries.',
+    'footer.nav': 'NAVIGATION',
+    'footer.social': 'SOCIAL',
     'footer.copy': '© 2026 SALVADOR - BA. ALL RIGHTS RESERVED.',
     'footer.powered-by': 'POWERED BY',
     'modal.view-github': 'View on GitHub',
@@ -254,6 +259,7 @@ function applyLanguage(lang) {
   // no idioma antigo quando o usuário troca de idioma sem clicar neles.
   if (typeof refreshToggleLabels === 'function') refreshToggleLabels();
   if (window.__refreshDsScene) window.__refreshDsScene();
+  if (window.__refreshMotionLabel) window.__refreshMotionLabel();
 
   localStorage.setItem('lang', lang);
 }
@@ -342,6 +348,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })();
 
+// Motion: Sistema (segue o SO) / Completo / Reduzido
+const motion = (() => {
+  const modes = ['auto', 'full', 'reduced']
+  const labels = {
+    pt: { auto: 'Sistema', full: 'Completo', reduced: 'Reduzido' },
+    en: { auto: 'System', full: 'Full', reduced: 'Reduced' }
+  }
+  const tips = {
+    pt: {
+      auto: 'Segue a preferência de movimento do seu sistema. Clique para alternar.',
+      full: 'Todas as animações ligadas, mesmo que o sistema peça redução. Clique para alternar.',
+      reduced: 'Sem animações, só o conteúdo. Clique para alternar.'
+    },
+    en: {
+      auto: 'Follows your system motion preference. Click to switch.',
+      full: 'All animations on, even if your system asks for less. Click to switch.',
+      reduced: 'No animations, content only. Click to switch.'
+    }
+  }
+  const mq = matchMedia('(prefers-reduced-motion: reduce)')
+  let mode = 'auto'
+  try {
+    const saved = localStorage.getItem('motion')
+    if (modes.includes(saved)) mode = saved
+  } catch (e) { /* sem storage: fica em auto */ }
+
+  const isReduced = () => mode === 'reduced' || (mode === 'auto' && mq.matches)
+  const btn = document.getElementById('motionToggle')
+  const modeEl = document.getElementById('motionMode')
+
+  const render = () => {
+    const root = document.documentElement
+    root.dataset.motion = mode
+    root.dataset.motionEff = isReduced() ? 'reduced' : 'full'
+    if (!btn || !modeEl) return
+    const lang = currentLang === 'en' ? 'en' : 'pt'
+    modeEl.textContent = labels[lang][mode]
+    btn.dataset.mode = mode
+    btn.title = tips[lang][mode]
+    btn.setAttribute('aria-label', 'Motion: ' + labels[lang][mode])
+  }
+
+  if (btn) btn.addEventListener('click', () => {
+    mode = modes[(modes.indexOf(mode) + 1) % modes.length]
+    try { localStorage.setItem('motion', mode) } catch (e) { /* ignora */ }
+    render()
+  })
+  mq.addEventListener('change', render)
+  window.__refreshMotionLabel = render
+  render()
+  return { isReduced }
+})();
+
 // Matrix background
 (function () {
   const canvas = document.getElementById('matrixCanvas');
@@ -362,6 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', resize);
 
   function draw() {
+    if (motion.isReduced()) return;
     ctx.fillStyle = 'rgba(13,13,15,0.04)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.shadowBlur = 0;
@@ -1058,8 +1118,8 @@ window.addEventListener('scroll', () => {
   const video = document.getElementById('portraitSrc');
   if (!wrap || !canvas || !video) return;
 
-  const ctx = canvas.getContext('2d', { alpha: false });
-  const GAP = 2;          // espaçamento da grade de partículas
+  const ctx = canvas.getContext('2d');
+  const GAP = 2;         // espaçamento da grade de partículas
   const GAMMA = 0.42;     // levanta as sombras — o vídeo é muito escuro
   const FLOOR = 0.20;     // abaixo disso é fundo: some de vez
   const GAIN = 1.5;       // contraste do que sobra
@@ -1071,6 +1131,31 @@ window.addEventListener('scroll', () => {
   let off = null, octx = null;
   let running = false;
   const mouse = { x: -9999, y: -9999, active: false };
+
+  // Camada de codigo: um editor digitando sozinho, feito das MESMAS particulas do retrato
+  // (mesma grade, mesma fisica do mouse) e escondido atras do corpo.
+  const CODE = [
+    "const queue = new Queue('invoices')",
+    'queue.process(async (job) => {',
+    '  const data = schema.parse(job.data)',
+    '  await db.invoice.create({ data })',
+    "  logger.info('invoice saved', job.id)",
+    '})',
+    '',
+    "app.post('/api/orders', auth, async (req, res) => {",
+    '  try {',
+    '    const order = await createOrder(req.body)',
+    '    res.status(201).json(order)',
+    '  } catch (err) {',
+    '    logger.error(err)',
+    "    res.status(500).json({ error: 'retry' })",
+    '  }',
+    '})'
+  ];
+  const LH = 16;
+  let line = 0, ch = 0, acc = 0, buf = [''], bufStart = 0;
+  let cursorOn = true, lastT = 0, clock = 0, prefilled = false;
+  const glyphs = new Map(); // "linha:coluna" -> deslocamento da letra (mesma fisica do corpo)
 
   function build() {
     const rect = wrap.getBoundingClientRect();
@@ -1097,6 +1182,94 @@ window.addEventListener('scroll', () => {
         const x = c * GAP, y = r * GAP;
         particles[r * cols + c] = { x, y, ox: x, oy: y, vx: 0, vy: 0, l: 0 };
       }
+    }
+  }
+
+  function stepTyping(dt) {
+    const max = Math.floor((H * 0.78) / LH);
+    if (motion.isReduced()) {
+      if (!prefilled) { buf = CODE.slice(0, max); bufStart = 0; prefilled = true; glyphs.clear(); }
+      return;
+    }
+    prefilled = false;
+    acc += dt * 26;
+    while (acc >= 1) {
+      acc -= 1;
+      const full = CODE[line];
+      if (ch < full.length) { ch++; buf[buf.length - 1] = full.slice(0, ch); }
+      else {
+        line = (line + 1) % CODE.length; ch = 0; buf.push('');
+        if (buf.length > max) {
+          for (let c = 0; c < 80; c++) glyphs.delete(bufStart + ':' + c);
+          buf.shift(); bufStart++;
+        }
+        if (line === 0) acc = -14;
+      }
+    }
+    cursorOn = Math.floor(clock * 2) % 2 === 0;
+  }
+
+  // quanto do corpo cobre essa posicao (0 a 1): o codigo some atras dele
+  function bodyAt(x, y) {
+    const c0 = Math.round(x / GAP), r0 = Math.round(y / GAP);
+    let m = 0;
+    for (let r = r0 - 2; r <= r0 + 2; r++) {
+      if (r < 0 || r >= rows) continue;
+      for (let c = c0 - 2; c <= c0 + 2; c++) {
+        if (c < 0 || c >= cols) continue;
+        const l = particles[r * cols + c].l;
+        if (l > m) m = l;
+      }
+    }
+    return m;
+  }
+
+  function drawCode() {
+    ctx.font = '12px "Fira Code", monospace';
+    const cw = ctx.measureText('M').width;
+    const x0 = W * 0.11, y0 = H * 0.14;
+    for (let i = 0; i < buf.length; i++) {
+      const ln = buf[i];
+      const abs = bufStart + i;
+      const cur = i === buf.length - 1;
+      const oy = y0 + i * LH;
+      for (let c = 0; c < ln.length; c++) {
+        const chr = ln[c];
+        if (chr === ' ') continue;
+        const key = abs + ':' + c;
+        let g = glyphs.get(key);
+        if (!g) { g = { x: 0, y: 0, vx: 0, vy: 0 }; glyphs.set(key, g); }
+        const ox = x0 + c * cw;
+        if (mouse.active) {
+          const dx = ox + g.x - mouse.x;
+          const dy = oy - 4 + g.y - mouse.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < 9000 && d2 > 0.01) {
+            const f = (9000 - d2) / 9000;
+            const d = Math.sqrt(d2);
+            g.vx += (dx / d) * f * 2.6;
+            g.vy += (dy / d) * f * 2.6;
+          }
+        }
+        g.vx += -g.x * 0.05;
+        g.vy += -g.y * 0.05;
+        g.vx *= 0.85;
+        g.vy *= 0.85;
+        g.x += g.vx;
+        g.y += g.vy;
+        const a = (cur ? 0.5 : 0.32) * Math.max(0, 1 - bodyAt(ox + cw / 2, oy - 4) * 2.5);
+        if (a < 0.02) continue;
+        ctx.fillStyle = 'rgba(74, 240, 132, ' + a.toFixed(2) + ')';
+        ctx.fillText(chr, ox + g.x, oy + g.y);
+      }
+    }
+    if (cursorOn && !motion.isReduced()) {
+      const last = buf.length - 1;
+      const cx = x0 + buf[last].length * cw + 1;
+      const cy = y0 + last * LH - 10;
+      const a = 0.5 * Math.max(0, 1 - bodyAt(cx, cy) * 2.5);
+      ctx.fillStyle = 'rgba(74, 240, 132, ' + a.toFixed(2) + ')';
+      ctx.fillRect(cx, cy, 6, 12);
     }
   }
 
@@ -1127,8 +1300,14 @@ window.addEventListener('scroll', () => {
     if (!running || !W) return;
     sampleFrame();
 
-    ctx.fillStyle = '#0d0d0f';
-    ctx.fillRect(0, 0, W, H);
+    ctx.clearRect(0, 0, W, H);
+
+    const now = performance.now();
+    const dt = Math.min(0.25, (now - lastT) / 1000);
+    lastT = now;
+    clock += dt;
+    stepTyping(dt);
+    drawCode();
 
     for (let k = 0; k < particles.length; k++) {
       const p = particles[k];
@@ -1220,7 +1399,7 @@ window.addEventListener('scroll', () => {
 
 // Agent cursors building the experience and education sections
 ;(() => {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return
+  if (motion.isReduced() || !('IntersectionObserver' in window)) return
 
   const sleep = ms => new Promise(r => setTimeout(r, ms))
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v))

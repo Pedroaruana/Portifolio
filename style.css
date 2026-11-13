@@ -4255,3 +4255,138 @@ a { color: inherit; text-decoration: none; }
 #certificados .container { max-width: 1560px; }
 #certificados.section { padding-left: 48px; padding-right: 48px; }
 @media (max-width: 860px) { #certificados.section { padding-left: 16px; padding-right: 16px; } }
+
+.proj-lead {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 14px 0 0;
+}
+
+/* rodape: marca + posicionamento */
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+.footer-brand {
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  color: var(--text);
+}
+.footer-brand-dot { color: var(--accent); }
+.footer-tagline {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 640px;
+}
+.footer-built {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+@media (max-width: 600px) { .footer-top { text-align: center; align-items: center; } }
+
+/* ===== MOTION TOGGLE (rodape) ===== */
+.footer-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.motion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: border-color .2s ease;
+}
+.motion-toggle:hover { border-color: var(--accent); }
+.mt-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-muted); }
+.mt-key { letter-spacing: 1.5px; color: var(--text); }
+.mt-mode { font-weight: 600; color: var(--text); }
+.motion-toggle[data-mode="full"] .mt-dot { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+.motion-toggle[data-mode="full"] .mt-mode { color: var(--accent); }
+.motion-toggle[data-mode="reduced"] .mt-dot { background: #4ea3ff; }
+.motion-toggle[data-mode="reduced"] .mt-mode { color: #4ea3ff; }
+
+/* modo reduzido: sem animacao, so o conteudo */
+html[data-motion-eff="reduced"] { scroll-behavior: auto !important; }
+html[data-motion-eff="reduced"] *,
+html[data-motion-eff="reduced"] *::before,
+html[data-motion-eff="reduced"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+html[data-motion-eff="reduced"] #matrixCanvas { opacity: 0 !important; }
+
+/* rodape: colunas de links */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  column-gap: 72px;
+  align-items: start;
+}
+.footer-top-main { display: flex; flex-direction: column; gap: 8px; }
+.footer-col { display: flex; flex-direction: column; gap: 9px; min-width: 120px; }
+.footer-col-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.footer-col a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  width: fit-content;
+  transition: color .2s ease;
+}
+.footer-col a:hover { color: var(--accent); }
+@media (max-width: 700px) {
+  .footer-top { grid-template-columns: 1fr 1fr; row-gap: 28px; text-align: left; align-items: start; }
+  .footer-top-main { grid-column: 1 / -1; text-align: center; align-items: center; }
+}
+
+/* rodape: equilibrio entre os blocos */
+.footer-col-split {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-flow: column;
+  grid-template-rows: auto repeat(3, auto);
+  column-gap: 40px;
+  row-gap: 9px;
+}
+.footer-col-split .footer-col-title { grid-column: 1 / -1; }
+.footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.footer-status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+@media (max-width: 700px) {
+  .footer-col-split, .footer-top > .footer-col:last-child { grid-column: 1 / -1; }
+  .footer-top-main .footer-status { margin-top: 6px; }
+}
+
+.portrait-fx canvas#portraitCanvas { position: relative; z-index: 1; }
+.portrait-fx::after { z-index: 2; }
