@@ -4390,3 +4390,6 @@ html[data-motion-eff="reduced"] #matrixCanvas { opacity: 0 !important; }
 
 .portrait-fx canvas#portraitCanvas { position: relative; z-index: 1; }
 .portrait-fx::after { z-index: 2; }
+
+/* menos vazio entre o painel de contato e o rodape */
+#contato.section { padding-bottom: 56px; }
