@@ -1156,6 +1156,10 @@ window.addEventListener('scroll', () => {
   let line = 0, ch = 0, acc = 0, buf = [''], bufStart = 0;
   let cursorOn = true, lastT = 0, clock = 0, prefilled = false;
   const glyphs = new Map(); // "linha:coluna" -> deslocamento da letra (mesma fisica do corpo)
+  // silhueta do corpo (inclui a camisa preta, que tem brilho baixo mas acima do fundo puro)
+  const MC = 4;                  // celulas da silhueta = 4x4 celulas da grade de particulas
+  const SIL = 0.012;             // luminancia minima pra contar como corpo
+  let mcols = 0, mrows = 0, mask = null, mtmp = null;
 
   function build() {
     const rect = wrap.getBoundingClientRect();
@@ -1181,6 +1185,29 @@ window.addEventListener('scroll', () => {
       for (let c = 0; c < cols; c++) {
         const x = c * GAP, y = r * GAP;
         particles[r * cols + c] = { x, y, ox: x, oy: y, vx: 0, vy: 0, l: 0 };
+      }
+    }
+    mcols = Math.ceil(cols / MC);
+    mrows = Math.ceil(rows / MC);
+    mask = new Uint8Array(mcols * mrows);
+    mtmp = new Uint8Array(mcols * mrows);
+  }
+
+  // dilata (any) ou erode (all) a mascara com raio rad; fora da grade conta como "cheio" so na erosao
+  function morph(src, dst, rad, dilate) {
+    for (let r = 0; r < mrows; r++) {
+      for (let c = 0; c < mcols; c++) {
+        let v = dilate ? 0 : 1;
+        for (let dr = -rad; dr <= rad && (dilate ? !v : v); dr++) {
+          const rr = r + dr;
+          for (let dc = -rad; dc <= rad; dc++) {
+            const cc = c + dc;
+            const inside = rr >= 0 && rr < mrows && cc >= 0 && cc < mcols;
+            const m = inside ? src[rr * mcols + cc] : (dilate ? 0 : 1);
+            if (dilate ? m : !m) { v = dilate ? 1 : 0; break; }
+          }
+        }
+        dst[r * mcols + c] = v;
       }
     }
   }
@@ -1209,19 +1236,12 @@ window.addEventListener('scroll', () => {
     cursorOn = Math.floor(clock * 2) % 2 === 0;
   }
 
-  // quanto do corpo cobre essa posicao (0 a 1): o codigo some atras dele
+  // 1 se a posicao esta dentro da silhueta do corpo: o codigo some atras dele
   function bodyAt(x, y) {
-    const c0 = Math.round(x / GAP), r0 = Math.round(y / GAP);
-    let m = 0;
-    for (let r = r0 - 2; r <= r0 + 2; r++) {
-      if (r < 0 || r >= rows) continue;
-      for (let c = c0 - 2; c <= c0 + 2; c++) {
-        if (c < 0 || c >= cols) continue;
-        const l = particles[r * cols + c].l;
-        if (l > m) m = l;
-      }
-    }
-    return m;
+    if (!mask) return 0;
+    const c = Math.min(mcols - 1, Math.max(0, (x / (GAP * MC)) | 0));
+    const r = Math.min(mrows - 1, Math.max(0, (y / (GAP * MC)) | 0));
+    return mask[r * mcols + c];
   }
 
   function drawCode() {
@@ -1282,6 +1302,7 @@ window.addEventListener('scroll', () => {
     octx.drawImage(video, (W - dw) / 2, (H - dh) / 2, dw, dh);
 
     const data = octx.getImageData(0, 0, W, H).data;
+    mask.fill(0);
     for (let r = 0; r < rows; r++) {
       const sy = Math.min(H - 1, r * GAP);
       for (let c = 0; c < cols; c++) {
@@ -1291,8 +1312,12 @@ window.addEventListener('scroll', () => {
         // levanta sombras, corta o fundo e reespalha o resto em 0..1
         const g = Math.pow(lum, GAMMA);
         particles[r * cols + c].l = g <= FLOOR ? 0 : Math.min(1, (g - FLOOR) * INV * GAIN);
+        if (lum > SIL) mask[(r / MC | 0) * mcols + (c / MC | 0)] = 1;
       }
     }
+    // fecha buracos (roupa escura): dilata 2 e erode 1
+    morph(mask, mtmp, 2, true);
+    morph(mtmp, mask, 1, false);
   }
 
   function draw() {
