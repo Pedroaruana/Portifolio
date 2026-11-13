@@ -1160,8 +1160,6 @@ window.addEventListener('scroll', () => {
   const MC = 4;                  // celulas da silhueta = 4x4 celulas da grade de particulas
   const SIL = 0.012;             // luminancia minima pra contar como corpo
   let mcols = 0, mrows = 0, mask = null, mtmp = null, mdist = null;
-  const FADE_START = 2;          // celulas (8px cada) totalmente apagadas junto ao corpo
-  const FADE_LEN = 7;            // celulas ate o codigo voltar a 100%
 
   function build() {
     const rect = wrap.getBoundingClientRect();
@@ -1240,12 +1238,12 @@ window.addEventListener('scroll', () => {
     cursorOn = Math.floor(clock * 2) % 2 === 0;
   }
 
-  // visibilidade do codigo nessa posicao (0 a 1): some perto do corpo, com margem limpa em volta
+  // 1 fora do corpo, 0 dentro da silhueta: o codigo some so atras dele, sem apagar aos poucos
   function fadeAt(x, y) {
     if (!mdist) return 1;
     const c = Math.min(mcols - 1, Math.max(0, (x / (GAP * MC)) | 0));
     const r = Math.min(mrows - 1, Math.max(0, (y / (GAP * MC)) | 0));
-    return Math.max(0, Math.min(1, (mdist[r * mcols + c] - FADE_START) / FADE_LEN));
+    return mdist[r * mcols + c] > 0 ? 1 : 0;
   }
 
   function drawCode() {
