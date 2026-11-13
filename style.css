@@ -4393,3 +4393,16 @@ html[data-motion-eff="reduced"] #matrixCanvas { opacity: 0 !important; }
 
 /* menos vazio entre o painel de contato e o rodape */
 #contato.section { padding-bottom: 56px; }
+
+/* titulo do Sobre: 2 linhas dentro da coluna da esquerda, fonte ajustada pra caber */
+@media (min-width: 861px) {
+  .about-grid { grid-template-columns: 1.45fr 1fr; }
+  .about-text { container-type: inline-size; }
+  .about-title {
+    font-size: min(2.9rem, 5.2cqw);
+    white-space: nowrap;
+  }
+}
+@media (max-width: 860px) {
+  .about-title br { display: none; }
+}

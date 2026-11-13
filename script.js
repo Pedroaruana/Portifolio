@@ -14,7 +14,7 @@ const translations = {
     'hero.cta-contact': 'Get in touch',
     'hero.scroll': 'Scroll',
     'about.label': '/ about me',
-    'about.title': 'Turning ordinary websites into <span class="accent">unique experiences</span>.',
+    'about.title': 'Turning complex ideas into<br> <span class="accent">scalable, automated solutions</span>.',
     'about.p1': 'Hi! My name is <strong>Pedro Aruanã</strong>, I\'m <strong>23 years old</strong> and I\'m from Salvador, Bahia. I\'ve been coding for <strong>2 years</strong> and I\'m a front-end developer with full stack experience too — I like taking an ordinary site or system and turning it into an experience people remember. I\'m always learning and testing new technologies hands-on, not just in theory. I\'m also C1-certified in English by EF SET, and I keep up daily practice and commits on GitHub.',
     'about.p2': "I turn manual processes into production systems with APIs, queues, AI agents, databases, logs and deployment. From input to useful output, with handled errors and infrastructure built to keep running. I understand the process, design the flow, implement the integrations and take care of the part that keeps the system alive. I'm proficient in React, automated testing with Vitest and Playwright, deployment with Docker, CI/CD and automation with n8n.",
     'about.stat1': 'Repos live',
@@ -1152,14 +1152,16 @@ window.addEventListener('scroll', () => {
     '  }',
     '})'
   ];
-  const LH = 16;
+  let LH = 16;
   let line = 0, ch = 0, acc = 0, buf = [''], bufStart = 0;
   let cursorOn = true, lastT = 0, clock = 0, prefilled = false;
   const glyphs = new Map(); // "linha:coluna" -> deslocamento da letra (mesma fisica do corpo)
   // silhueta do corpo (inclui a camisa preta, que tem brilho baixo mas acima do fundo puro)
   const MC = 4;                  // celulas da silhueta = 4x4 celulas da grade de particulas
   const SIL = 0.012;             // luminancia minima pra contar como corpo
-  let mcols = 0, mrows = 0, mask = null, mtmp = null;
+  let mcols = 0, mrows = 0, mask = null, mtmp = null, mdist = null;
+  const FADE_START = 2;          // celulas (8px cada) totalmente apagadas junto ao corpo
+  const FADE_LEN = 7;            // celulas ate o codigo voltar a 100%
 
   function build() {
     const rect = wrap.getBoundingClientRect();
@@ -1187,10 +1189,12 @@ window.addEventListener('scroll', () => {
         particles[r * cols + c] = { x, y, ox: x, oy: y, vx: 0, vy: 0, l: 0 };
       }
     }
+    LH = Math.round(16 * W / 420);
     mcols = Math.ceil(cols / MC);
     mrows = Math.ceil(rows / MC);
     mask = new Uint8Array(mcols * mrows);
     mtmp = new Uint8Array(mcols * mrows);
+    mdist = new Uint8Array(mcols * mrows);
   }
 
   // dilata (any) ou erode (all) a mascara com raio rad; fora da grade conta como "cheio" so na erosao
@@ -1236,16 +1240,16 @@ window.addEventListener('scroll', () => {
     cursorOn = Math.floor(clock * 2) % 2 === 0;
   }
 
-  // 1 se a posicao esta dentro da silhueta do corpo: o codigo some atras dele
-  function bodyAt(x, y) {
-    if (!mask) return 0;
+  // visibilidade do codigo nessa posicao (0 a 1): some perto do corpo, com margem limpa em volta
+  function fadeAt(x, y) {
+    if (!mdist) return 1;
     const c = Math.min(mcols - 1, Math.max(0, (x / (GAP * MC)) | 0));
     const r = Math.min(mrows - 1, Math.max(0, (y / (GAP * MC)) | 0));
-    return mask[r * mcols + c];
+    return Math.max(0, Math.min(1, (mdist[r * mcols + c] - FADE_START) / FADE_LEN));
   }
 
   function drawCode() {
-    ctx.font = '12px "Fira Code", monospace';
+    ctx.font = Math.round(12 * W / 420) + 'px "Fira Code", monospace';
     const cw = ctx.measureText('M').width;
     const x0 = W * 0.11, y0 = H * 0.14;
     for (let i = 0; i < buf.length; i++) {
@@ -1277,7 +1281,7 @@ window.addEventListener('scroll', () => {
         g.vy *= 0.85;
         g.x += g.vx;
         g.y += g.vy;
-        const a = (cur ? 0.5 : 0.32) * Math.max(0, 1 - bodyAt(ox + cw / 2, oy - 4) * 2.5);
+        const a = (cur ? 0.5 : 0.32) * fadeAt(ox + cw / 2, oy - 4);
         if (a < 0.02) continue;
         ctx.fillStyle = 'rgba(74, 240, 132, ' + a.toFixed(2) + ')';
         ctx.fillText(chr, ox + g.x, oy + g.y);
@@ -1287,7 +1291,7 @@ window.addEventListener('scroll', () => {
       const last = buf.length - 1;
       const cx = x0 + buf[last].length * cw + 1;
       const cy = y0 + last * LH - 10;
-      const a = 0.5 * Math.max(0, 1 - bodyAt(cx, cy) * 2.5);
+      const a = 0.5 * fadeAt(cx, cy);
       ctx.fillStyle = 'rgba(74, 240, 132, ' + a.toFixed(2) + ')';
       ctx.fillRect(cx, cy, 6, 12);
     }
@@ -1318,6 +1322,39 @@ window.addEventListener('scroll', () => {
     // fecha buracos (roupa escura): dilata 2 e erode 1
     morph(mask, mtmp, 2, true);
     morph(mtmp, mask, 1, false);
+    distField();
+  }
+
+  // distancia (em celulas) de cada ponto ate o corpo: 0 dentro da silhueta
+  function distField() {
+    const n = mcols * mrows;
+    for (let i = 0; i < n; i++) mdist[i] = mask[i] ? 0 : 255;
+    for (let r = 0; r < mrows; r++) {
+      for (let c = 0; c < mcols; c++) {
+        const i = r * mcols + c;
+        let d = mdist[i];
+        if (c > 0) d = Math.min(d, mdist[i - 1] + 1);
+        if (r > 0) {
+          d = Math.min(d, mdist[i - mcols] + 1);
+          if (c > 0) d = Math.min(d, mdist[i - mcols - 1] + 1);
+          if (c < mcols - 1) d = Math.min(d, mdist[i - mcols + 1] + 1);
+        }
+        mdist[i] = Math.min(255, d);
+      }
+    }
+    for (let r = mrows - 1; r >= 0; r--) {
+      for (let c = mcols - 1; c >= 0; c--) {
+        const i = r * mcols + c;
+        let d = mdist[i];
+        if (c < mcols - 1) d = Math.min(d, mdist[i + 1] + 1);
+        if (r < mrows - 1) {
+          d = Math.min(d, mdist[i + mcols] + 1);
+          if (c < mcols - 1) d = Math.min(d, mdist[i + mcols + 1] + 1);
+          if (c > 0) d = Math.min(d, mdist[i + mcols - 1] + 1);
+        }
+        mdist[i] = Math.min(255, d);
+      }
+    }
   }
 
   function draw() {
