@@ -1591,3 +1591,169 @@ window.addEventListener('scroll', () => {
     if (section) setup(section)
   })
 })()
+
+// Intro
+;(() => {
+  const intro = document.getElementById('intro')
+  if (!intro) return
+  const done = () => intro.remove()
+  if (motion.isReduced()) return done()
+
+  const run = () => {
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
+    const W = Math.round(innerWidth * dpr)
+    const H = Math.round(innerHeight * dpr)
+    const cv = document.createElement('canvas')
+    cv.width = W
+    cv.height = H
+    const ctx = cv.getContext('2d')
+    if (!ctx) return done()
+    const css = getComputedStyle(document.documentElement)
+        const dark = css.getPropertyValue('--bg').trim() || '#0d0d0f'
+    const devColor = css.getPropertyValue('--accent-hover').trim() || '#34b25f'
+
+    const fs = Math.max(32, Math.min(88, innerWidth * 0.1)) * dpr
+    const cx = W / 2
+    const cy = H / 2
+    const iconFont = `${fs * 0.82}px "Fira Code", monospace`
+    const textFont = `800 ${fs}px Preahvihear, sans-serif`
+    ctx.font = iconFont
+    const iconW = ctx.measureText('</>').width
+    ctx.font = textFont
+    const pedroW = ctx.measureText('PEDRO').width
+    const devW = ctx.measureText('.DEV').width
+    const gap = fs * 0.35
+    const total = iconW + gap + pedroW + devW
+    const x0 = cx - total / 2
+
+    // glifos: [texto, fonte, cor, x]
+    const glyphs = []
+    ;[...'</>'].forEach((ch, i) => {
+      ctx.font = iconFont
+      glyphs.push([ch, iconFont, dark, x0 + ctx.measureText('</>'.slice(0, i)).width])
+    })
+    const tx = x0 + iconW + gap
+    ctx.font = textFont
+    ;[...'PEDRO.DEV'].forEach((ch, i) => {
+      const s = 'PEDRO.DEV'
+      glyphs.push([ch, textFont, i < 5 ? dark : devColor, tx + ctx.measureText(s.slice(0, i)).width])
+    })
+
+    const drawLogo = (c, t) => {
+      c.textBaseline = 'middle'
+      glyphs.forEach(([ch, font, color, x], i) => {
+        const p = Math.min(Math.max((t - i * 0.03) / 0.22, 0), 1)
+        const e = 1 - Math.pow(1 - p, 3)
+        c.globalAlpha = e
+        c.font = font
+        c.fillStyle = color
+        c.fillText(ch, x, cy + (1 - e) * fs * 0.7)
+      })
+      c.globalAlpha = 1
+    }
+
+    const paintSheet = (c) => {
+      c.fillStyle = '#f4f1ea'
+      c.fillRect(0, 0, W, H)
+      const g = c.createLinearGradient(0, 0, 0, H)
+      g.addColorStop(0, 'rgba(255,255,255,0.35)')
+      g.addColorStop(1, 'rgba(0,0,0,0.02)')
+      c.fillStyle = g
+      c.fillRect(0, 0, W, H)
+    }
+
+    const snap = document.createElement('canvas')
+    snap.width = W
+    snap.height = H
+    const sc = snap.getContext('2d')
+    paintSheet(sc)
+    drawLogo(sc, 9)
+
+    const cw = Math.ceil(3 * dpr)
+    const n = Math.ceil(W / cw)
+    const k1 = Array.from({ length: Math.ceil(W / (40 * dpr)) + 2 }, Math.random)
+    const k2 = Array.from({ length: Math.ceil(W / (13 * dpr)) + 2 }, Math.random)
+    const smooth = (arr, pos) => {
+      const i = Math.floor(pos)
+      const f = (1 - Math.cos((pos - i) * Math.PI)) / 2
+      return arr[i] * (1 - f) + arr[i + 1] * f
+    }
+    const lx0 = x0 - fs * 0.15
+    const lx1 = x0 + total + fs * 0.15
+    const delay = new Float32Array(n)
+    const inLogo = new Uint8Array(n)
+    for (let i = 0; i < n; i++) {
+      const x = i * cw
+      const noise = Math.pow(smooth(k1, x / (40 * dpr)) * 0.65 + smooth(k2, x / (13 * dpr)) * 0.35, 1.4)
+      inLogo[i] = x + cw >= lx0 && x <= lx1 ? 1 : 0
+      delay[i] = noise * 0.4
+    }
+
+    const T_IN = 0.45
+    const T_MELT = 0.55
+    const DUR = 0.5
+    const END = T_MELT + 0.4 + DUR
+
+    cv.style.opacity = '1'
+    intro.appendChild(cv)
+    intro.classList.add('live')
+
+    const t0 = performance.now()
+    const frame = (now) => {
+      const t = (now - t0) / 1000
+      ctx.clearRect(0, 0, W, H)
+      if (t < T_MELT) {
+        paintSheet(ctx)
+        drawLogo(ctx, t)
+        return requestAnimationFrame(frame)
+      }
+      if (t >= END) return done()
+      const m = t - T_MELT
+      const edge = []
+      for (let i = 0; i < n; i++) {
+        const p = Math.min(Math.max((m - delay[i]) / DUR, 0), 1)
+        const y = H * 1.2 * p * p
+        const x = i * cw
+        if (y >= H) {
+          edge.push(null)
+          continue
+        }
+        const dh = inLogo[i] ? H * (1 + 2.8 * p) : H * (1 + 0.5 * p)
+        ctx.drawImage(snap, x, 0, cw, H, x, y, cw, dh)
+        edge.push(y > 1 ? [x + cw / 2, y] : null)
+      }
+      const trace = (dy) => {
+        ctx.beginPath()
+        let open = false
+        edge.forEach((pt) => {
+          if (!pt) return void (open = false)
+          if (open) ctx.lineTo(pt[0], pt[1] + dy)
+          else ctx.moveTo(pt[0], pt[1] + dy)
+          open = true
+        })
+        ctx.stroke()
+      }
+      ctx.save()
+      ctx.shadowColor = 'rgba(0,0,0,0.55)'
+      ctx.shadowBlur = 26 * dpr
+      ctx.shadowOffsetY = -6 * dpr
+      ctx.strokeStyle = 'rgba(0,0,0,0.35)'
+      ctx.lineWidth = 8 * dpr
+      trace(0)
+      ctx.shadowBlur = 0
+      ctx.shadowOffsetY = 0
+      ctx.strokeStyle = 'rgba(255,255,255,0.95)'
+      ctx.lineWidth = 2 * dpr
+      trace(5 * dpr)
+      ctx.restore()
+      requestAnimationFrame(frame)
+    }
+    requestAnimationFrame(frame)
+  }
+
+  const fonts = Promise.all([
+    document.fonts.load('800 64px Preahvihear'),
+    document.fonts.load('64px "Fira Code"'),
+  ])
+  Promise.race([fonts, new Promise((r) => setTimeout(r, 700))]).then(run, run)
+})()
