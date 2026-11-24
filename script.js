@@ -173,6 +173,7 @@ const translations = {
     'proj.cap1': 'GAMIFIED MANAGEMENT',
     'proj.cap-crypto': 'CLIENT-SIDE CRYPTOGRAPHY',
     'proj.cap-sunhub': 'ORBITAL SIMULATOR',
+    'proj.cap-skunkscan': 'CYBERSECURITY',
     'proj.cap2': '3D VISUALIZATION',
     'proj.cap3': 'INTERACTIVE PUZZLE',
     'proj.cap4': 'DEV TOOL',
@@ -186,6 +187,7 @@ const translations = {
     'proj.gurudasvendas-desc': 'Tracks electronics prices in stores like Kabum, Amazon and Mercado Livre and pings you on WhatsApp the moment a price drops in your favor.',
     'proj.wasteland-desc': 'Gamified pixel-art task manager set in 2056, in a world without air. Each task is a seed you water and harvest to generate oxygen. Guest mode via localStorage, JWT auth and automated tests with Vitest and Playwright.',
     'proj.sunhub-desc': 'Simulator for buying Sun light reflected by a satellite after sunset: spin the globe to your plot, watch the reflector pass and close a simulated quote.',
+    'proj.skunkscan-desc': 'Passive security audit in a browser terminal: type /scan with a domain and get a grade from A to D, the issues by severity and a ready-made fix for each one.',
     'proj.cryptographer-desc': 'Browser-only cryptography tools: lock files with AES-256, a keyring with key exchange and signing, hide secrets in photos and audio, and classic cipher simulators.',
     'proj.scannerbuild-desc': "Pick any point on the map and ScannerBuild traces the building's real outline via OpenStreetMap, estimates height, floors and entrances, and builds a navigable 3D model — with caching, rate-limiting and parallel retry to handle the external service's instability.",
     'proj.cicada-desc': 'Interactive web puzzle inspired by the Cicada 3301 enigma. Five stages, each with a different cryptography and investigation technique — including LSB steganography implemented from scratch with Pillow. At the end, a personalized PDF certificate.',
@@ -957,6 +959,15 @@ const projectData = {
     stack: ['React', 'TypeScript', 'Cesium', 'Capacitor', 'Tailwind CSS'],
     github: 'https://github.com/Pedroaruana/SunHub',
     demo: 'https://sunhub.aruanapedro.workers.dev/'
+  },
+  skunkscan: {
+    title: 'SkunkScan',
+    img: 'screenshots/skunk-scan.png',
+    desc: 'Fiz para o dono de uma pequena empresa descobrir, em menos de um minuto e sem instalar nada, o quanto o site dele está exposto. Num terminal dentro do navegador ele digita /scan com o domínio e recebe uma nota de A a D, os problemas por gravidade e a correção pronta para copiar. A análise é 100% passiva: TLS e headers, e-mail (SPF, DKIM, DMARC), subdomínios, CVEs e domínios parecidos, sem varrer portas nem tentar login. O maior desafio foi o limite de 50 subrequests do Worker gratuito, que resolvi separando a busca de domínios parecidos numa segunda chamada. Projeto do time Crypto Skunks para o Hack Brasil 2026, trilha Cibersegurança.',
+    descEn: 'I built it so a small business owner can find out, in under a minute and without installing anything, how exposed their website is. In a terminal inside the browser they type /scan with the domain and get a grade from A to D, the issues by severity and a fix ready to copy. The analysis is fully passive: TLS and headers, email (SPF, DKIM, DMARC), subdomains, CVEs and lookalike domains, with no port scanning or login attempts. The biggest challenge was the 50 subrequest limit on the free Worker, which I solved by moving the lookalike domain search to a second call. A Crypto Skunks team project for Hack Brasil 2026, Cybersecurity track.',
+    stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Cloudflare Workers', 'D1'],
+    github: 'https://github.com/Pedroaruana/Skunk-Scan',
+    demo: 'https://pedroaruana.github.io/Skunk-Scan/'
   },
   cryptographer: {
     title: 'Cryptographer',
